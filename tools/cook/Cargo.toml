@@ -1,0 +1,28 @@
+[package]
+name = "cook"
+description = "Deterministic cooker for game-agnostic glTF assets"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+engine-assets.workspace = true
+engine-scene.workspace = true
+engine-physics.workspace = true
+glam.workspace = true
+num-traits = "0.2"
+rayon.workspace = true
+engine-core.workspace = true
+gltf = { version = "1.4.1", features = ["import", "extras"] }
+meshopt = "0.7"
+mikktspace = "0.3"
+half = "2"
+image = { version = "0.25", default-features = false, features = ["png"] }
+thiserror.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+ron.workspace = true
+texture-encode.path = "../texture-encode"
+
+[lints]
+workspace = true

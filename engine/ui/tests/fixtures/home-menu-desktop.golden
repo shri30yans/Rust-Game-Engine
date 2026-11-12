@@ -1,0 +1,554 @@
+DrawList {
+    prims: [
+        Fill {
+            rect: Rect {
+                x: 0.0,
+                y: 0.0,
+                w: 1920.0,
+                h: 1080.0,
+            },
+            radius: 0.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 11,
+                    g: 18,
+                    b: 32,
+                },
+                alpha: 1.0,
+            },
+        },
+        Text {
+            rect: Rect {
+                x: 18.0,
+                y: 18.0,
+                w: 1884.0,
+                h: 72.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                },
+                alpha: 1.0,
+            },
+            align: Center,
+            range: 0..4,
+        },
+        Fill {
+            rect: Rect {
+                x: 36.0,
+                y: 126.0,
+                w: 420.0,
+                h: 225.0,
+            },
+            radius: 18.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 31,
+                    g: 41,
+                    b: 55,
+                },
+                alpha: 1.0,
+            },
+        },
+        Fill {
+            rect: Rect {
+                x: 54.0,
+                y: 144.0,
+                w: 384.0,
+                h: 108.0,
+            },
+            radius: 0.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 53,
+                    g: 70,
+                    b: 95,
+                },
+                alpha: 1.0,
+            },
+        },
+        Text {
+            rect: Rect {
+                x: 72.0,
+                y: 162.0,
+                w: 360.0,
+                h: 42.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 244,
+                    g: 246,
+                    b: 250,
+                },
+                alpha: 1.0,
+            },
+            align: Start,
+            range: 4..15,
+        },
+        Text {
+            rect: Rect {
+                x: 72.0,
+                y: 222.0,
+                w: 360.0,
+                h: 36.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 244,
+                    g: 246,
+                    b: 250,
+                },
+                alpha: 1.0,
+            },
+            align: Start,
+            range: 15..22,
+        },
+        Text {
+            rect: Rect {
+                x: 54.0,
+                y: 270.0,
+                w: 180.0,
+                h: 60.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                },
+                alpha: 1.0,
+            },
+            align: Center,
+            range: 22..26,
+        },
+        Fill {
+            rect: Rect {
+                x: 474.0,
+                y: 126.0,
+                w: 420.0,
+                h: 225.0,
+            },
+            radius: 18.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 31,
+                    g: 41,
+                    b: 55,
+                },
+                alpha: 1.0,
+            },
+        },
+        Fill {
+            rect: Rect {
+                x: 492.0,
+                y: 144.0,
+                w: 384.0,
+                h: 108.0,
+            },
+            radius: 0.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 53,
+                    g: 70,
+                    b: 95,
+                },
+                alpha: 1.0,
+            },
+        },
+        Text {
+            rect: Rect {
+                x: 510.0,
+                y: 162.0,
+                w: 360.0,
+                h: 42.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 244,
+                    g: 246,
+                    b: 250,
+                },
+                alpha: 1.0,
+            },
+            align: Start,
+            range: 26..34,
+        },
+        Text {
+            rect: Rect {
+                x: 510.0,
+                y: 222.0,
+                w: 360.0,
+                h: 36.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 244,
+                    g: 246,
+                    b: 250,
+                },
+                alpha: 1.0,
+            },
+            align: Start,
+            range: 34..41,
+        },
+        Text {
+            rect: Rect {
+                x: 492.0,
+                y: 270.0,
+                w: 180.0,
+                h: 60.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                },
+                alpha: 1.0,
+            },
+            align: Center,
+            range: 41..45,
+        },
+        Fill {
+            rect: Rect {
+                x: 18.0,
+                y: 387.0,
+                w: 1884.0,
+                h: 330.0,
+            },
+            radius: 12.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 17,
+                    g: 24,
+                    b: 39,
+                },
+                alpha: 1.0,
+            },
+        },
+        Text {
+            rect: Rect {
+                x: 36.0,
+                y: 405.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                },
+                alpha: 1.0,
+            },
+            align: Center,
+            range: 45..50,
+        },
+        Text {
+            rect: Rect {
+                x: 36.0,
+                y: 483.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                },
+                alpha: 1.0,
+            },
+            align: Center,
+            range: 50..56,
+        },
+        Text {
+            rect: Rect {
+                x: 36.0,
+                y: 561.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            px: 30.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 255,
+                    g: 255,
+                    b: 255,
+                },
+                alpha: 1.0,
+            },
+            align: Center,
+            range: 56..69,
+        },
+    ],
+    text: "PlayQuick Match3 seatsOpenPracticeOfflineOpenMusicVolumeQuality: High",
+    touch_regions: [],
+    touch_bounds: [],
+    widgets: [
+        WidgetRegion {
+            widget_index: 0,
+            row: None,
+            rect: Rect {
+                x: 18.0,
+                y: 18.0,
+                w: 1884.0,
+                h: 72.0,
+            },
+            skew: None,
+            disabled: false,
+        },
+        WidgetRegion {
+            widget_index: 1,
+            row: Some(
+                RowIndex(
+                    0,
+                ),
+            ),
+            rect: Rect {
+                x: 54.0,
+                y: 270.0,
+                w: 180.0,
+                h: 60.0,
+            },
+            skew: None,
+            disabled: false,
+        },
+        WidgetRegion {
+            widget_index: 2,
+            row: Some(
+                RowIndex(
+                    1,
+                ),
+            ),
+            rect: Rect {
+                x: 492.0,
+                y: 270.0,
+                w: 180.0,
+                h: 60.0,
+            },
+            skew: None,
+            disabled: false,
+        },
+        WidgetRegion {
+            widget_index: 4,
+            row: None,
+            rect: Rect {
+                x: 36.0,
+                y: 405.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            skew: None,
+            disabled: false,
+        },
+        WidgetRegion {
+            widget_index: 5,
+            row: None,
+            rect: Rect {
+                x: 36.0,
+                y: 483.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            skew: None,
+            disabled: false,
+        },
+        WidgetRegion {
+            widget_index: 6,
+            row: None,
+            rect: Rect {
+                x: 36.0,
+                y: 561.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            skew: None,
+            disabled: false,
+        },
+    ],
+    text_runs: [
+        TextRunBounds {
+            node: 1,
+            rect: Rect {
+                x: 18.0,
+                y: 18.0,
+                w: 1884.0,
+                h: 72.0,
+            },
+            parent: Rect {
+                x: 0.0,
+                y: 0.0,
+                w: 1920.0,
+                h: 1080.0,
+            },
+            width: 60.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 5,
+            rect: Rect {
+                x: 72.0,
+                y: 162.0,
+                w: 360.0,
+                h: 42.0,
+            },
+            parent: Rect {
+                x: 54.0,
+                y: 144.0,
+                w: 384.0,
+                h: 108.0,
+            },
+            width: 165.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 6,
+            rect: Rect {
+                x: 72.0,
+                y: 222.0,
+                w: 360.0,
+                h: 36.0,
+            },
+            parent: Rect {
+                x: 54.0,
+                y: 144.0,
+                w: 384.0,
+                h: 108.0,
+            },
+            width: 105.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 7,
+            rect: Rect {
+                x: 54.0,
+                y: 270.0,
+                w: 180.0,
+                h: 60.0,
+            },
+            parent: Rect {
+                x: 36.0,
+                y: 126.0,
+                w: 420.0,
+                h: 225.0,
+            },
+            width: 60.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 10,
+            rect: Rect {
+                x: 510.0,
+                y: 162.0,
+                w: 360.0,
+                h: 42.0,
+            },
+            parent: Rect {
+                x: 492.0,
+                y: 144.0,
+                w: 384.0,
+                h: 108.0,
+            },
+            width: 120.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 11,
+            rect: Rect {
+                x: 510.0,
+                y: 222.0,
+                w: 360.0,
+                h: 36.0,
+            },
+            parent: Rect {
+                x: 492.0,
+                y: 144.0,
+                w: 384.0,
+                h: 108.0,
+            },
+            width: 105.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 12,
+            rect: Rect {
+                x: 492.0,
+                y: 270.0,
+                w: 180.0,
+                h: 60.0,
+            },
+            parent: Rect {
+                x: 474.0,
+                y: 126.0,
+                w: 420.0,
+                h: 225.0,
+            },
+            width: 60.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 19,
+            rect: Rect {
+                x: 36.0,
+                y: 405.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            parent: Rect {
+                x: 18.0,
+                y: 387.0,
+                w: 1884.0,
+                h: 330.0,
+            },
+            width: 75.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 20,
+            rect: Rect {
+                x: 36.0,
+                y: 483.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            parent: Rect {
+                x: 18.0,
+                y: 387.0,
+                w: 1884.0,
+                h: 330.0,
+            },
+            width: 90.0,
+            px: 30.0,
+        },
+        TextRunBounds {
+            node: 21,
+            rect: Rect {
+                x: 36.0,
+                y: 561.0,
+                w: 1848.0,
+                h: 60.0,
+            },
+            parent: Rect {
+                x: 18.0,
+                y: 387.0,
+                w: 1884.0,
+                h: 330.0,
+            },
+            width: 195.0,
+            px: 30.0,
+        },
+    ],
+}
+TEXT: "PlayQuick Match3 seatsOpenPracticeOfflineOpenMusicVolumeQuality: High"

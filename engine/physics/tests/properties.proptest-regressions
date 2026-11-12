@@ -1,0 +1,9 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 535b551e7c3a2b808245cffcc2065ed6458a049fc4d578b9b64d0847149f70f2 # shrinks to obstacle_x = 5.150746, angle = 0.0, speed = 1.4486839, use_ramp = false
+cc 9d2063315722a20b2953138cc5fb4b4cfc7826b7eaef833f11b738fe041628ff # shrinks to obstacle_x = 4.46049, angle = 0.5289006, speed = 4.8609233, use_ramp = true
+cc 5fef2abd036618799c227724fe343b54bbf44c8e384e8908ac88a6a58723249e # shrinks to obstacle_x = 5.5386086, angle = 0.41271168, speed = 9.716984, use_ramp = true

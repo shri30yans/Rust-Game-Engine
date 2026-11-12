@@ -1,0 +1,38 @@
+[package]
+name = "engine-app"
+description = "Engine app: the host a game plugs into. Fixed tick, game registration, owned job pools and the headless runner"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "app"
+
+[dependencies]
+engine-core.workspace = true
+engine-assets.workspace = true
+engine-netcode.workspace = true
+engine-sessions.workspace = true
+engine-audio.workspace = true
+engine-scene.workspace = true
+engine-ui.workspace = true
+engine-world.workspace = true
+glam.workspace = true
+jobs.workspace = true
+platform.workspace = true
+postcard.workspace = true
+ron.workspace = true
+render.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+wgpu.workspace = true
+
+[dev-dependencies]
+render = { workspace = true, features = ["golden"] }
+engine-physics.workspace = true
+proptest.workspace = true
+# Test-only allocation counter (the no-alloc test). Its unsafe code lives inside the dependency.
+stats_alloc.workspace = true
+
+[lints]
+workspace = true

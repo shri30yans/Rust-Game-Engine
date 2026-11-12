@@ -1,0 +1,22 @@
+[package]
+name = "engine-scene"
+description = "Engine scene: levels and tuning as validated RON data files, one loader, spawning into the world and physics, and dev-only hot reload"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+engine-core.workspace = true
+engine-assets.workspace = true
+engine-physics.workspace = true
+engine-world.workspace = true
+glam.workspace = true
+ron.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+
+[lints]
+workspace = true

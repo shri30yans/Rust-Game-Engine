@@ -1,0 +1,38 @@
+[package]
+name = "sandbox"
+description = "Engine-only sandbox game: a walk, jump and collide scene with scripted headless tests"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "sandbox"
+path = "src/lib.rs"
+# cdylib is the shared library the Android APK loads (`libsandbox.so`); lib is the Rust API.
+crate-type = ["lib", "cdylib"]
+
+[[bin]]
+name = "sandbox"
+path = "src/main.rs"
+
+[dependencies]
+app.workspace = true
+engine-core.workspace = true
+engine-assets.workspace = true
+engine-netcode.workspace = true
+engine-physics.workspace = true
+engine-scene.workspace = true
+engine-sessions.workspace = true
+engine-world.workspace = true
+glam.workspace = true
+platform.workspace = true
+render.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+render = { workspace = true, features = ["golden"] }
+engine-assets.workspace = true
+jobs.workspace = true

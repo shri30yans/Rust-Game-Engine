@@ -1,0 +1,14 @@
+/* Remove browser spacing and make the supported subset use border-box sizing. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Make the page's layout viewport the game viewport. */
+html, body { width: 100%; height: 100%; }
+/* Text and progress boxes are block-level in the UI subset. */
+p, span, progress { display: block; }
+/* Give replaced progress boxes the same block fill width as the engine's bar boxes. */
+progress { width: 100%; }
+/* Match the engine text box, whose line box is the authored font size. */
+p, span { line-height: 1; }
+/* Buttons keep their authored box while inheriting surrounding text appearance. */
+button { display: block; border: 0; background: none; font: inherit; font-size: 20px; color: inherit; text-align: inherit; }
+/* Native controls contribute only their author-sized box to layout. */
+input, select { appearance: none; display: block; margin: 0; padding: 0; border: 0; font: inherit; font-size: 20px; }

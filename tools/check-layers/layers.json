@@ -1,0 +1,30 @@
+{
+  "rules": [
+    { "pattern": "engine/core", "layer": 0 },
+    { "pattern": "engine/jobs", "layer": 0 },
+    { "pattern": "engine/world", "layer": 1 },
+    { "pattern": "engine/assets", "layer": 1 },
+    { "pattern": "engine/platform", "layer": 1 },
+    { "pattern": "engine/netcode", "layer": 2 },
+    { "pattern": "engine/render", "layer": 2 },
+    { "pattern": "engine/audio", "layer": 2 },
+    { "pattern": "engine/physics", "layer": 2 },
+    { "pattern": "engine/destruction", "layer": 2 },
+    { "pattern": "engine/scene", "layer": 3 },
+    { "pattern": "engine/ui", "layer": 3 },
+    { "pattern": "engine/sessions", "layer": 3 },
+    { "pattern": "engine/app", "layer": 4 },
+    { "pattern": "tools/*", "layer": 5 },
+    { "pattern": "kits/*", "layer": 5 },
+    { "pattern": "games/*/game", "layer": 7 }
+  ],
+  "zones": [
+    { "name": "engine", "patterns": ["engine/*"], "may_use": ["engine"], "scope": "shared", "forbid_text": ["games/"] },
+    { "name": "kits", "patterns": ["kits/*"], "may_use": ["engine", "kits"], "scope": "shared", "forbid_text": ["games/"] },
+    { "name": "tools", "patterns": ["tools/*"], "may_use": ["engine", "tools"], "scope": "shared" },
+    { "name": "games", "patterns": ["games/*/game", "games/*/modes/*"], "may_use": ["engine", "kits", "games"], "scope": "per_game" }
+  ],
+  "same_layer_allowed": [
+    { "from": "cook", "to": "texture-encode" }
+  ]
+}

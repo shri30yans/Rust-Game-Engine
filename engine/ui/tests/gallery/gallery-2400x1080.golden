@@ -1,0 +1,83 @@
+DrawList {
+    prims: [
+        LinearGradient {
+            rect: Rect {
+                x: 0.0,
+                y: 0.0,
+                w: 300.0,
+                h: 120.0,
+            },
+            radius: 0.0,
+            angle_deg: 90.0,
+            stops: [
+                GradientStop {
+                    pos: 0.0,
+                    color: Color {
+                        rgb: Srgb8 {
+                            r: 20,
+                            g: 20,
+                            b: 30,
+                        },
+                        a: 255,
+                    },
+                },
+                GradientStop {
+                    pos: 1.0,
+                    color: Color {
+                        rgb: Srgb8 {
+                            r: 255,
+                            g: 106,
+                            b: 26,
+                        },
+                        a: 255,
+                    },
+                },
+                GradientStop {
+                    pos: 0.0,
+                    color: Color {
+                        rgb: Srgb8 {
+                            r: 0,
+                            g: 0,
+                            b: 0,
+                        },
+                        a: 0,
+                    },
+                },
+                GradientStop {
+                    pos: 0.0,
+                    color: Color {
+                        rgb: Srgb8 {
+                            r: 0,
+                            g: 0,
+                            b: 0,
+                        },
+                        a: 0,
+                    },
+                },
+            ],
+            stop_count: 2,
+        },
+        Fill {
+            rect: Rect {
+                x: 300.0,
+                y: 0.0,
+                w: 96.0,
+                h: 96.0,
+            },
+            radius: 0.0,
+            color: Paint {
+                rgb: Srgb8 {
+                    r: 40,
+                    g: 180,
+                    b: 90,
+                },
+                alpha: 1.0,
+            },
+        },
+    ],
+    text: "",
+    touch_regions: [],
+    touch_bounds: [],
+    widgets: [],
+    text_runs: [],
+}

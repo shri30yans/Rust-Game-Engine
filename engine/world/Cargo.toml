@@ -1,0 +1,28 @@
+[package]
+name = "engine-world"
+description = "Engine world: hecs wrapper with stable NetIds, cycle-free transform hierarchy, component registry, state hashing and a fixed-step schedule"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+engine-core.workspace = true
+glam = { workspace = true, features = ["serde"] }
+hecs.workspace = true
+postcard.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+criterion.workspace = true
+proptest.workspace = true
+serde_json.workspace = true
+# Test-only allocation counter. Its unsafe code lives inside the dependency; this crate stays unsafe-free.
+stats_alloc = "0.1"
+
+[[bench]]
+name = "world"
+harness = false
+
+[lints]
+workspace = true

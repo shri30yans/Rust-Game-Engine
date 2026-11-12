@@ -1,0 +1,33 @@
+[package]
+name = "engine-render"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "render"
+
+[features]
+hot-reload = []
+golden = ["dep:png"]
+
+[dependencies]
+bytemuck.workspace = true
+half.workspace = true
+engine-core.workspace = true
+engine-assets.workspace = true
+fontdue.workspace = true
+glam.workspace = true
+platform.workspace = true
+pollster.workspace = true
+thiserror = { workspace = true }
+wgpu.workspace = true
+png = { workspace = true, optional = true }
+
+[dev-dependencies]
+proptest.workspace = true
+# Test-only allocation counter (the no-alloc test). Its unsafe code lives inside the dependency.
+stats_alloc.workspace = true
+
+[lints]
+workspace = true

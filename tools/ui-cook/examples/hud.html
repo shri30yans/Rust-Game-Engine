@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<style>
+  body { display: flex; flex-direction: column; justify-content: space-between; padding: 20px; }
+  .top { display: flex; gap: 10px; height: 40px; }
+  .ammo { font-size: 24px; color: #ffffff; }
+  #health { flex-grow: 1; height: 20px; background-color: #00000080; color: #ff3030; }
+  #warn { height: 30px; font-size: 20px; color: #ff0000; }
+  #fire { position: absolute; right: 5vmin; bottom: 5vmin; width: 20vmin; height: 20vmin; color: #ffffff; }
+</style>
+</head>
+<body>
+  <div class="top">
+    <p class="ammo">AMMO {ammo}</p>
+    <progress id="health" data-bind="health"></progress>
+  </div>
+  <p id="warn" data-show-if="low">LOW</p>
+  <button id="fire" data-id="1" data-held="fire">FIRE</button>
+</body>
+</html>

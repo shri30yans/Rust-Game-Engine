@@ -1,0 +1,139 @@
+// The sandbox scene: a 40 m floor, four walls, a stair step, a 20-degree ramp and a stack of
+// 18 crates. Edit this file while `cargo run` is going (debug builds reload it on save). Units are
+// metres and degrees. Gravity must stay (0, -9.81, 0): the character's jump uses that constant.
+(
+    version: 1,
+    name: "sandbox",
+    gravity: (0.0, -9.81, 0.0),
+    shapes: [
+        (
+            id: 11545668865037648829,
+            name: Some("floor"),
+            kind: Cuboid(half: (20.0, 0.5, 20.0)),
+            translation: (0.0, -0.5, 0.0),
+            body: Static,
+            look: (material: Floor),
+        ),
+        (
+            id: 12390602770473888991,
+            name: Some("wall-west"),
+            kind: Cuboid(half: (0.5, 2.0, 20.5)),
+            translation: (-20.5, 2.0, 0.0),
+            body: Static,
+            look: (material: Wall),
+        ),
+        (
+            id: 13260038752183061109,
+            name: Some("wall-east"),
+            kind: Cuboid(half: (0.5, 2.0, 20.5)),
+            translation: (20.5, 2.0, 0.0),
+            body: Static,
+            look: (material: Wall),
+        ),
+        (
+            id: 11167153536024296427,
+            name: Some("wall-north"),
+            kind: Cuboid(half: (20.5, 2.0, 0.5)),
+            translation: (0.0, 2.0, -20.5),
+            body: Static,
+            look: (material: Wall),
+        ),
+        (
+            id: 8235393443588471465,
+            name: Some("wall-south"),
+            kind: Cuboid(half: (20.5, 2.0, 0.5)),
+            translation: (0.0, 2.0, 20.5),
+            body: Static,
+            look: (material: Wall),
+        ),
+        (
+            id: 12613261051159514351,
+            name: Some("step"),
+            kind: Cuboid(half: (1.0, 0.125, 2.0)),
+            translation: (-10.0, 0.125, 0.0),
+            body: Static,
+            look: (material: Custom(colour_hex: 0xc9c2b0, roughness: 0.8, metallic: 0.0)),
+        ),
+        (
+            id: 7903820781235786025,
+            name: Some("ramp"),
+            kind: Ramp(half: (3.0, 0.2, 2.0), tilt_deg: 20.0),
+            translation: (5.8874819, 0.8381218, -8.0),
+            body: Static,
+            look: (material: Custom(colour_hex: 0xc9c2b0, roughness: 0.8, metallic: 0.0)),
+        ),
+        // The crate stack, bottom layer first; within a layer, column by column, row by row.
+        (
+            id: 17500108051564403426,
+            name: Some("crate_01"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (11.48, 0.27, 5.48), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500106952052775215,
+            name: Some("crate_02"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (11.48, 0.27, 6.0), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500105852541147004,
+            name: Some("crate_03"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (11.48, 0.27, 6.52), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500104753029518793,
+            name: Some("crate_04"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.0, 0.27, 5.48), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500103653517890582,
+            name: Some("crate_05"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.0, 0.27, 6.0), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500102554006262371,
+            name: Some("crate_06"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.0, 0.27, 6.52), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500101454494634160,
+            name: Some("crate_07"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.52, 0.27, 5.48), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500117947169057325,
+            name: Some("crate_08"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.52, 0.27, 6.0), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17500116847657429114,
+            name: Some("crate_09"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.52, 0.27, 6.52), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499117391587574540,
+            name: Some("crate_10"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (11.48, 0.79, 5.48), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499118491099202751,
+            name: Some("crate_11"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (11.48, 0.79, 6.0), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499119590610830962,
+            name: Some("crate_12"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (11.48, 0.79, 6.52), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499120690122459173,
+            name: Some("crate_13"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.0, 0.79, 5.48), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499112993541061696,
+            name: Some("crate_14"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.0, 0.79, 6.0), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499114093052689907,
+            name: Some("crate_15"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.0, 0.79, 6.52), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499115192564318118,
+            name: Some("crate_16"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.52, 0.79, 5.48), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499116292075946329,
+            name: Some("crate_17"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.52, 0.79, 6.0), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+        (
+            id: 17499126187680600228,
+            name: Some("crate_18"),
+            kind: Cuboid(half: (0.25, 0.25, 0.25)), translation: (12.52, 0.79, 6.52), body: Dynamic(mass_kg: 0.125), look: (material: Crate)),
+    ],
+)

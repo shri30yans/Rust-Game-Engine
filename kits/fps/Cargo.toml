@@ -1,0 +1,25 @@
+[package]
+name = "kit-fps"
+description = "Optional first-person shooter kit: locomotion with jumping, health, hitscan weapons and bots"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+app.workspace = true
+engine-core.workspace = true
+engine-netcode.workspace = true
+engine-physics.workspace = true
+engine-world.workspace = true
+glam = { workspace = true, features = ["serde"] }
+num-traits = "0.2.19"
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+# Test-only allocation counter (the no-alloc test). Its unsafe code lives inside the dependency.
+stats_alloc.workspace = true
+
+[lints]
+workspace = true

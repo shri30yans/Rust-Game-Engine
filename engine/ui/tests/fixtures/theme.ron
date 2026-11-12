@@ -1,0 +1,29 @@
+// Generic theme fixture for engine-ui tests (no game-specific token names).
+Theme(
+    name: "fixture",
+    colors: {
+        "text": "#F3F5F8",
+        "surface": "#0C0F14",
+        "accent": "#FF6A1A",
+        "muted": "#6B7686",
+    },
+    contrast_rules: [
+        ("text", "surface", 4.5),
+        ("muted", "surface", 3.0),
+    ],
+    scrim: (color: "surface", alpha: 0.75, alpha_if_linear_blend: 0.84),
+    fonts: {
+        "body": (family: "Test Sans", weights: [400, 600], file: "fonts/Test.ttf", license: "OFL-1.1"),
+    },
+    type_scale: {
+        "body": (font: "body", weight: 400, size: 14, line: 20),
+        "title": (font: "body", weight: 600, size: 22, line: 26, caps: true),
+    },
+    space: { "xs": 4, "sm": 8, "md": 16 },
+    radius: { "sm": 2, "md": 4 },
+    sizes: { "cut-s": 6, "cut-m": 12 },
+    glyphs: { "star": "★", "bullet": "•" },
+    motion: {
+        "fast": (ms: 60, curve: (0.2, 0.0, 0.0, 1.0)),
+    },
+)

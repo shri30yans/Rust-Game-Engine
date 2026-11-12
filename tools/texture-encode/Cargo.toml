@@ -1,0 +1,13 @@
+[package]
+name = "texture-encode"
+description = "The one Basis Universal UASTC KTX2 encoder shared by the content cookers"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+basisu_c_sys = { version = "0.9", features = ["encoder", "extra"] }
+thiserror.workspace = true
+
+[lints]
+workspace = true

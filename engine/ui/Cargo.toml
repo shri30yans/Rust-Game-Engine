@@ -1,0 +1,21 @@
+[package]
+name = "engine-ui"
+description = "Renderer-independent UI model: design tokens, screen stack, focus navigation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+engine-core.workspace = true
+glam.workspace = true
+ron.workspace = true
+serde.workspace = true
+taffy.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+stats_alloc = "0.1"
+
+[lints]
+workspace = true

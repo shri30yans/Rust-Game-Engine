@@ -1,0 +1,21 @@
+[package]
+name = "engine-jobs"
+description = "Job pool and background pool: ordered chunked parallel helpers"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "jobs"
+
+[dependencies]
+rayon.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+rayon.workspace = true
+stats_alloc.workspace = true
+
+[lints]
+workspace = true

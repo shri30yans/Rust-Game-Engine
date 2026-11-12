@@ -1,0 +1,30 @@
+[package]
+name = "engine-netcode"
+description = "Engine netcode: transport abstraction, loopback link simulation, tick-stamped inputs, and a bounded wire codec"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+engine-core.workspace = true
+engine-world.workspace = true
+glam = { workspace = true, features = ["serde"] }
+serde.workspace = true
+postcard.workspace = true
+thiserror.workspace = true
+
+# The real transport (QUIC). Browsers cannot open QUIC sockets; wasm gets WebTransport later.
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+quinn = "0.11"
+bytes = "1"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
+rcgen = "0.14"
+ring = "0.17"
+tokio = { version = "1", features = ["rt", "sync", "macros", "time", "net"] }
+
+[dev-dependencies]
+proptest.workspace = true
+stats_alloc = "0.1"
+
+[lints]
+workspace = true

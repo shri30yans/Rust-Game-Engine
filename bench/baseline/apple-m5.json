@@ -1,0 +1,26 @@
+{
+  "device": "apple-m5",
+  "note": "Quiet-machine grid40-textured baseline after cooked material upload",
+  "cases": {
+    "grid40-taa": {
+      "gpu_frame_ms": 2.395,
+      "wall_p50_ms": 3.053,
+      "wall_p99_ms": 3.212
+    },
+    "grid40-textured": {
+      "gpu_frame_ms": 2.55,
+      "wall_p50_ms": 3.216,
+      "wall_p99_ms": 3.631
+    },
+    "grid80-no-taa": {
+      "gpu_frame_ms": 2.211,
+      "wall_p50_ms": 3.197,
+      "wall_p99_ms": 3.97
+    },
+    "grid80-taa": {
+      "gpu_frame_ms": 2.965,
+      "wall_p50_ms": 3.939,
+      "wall_p99_ms": 4.629
+    }
+  }
+}
