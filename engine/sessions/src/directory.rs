@@ -1,5 +1,6 @@
 //! The list of rooms a server (or a matchmaking service) knows about, so players can find one
-//! by code or by browsing. Each entry is a small public listing, refreshed by heartbeats and dropped when they stop.
+//! by code or by browsing. Like Unreal's session search results: each entry is a small public
+//! listing, refreshed by heartbeats and dropped when they stop.
 //!
 //! Invariants: codes are unique; entries iterate in code order, so browsing is deterministic;
 //! an entry whose last heartbeat is `ttl` ticks old or more is gone after [`SessionDirectory::expire`].

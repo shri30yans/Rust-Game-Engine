@@ -16,7 +16,7 @@ use super::velocity::step_velocity_in_mode;
 use crate::command::{MoveCommand, Trigger};
 use crate::error::lift;
 use crate::health::is_alive;
-use crate::movement::{MoveState, MovementEvent, MovementLog, TransitionFacts, next_state};
+use crate::movement::{MoveState, MovementEvent, TransitionFacts, next_state};
 
 /// Eye clearance above the capsule's top in metres.
 const EYE_CLEARANCE_M: f32 = 0.1;
@@ -110,11 +110,11 @@ pub(super) fn drive(world: &mut World, id: NetId, dt: f32) -> Result<(), WorldEr
         .translation;
     }
     if mode_changed(previous_mode, next_mode) {
-        world.resource_mut::<MovementLog>()?.push(MovementEvent {
+        world.send(MovementEvent {
             actor: id,
             from: previous_mode,
             to: next_mode,
-        });
+        })?;
     }
     if matches!(next_mode, MoveState::Slide { .. })
         && !matches!(previous_mode, MoveState::Slide { .. })

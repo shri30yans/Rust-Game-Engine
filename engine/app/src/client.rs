@@ -1,11 +1,11 @@
-//! The single-threaded client runner: one window, one thread.
+//! The single-threaded client runner (D26, "single-threaded mode"): one window, one thread.
 //! Each rendered frame it applies the late camera, runs the fixed ticks the elapsed time owes,
 //! extracts the result when a tick ran, and draws the blend of the last two ticks.
 //! With a governor (`with_governor`), each frame's wall time may change the render scale after the
 //! frame is drawn.
 //!
 //! The game supplies its drawing and its input handling through [`Presenter`]; the engine never
-//! names a game. [`PlatformApp`] callbacks cannot return errors, so recoverable frame errors
+//! names a game (D24). [`PlatformApp`] callbacks cannot return errors, so recoverable frame errors
 //! are reported in an engine-owned banner and skipped. Only unrecoverable GPU setup/device
 //! failures and standalone simulation failures stop the client. UI layout, binding and drawing
 //! errors keep the last good interface and input regions and never consume the 120-frame budget.
@@ -14,7 +14,7 @@
 //! newest extract and is never partly written (extraction fills the back frame and swaps it in
 //! only on success); no allocation happens in `simulate` or the telemetry step after construction;
 //! no threads. The one clock read is the runner's own timing of `simulate` for the telemetry
-//!: it is measured here, never fed into the simulation.
+//! (D45): it is measured here, never fed into the simulation.
 
 use std::time::{Duration, Instant};
 
@@ -86,7 +86,7 @@ enum FrameFailure {
     Skip(AppError),
 }
 
-/// What a game supplies to be drawn and controlled. The engine never names a game.
+/// What a game supplies to be drawn and controlled. The engine never names a game (D24).
 pub trait Presenter {
     /// One tick of game intent produced from the current input state.
     type Command: engine_netcode::InputPayload;
@@ -188,7 +188,7 @@ pub trait Presenter {
     }
 
     /// Called once per rendered frame, after the camera and before `draw`, with the frame
-    /// telemetry and the render scale in effect. `gpu` is the latest GPU timing, or `None`
+    /// telemetry (D45) and the render scale in effect. `gpu` is the latest GPU timing, or `None`
     /// when the adapter has no timestamp queries; results arrive a frame or two late. The default
     /// ignores them.
     fn observe(
@@ -264,7 +264,7 @@ pub struct ClientApp<G: Game, P: Presenter<Command = G::Command, Settings = G::S
     governor: Option<Governor>,
     /// Regions from the most recent successful UI draw, reused without per-frame allocation.
     drawn_touch_regions: Vec<TouchRegion>,
-    /// Frame times and simulation costs of the last frames.
+    /// Frame times and simulation costs of the last frames (D45).
     telemetry: Telemetry,
     /// Present intent for this surface session, set when the swapchain is configured.
     presentation: PresentationBinding,
@@ -449,7 +449,7 @@ impl<G: Game + 'static, P: Presenter<Command = G::Command, Settings = G::Setting
         &self.front
     }
 
-    /// The frame telemetry over the last frames: fps, frame-time percentiles, the display
+    /// The frame telemetry over the last frames (D45): fps, frame-time percentiles, the display
     /// rate estimate and the simulation cost. The same report `Presenter::observe` receives.
     ///
     /// # Errors

@@ -1,5 +1,5 @@
 //! When the swapchain is configured and ready to present, the platform declares how fast the game
-//! intends to draw. Measured frame times stay separate: they report what the compositor
+//! intends to draw. Measured frame times (D45) stay separate: they report what the compositor
 //! actually delivered.
 //!
 //! Invariant: one call per presentation surface session, immediately after `surface.configure`,

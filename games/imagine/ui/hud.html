@@ -1,0 +1,222 @@
+<!doctype html>
+<!-- IMAGINE HUD, angled (games/imagine/docs/design/mockups/hud-angled.html). Cook with:
+       cargo run -p ui-cook -- games/imagine/ui/hud.html games/imagine/ui/hud.ui.ron
+     Units: px are at 720 lines and scale with the screen; vmin is a share of the short side.
+     Variables the game binds each frame are listed in games/imagine/game/src/hud.rs. -->
+<html>
+<head>
+<style>
+  .abs { position: absolute; }
+
+  /* Leans like the mockup's emblems: skewX(-10deg) about each block's middle. */
+  .lean { transform: skewX(-10deg); }
+
+  /* the thin ice rules down both edges */
+  .edge { top: 0; bottom: 0; width: 2px; background-color: #7fe3ff66; }
+
+  /* score stack, top left: rank, emblem, name, kills */
+  .board { left: 44px; top: 24px; width: 190px; display: flex; flex-direction: column; gap: 4px; }
+  .row { height: 24px; display: flex; align-items: center; gap: 8px; }
+  .rk { width: 12px; font-size: 15px; color: #c3cad4; text-align: right; }
+  .em { width: 22px; height: 22px; }
+  .me { background-color: #ff6a1a; border: 2px solid #f3f5f8; }
+  .bot { background-color: #3d8bff; }
+  .nm { font-size: 15px; color: #c3cad4; flex-grow: 1; }
+  .nm-me { font-size: 15px; color: #f3f5f8; flex-grow: 1; }
+  .v { width: 32px; font-size: 17px; color: #f3f5f8; text-align: right; }
+
+  /* match clock, top centre, flat */
+  .timer { left: 0; right: 0; top: 16px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+  .lamp { width: 7px; height: 7px; border-radius: 4px; background-color: #ff6a1a; }
+  .clock { width: 120px; font-size: 18px; color: #f3f5f8; }
+
+  /* kill feed, top right: killer, weapon, victim */
+  .feed { right: 44px; top: 26px; width: 180px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .kf { width: 180px; height: 22px; display: flex; align-items: center; gap: 8px; }
+  .kn { width: 56px; font-size: 15px; }
+  .ember { color: #ff6a1a; }
+  .tide { color: #3d8bff; }
+  .gun { width: 22px; height: 5px; background-color: #f3f5f8; }
+
+  /* elimination callout, centre low, flat */
+  .callout { left: 0; right: 0; top: 440px; display: flex; justify-content: center; }
+  .l3 { display: flex; align-items: stretch; height: 34px; }
+  .tab { width: 6px; background-color: #ff6a1a; }
+  .slab { background-color: #f3f5f8; display: flex; align-items: center; gap: 8px; }
+  .slab-t { font-size: 16px; color: #0c0f14; }
+  .dot { width: 7px; height: 7px; border-radius: 4px; background-color: #3d8bff; }
+  .slab-n { font-size: 22px; color: #3d8bff; }
+  .ext { background-color: #07090ccc; border: 2px solid #f3f5f8; display: flex; align-items: center; }
+  .ext-t { font-size: 17px; color: #ffd447; }
+  .pad10 { width: 10px; }
+
+  /* health, bottom left: number over a segmented slanted bar, then the name */
+  .hp { left: 40px; bottom: 30px; width: 260px; display: flex; flex-direction: column; gap: 6px; }
+  .hp-num { display: flex; align-items: flex-end; gap: 4px; }
+  .hp-n { width: 60px; font-size: 34px; color: #f3f5f8; }
+  .hp-mx { width: 48px; font-size: 20px; color: #c3cad4; }
+  .track { background-color: #07090c59; padding: 2px; }
+  .wrap { position: relative; height: 11px; }
+  .bar { height: 11px; background-color: #f3f5f829; }
+  .seg { width: 3px; top: 0; bottom: 0; background-color: #07090c; }
+  .who { font-size: 15px; color: #f3f5f8; }
+
+  /* weapon, bottom right: ammo, name, the one weapon slot */
+  .wp { right: 44px; bottom: 30px; width: 300px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .wp-num { display: flex; align-items: flex-end; gap: 4px; }
+  .wp-n { width: 120px; font-size: 34px; color: #f3f5f8; text-align: right; }
+  .wp-rs { width: 60px; font-size: 20px; color: #c3cad4; }
+  .wp-name { width: 200px; font-size: 14px; color: #c3cad4; text-align: right; }
+  .reloading { width: 200px; font-size: 18px; color: #ffb52e; text-align: right; }
+  .slot { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .ic { width: 54px; height: 34px; background-color: #f3f5f8ea; display: flex; align-items: center; justify-content: center; gap: 2px; }
+  .g-a { width: 8px; height: 4px; background-color: #0c0f14; }
+  .g-b { width: 20px; height: 8px; background-color: #0c0f14; }
+  .slot-n { font-size: 12px; color: #c3cad4; }
+
+  /* build line, bottom right corner */
+  .build { right: 16px; bottom: 6px; width: 150px; font-size: 10px; color: #f3f5f873; text-align: right; }
+
+  /* respawn screen */
+  .down { left: 0; top: 0; right: 0; bottom: 0; background-color: #000000a0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .down-t { font-size: 56px; color: #f3f5f8; }
+  .down-s { font-size: 28px; color: #f3f5f8; }
+
+  /* touch buttons: distances are shares of the short side, measured from the screen edges so
+     a taller or wider phone keeps them under the same thumbs */
+  .touch { left: 0; top: 0; right: 0; bottom: 0; }
+  .b-fire { right: 12vmin; bottom: 27vmin; width: 26vmin; height: 26vmin; color: #f3f5f8; }
+  .b-fire-left { left: 9vmin; bottom: 38vmin; width: 14vmin; height: 14vmin; color: #f3f5f8; }
+  .b-scope { right: 36vmin; bottom: 59vmin; width: 13vmin; height: 13vmin; color: #f3f5f8; }
+  .b-jump { right: 34.6vmin; bottom: 6vmin; width: 16vmin; height: 16vmin; color: #f3f5f8; }
+  .b-crouch { right: 52vmin; bottom: 6vmin; width: 13vmin; height: 13vmin; color: #f3f5f8; }
+  .b-reload { right: 69vmin; bottom: 6vmin; width: 12vmin; height: 12vmin; color: #f3f5f8; }
+  .b-gear { right: 4vmin; top: 4vmin; width: 7vmin; height: 7vmin; color: #f3f5f8; }
+
+</style>
+</head>
+<body>
+  <div class="abs edge" style="left:10px"></div>
+  <div class="abs edge" style="right:10px"></div>
+
+  <div class="abs board lean">
+    <div class="row">
+      <p class="rk">1</p>
+      <div class="em me" data-show-if="r1_me"></div>
+      <div class="em bot" data-show-if="!r1_me"></div>
+      <p class="nm-me" data-show-if="r1_me">{r1_name}</p>
+      <p class="nm" data-show-if="!r1_me">{r1_name}</p>
+      <p class="v">{r1_kills}</p>
+    </div>
+    <div class="row">
+      <p class="rk">2</p>
+      <div class="em me" data-show-if="r2_me"></div>
+      <div class="em bot" data-show-if="!r2_me"></div>
+      <p class="nm-me" data-show-if="r2_me">{r2_name}</p>
+      <p class="nm" data-show-if="!r2_me">{r2_name}</p>
+      <p class="v">{r2_kills}</p>
+    </div>
+    <div class="row">
+      <p class="rk">3</p>
+      <div class="em me" data-show-if="r3_me"></div>
+      <div class="em bot" data-show-if="!r3_me"></div>
+      <p class="nm-me" data-show-if="r3_me">{r3_name}</p>
+      <p class="nm" data-show-if="!r3_me">{r3_name}</p>
+      <p class="v">{r3_kills}</p>
+    </div>
+  </div>
+
+  <div class="abs timer">
+    <div class="lamp"></div>
+    <p class="clock">{clock_m}:{clock_st}{clock_so}</p>
+  </div>
+
+  <div class="abs feed lean">
+    <div class="kf" data-show-if="f1_on">
+      <p class="kn ember" data-show-if="f1_kme">{f1_killer}</p>
+      <p class="kn tide" data-show-if="!f1_kme">{f1_killer}</p>
+      <div class="gun"></div>
+      <p class="kn ember" data-show-if="f1_vme">{f1_victim}</p>
+      <p class="kn tide" data-show-if="!f1_vme">{f1_victim}</p>
+    </div>
+    <div class="kf" data-show-if="f2_on">
+      <p class="kn ember" data-show-if="f2_kme">{f2_killer}</p>
+      <p class="kn tide" data-show-if="!f2_kme">{f2_killer}</p>
+      <div class="gun"></div>
+      <p class="kn ember" data-show-if="f2_vme">{f2_victim}</p>
+      <p class="kn tide" data-show-if="!f2_vme">{f2_victim}</p>
+    </div>
+    <div class="kf" data-show-if="f3_on">
+      <p class="kn ember" data-show-if="f3_kme">{f3_killer}</p>
+      <p class="kn tide" data-show-if="!f3_kme">{f3_killer}</p>
+      <div class="gun"></div>
+      <p class="kn ember" data-show-if="f3_vme">{f3_victim}</p>
+      <p class="kn tide" data-show-if="!f3_vme">{f3_victim}</p>
+    </div>
+    <div class="kf" data-show-if="f4_on">
+      <p class="kn ember" data-show-if="f4_kme">{f4_killer}</p>
+      <p class="kn tide" data-show-if="!f4_kme">{f4_killer}</p>
+      <div class="gun"></div>
+      <p class="kn ember" data-show-if="f4_vme">{f4_victim}</p>
+      <p class="kn tide" data-show-if="!f4_vme">{f4_victim}</p>
+    </div>
+  </div>
+
+  <div class="abs callout" data-show-if="kill">
+    <div class="l3">
+      <div class="tab"></div>
+      <div class="slab"><div class="pad10"></div><p class="slab-t">ELIMINATED</p><div class="dot"></div><p class="slab-n">{eliminated}</p><div class="pad10"></div></div>
+      <div class="ext"><div class="pad10"></div><p class="ext-t">+1</p><div class="pad10"></div></div>
+    </div>
+  </div>
+
+  <div class="abs hp lean">
+    <div class="hp-num"><p class="hp-n">{health}</p><p class="hp-mx">/{max_health}</p></div>
+    <div class="track">
+      <div class="wrap">
+        <progress class="bar" data-show-if="!low" data-bind="health_frac" style="color:#f3f5f8"></progress>
+        <progress class="bar" data-show-if="low" data-bind="health_frac" style="color:#ff3d52"></progress>
+        <div class="abs seg" style="left:10%"></div>
+        <div class="abs seg" style="left:20%"></div>
+        <div class="abs seg" style="left:30%"></div>
+        <div class="abs seg" style="left:40%"></div>
+        <div class="abs seg" style="left:50%"></div>
+        <div class="abs seg" style="left:60%"></div>
+        <div class="abs seg" style="left:70%"></div>
+        <div class="abs seg" style="left:80%"></div>
+        <div class="abs seg" style="left:90%"></div>
+      </div>
+    </div>
+    <p class="who">{player}</p>
+  </div>
+
+  <div class="abs wp lean">
+    <p class="reloading" data-show-if="reloading">RELOADING</p>
+    <div class="wp-num"><p class="wp-n">{ammo}</p><p class="wp-rs">/{mag}</p></div>
+    <p class="wp-name" data-show-if="auto">{rifle} · AUTO</p>
+    <p class="wp-name" data-show-if="!auto">{rifle} · MANUAL</p>
+    <div class="slot">
+      <div class="ic"><div class="g-b"></div><div class="g-a"></div></div>
+      <p class="slot-n">1</p>
+    </div>
+  </div>
+
+  <p class="abs build">{build}</p>
+
+  <div class="abs down" data-show-if="downed">
+    <p class="down-t">DOWN</p>
+    <p class="down-s">RESPAWN IN {respawn:1} S</p>
+  </div>
+
+  <div class="abs touch" data-show-if="touch">
+    <button class="abs b-fire" data-id="0" data-held="fire" data-drag-look>FIRE</button>
+    <button class="abs b-fire-left" data-id="4" data-held="fire_left" data-show-if="left_fire_setting">FIRE</button>
+    <button class="abs b-scope" data-id="3" data-held="scope">ADS</button>
+    <button class="abs b-jump" data-id="1" data-held="jump">JUMP</button>
+    <button class="abs b-crouch" data-id="14" data-held="crouch">CROUCH</button>
+    <button class="abs b-reload" data-id="2" data-held="reload">R</button>
+    <button class="abs b-gear" data-id="5" data-held="h_gear">⚙</button>
+  </div>
+
+</body>
+</html>

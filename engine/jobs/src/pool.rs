@@ -7,7 +7,7 @@ use std::sync::Arc;
 use crate::JobError;
 use crate::chunk::{ChunkSize, chunk_count};
 
-/// Fork-join pool for deterministic chunked work inside a simulation step.
+/// Fork-join pool for deterministic chunked work inside a simulation step (D25).
 #[derive(Clone)]
 pub struct JobPool {
     backend: Backend,

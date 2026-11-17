@@ -1,4 +1,4 @@
-//! Chunked parallel helpers must match across worker counts.
+//! Chunked parallel helpers must match across worker counts (D25).
 #![allow(clippy::unwrap_used, clippy::expect_used)]
 
 use jobs::{ChunkSize, JobPool, chunk_count};

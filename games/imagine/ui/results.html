@@ -1,0 +1,17 @@
+<!doctype html><html><head><style>
+body { background-color: #0c0f14; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.banner { padding: 12px; background-color: #ff6a1a; }
+.placement { font-size: 48px; color: #0c0f14; }
+.meta { font-size: 14px; color: #0c0f14; }
+.podium { display: flex; gap: 8px; }
+.place { width: 0%; flex-grow: 1; padding: 16px; height: 160px; background-color: #141922; border: 4px solid #ff7a3d; }
+.name { font-size: 18px; color: #f3f5f8; }
+.stat { font-size: 14px; color: #c3cad4; }
+.score { width: 200px; font-size: 40px; color: #ffd447; }
+button { width: 100%; height: 52px; background-color: #ff6a1a; border: 1px solid #ff6a1a; color: #0c0f14; }
+button:focus-visible { border: 3px solid #f3f5f8; }
+</style></head><body data-default-focus="continue">
+<div class="banner"><p class="placement">{placement}</p><p class="meta">PRACTICE · KILN YARD · {winner}</p></div>
+<div class="podium"><div class="place"><p class="name">PLAYER</p><p class="stat">{kills} ELIMS · {deaths} DEATHS</p><p class="score">{score}</p></div><div class="place"><p class="name">TEAM SCORE</p><p class="stat">KILLS CREDITED BY THE MATCH RULES</p></div></div>
+<button id="continue" data-action="continue">CONTINUE</button>
+</body></html>

@@ -12,7 +12,7 @@ use std::error::Error;
 use engine_physics::PhysicsWorld;
 use engine_world::{NetId, World};
 use glam::Vec3;
-use kit_fps::{DamageLog, Weapon};
+use kit_fps::{DamageEvent, Killed, Weapon};
 
 use common::{
     STANDING_CENTRE_Y, add_box, aim_and_fire, duel, health_of, physics, rifle, run, schedule,
@@ -46,15 +46,14 @@ fn a_bot_kills_a_stationary_player_within_twenty_seconds() -> TestResult {
     let death = run_until_player_dies(&mut duel)?;
     let tick = death.ok_or("the bot did not kill the player within twenty seconds")?;
 
-    // The damage queue is drained within each tick, so the bot's shots are seen through the
-    // player's health and the bot's ammunition rather than through the event list.
     assert!(ammo_of(&duel.world, duel.bot)? < 30, "the bot never fired");
     assert_eq!(health_of(&duel.world, duel.bot)?, 100);
     assert!(
         duel.world
-            .resource::<DamageLog>()?
-            .deaths()
-            .contains(&duel.player)
+            .events::<Killed>()?
+            .iter()
+            .any(|kill| kill.victim == duel.player && kill.cause == duel.bot),
+        "the death tick wrote a kill event naming the bot"
     );
     assert!(tick > 0);
     Ok(())
@@ -90,7 +89,6 @@ fn a_scripted_player_kills_a_stationary_bot_in_the_expected_ticks() -> TestResul
     world.insert(player, Weapon::new(rifle()?))?;
     let mut schedule = schedule(3)?;
 
-    // The damage queue is drained within each tick, so hits are counted as the bot's health drops.
     let mut death = None;
     let mut hits = 0;
     let mut previous = health_of(&world, bot)?;
@@ -110,8 +108,11 @@ fn a_scripted_player_kills_a_stationary_bot_in_the_expected_ticks() -> TestResul
         if death.is_none() && current == 0 {
             death = Some(tick);
             assert!(
-                world.resource::<DamageLog>()?.deaths().contains(&bot),
-                "the death was not logged"
+                world
+                    .events::<Killed>()?
+                    .iter()
+                    .any(|kill| kill.victim == bot && kill.cause == player),
+                "the death was not written as a kill event"
             );
         }
     }
@@ -133,6 +134,6 @@ fn a_wall_between_the_duellists_stops_the_bot_firing() -> TestResult {
         30,
         "the bot fired through the wall"
     );
-    assert!(duel.world.resource::<DamageLog>()?.events().is_empty());
+    assert!(duel.world.events::<DamageEvent>()?.is_empty());
     Ok(())
 }

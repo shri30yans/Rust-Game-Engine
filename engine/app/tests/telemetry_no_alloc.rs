@@ -1,4 +1,4 @@
-//! `Telemetry::record` and `Telemetry::snapshot` must not allocate after `new`.
+//! `Telemetry::record` and `Telemetry::snapshot` must not allocate after `new` (D45).
 //!
 //! One `#[test]` only: the allocator counter is process-wide, so parallel tests would pollute it.
 #![allow(clippy::unwrap_used, clippy::expect_used)]

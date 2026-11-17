@@ -14,7 +14,7 @@ pub struct AppConfig {
     pub seed: u64,
     /// Most ticks one `advance` call may run; the rest of the owed time is dropped.
     pub max_catch_up_ticks: u32,
-    /// Overrides the device profile's job worker count (phones can report core counts wrong).
+    /// Overrides the device profile's job worker count (D35: phones can be sized wrong).
     /// `None` uses the profile.
     pub job_workers: Option<usize>,
 }

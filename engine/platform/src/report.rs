@@ -54,7 +54,7 @@ mod android {
         // The tag and the text are NUL-terminated and outlive the call. The returned byte count is
         // not needed: there is nowhere else to report a logging failure.
         let write: LogWrite = unsafe { std::mem::transmute(symbol) };
-        unsafe { write(PRIORITY_ERROR, c"engine".as_ptr(), text.as_ptr().cast()) };
+        unsafe { write(PRIORITY_ERROR, c"imagine".as_ptr(), text.as_ptr().cast()) };
     }
 }
 

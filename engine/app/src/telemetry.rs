@@ -1,4 +1,4 @@
-//! Frame telemetry: a ring of the last [`WINDOW_FRAMES`] frame times and the simulation cost
+//! Frame telemetry (D45): a ring of the last [`WINDOW_FRAMES`] frame times and the simulation cost
 //! of each frame, reduced to the numbers the overlay shows. This is pure arithmetic: the caller
 //! passes each frame's wall time and tick cost in milliseconds, so the module reads no clock.
 //!

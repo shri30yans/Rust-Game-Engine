@@ -1,4 +1,4 @@
-//! The frame-telemetry overlay: a compact panel of the numbers in a [`FrameReport`], drawn by
+//! The frame-telemetry overlay (D45): a compact panel of the numbers in a [`FrameReport`], drawn by
 //! any game's presenter. Drawing reads plain values and changes no state.
 //!
 //! The first two lines take the severity colour: amber when the 99th-percentile frame time is

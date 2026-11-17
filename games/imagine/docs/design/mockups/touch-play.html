@@ -1,0 +1,64 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Touch HUD — player view</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{background:url(arena.svg) 0 0/1280px 720px}
+.vig{inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 62%,rgba(7,9,12,.35))}
+.b{position:absolute;border-radius:50%;background:rgba(7,9,12,.42);box-shadow:inset 0 0 0 2px rgba(243,245,248,.55);display:flex;align-items:center;justify-content:center}
+.b svg{width:46%;height:46%}
+.fire{background:rgba(255,106,26,.16);box-shadow:inset 0 0 0 4px var(--signal),0 0 18px rgba(255,106,26,.35)}
+.fire::after{content:"";position:absolute;inset:16px;border-radius:50%;border:2px dashed rgba(255,106,26,.5)}
+.sq{position:absolute;background:rgba(7,9,12,.5);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 2px rgba(243,245,248,.45)}
+.sq.ready{box-shadow:inset 0 0 0 3px var(--signal);background:rgba(255,106,26,.18)}
+.bug{left:64px;top:24px;width:236px}
+.bug-h{display:flex;align-items:center;gap:6px;height:20px;padding:0 8px;background:var(--signal);color:var(--ink-900);font:700 13px/1 "Barlow Condensed";letter-spacing:.1em;width:200px;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 100%,0 100%)}
+.row{display:flex;align-items:center;height:30px;gap:8px;padding-right:10px;background:linear-gradient(90deg,rgba(7,9,12,.8),rgba(7,9,12,.5) 70%,transparent)}
+.row .t{width:5px;align-self:stretch}
+.row .n{flex:1;font:600 16px/1 "Barlow Condensed";letter-spacing:.06em;color:var(--ink-200)}
+.row .v{font:700 22px/1 "Barlow Condensed";color:var(--score)}
+</style></head><body>
+<div class="abs vig"></div>
+<!-- score bug -->
+<div class="abs bug"><div class="bug-h"><span class="lamp" style="width:7px;height:7px;background:var(--ink-900);box-shadow:none"></span>TEAM FIGHT · RD 2</div>
+ <div class="row"><span class="t" style="background:var(--signal)"></span><span style="color:var(--ember)">▲</span><span class="n" style="color:var(--paper)">EMBER · YOU</span><span class="v">12.4K</span></div>
+ <div class="row"><span class="t" style="background:var(--tide)"></span><span style="color:var(--tide)">●</span><span class="n">TIDE</span><span class="v">9.8K</span></div>
+ <div class="row"><span class="t" style="background:var(--volt)"></span><span style="color:var(--volt)">■</span><span class="n">VOLT</span><span class="v">4.2K</span></div></div>
+<!-- timer -->
+<div class="abs ol" style="left:540px;top:18px;width:200px;text-align:center;font:700 46px/1 'Barlow Condensed'">04:37</div>
+<div class="abs" style="left:540px;top:72px;width:200px;display:flex;justify-content:center;gap:10px;font:700 17px/1 'Barlow Condensed';letter-spacing:.06em">
+  <span class="ol" style="display:flex;align-items:center;gap:6px"><span style="background:var(--ice);color:var(--ink-900);padding:3px 6px;text-shadow:none">A</span>42 M</span>
+  <span class="ol" style="display:flex;align-items:center;gap:6px;color:var(--ink-200)"><span style="background:rgba(243,245,248,.85);color:var(--ink-900);padding:3px 6px;text-shadow:none">B</span>128 M</span></div>
+<!-- menu + ping -->
+<div class="b" style="left:1176px;top:24px;width:56px;height:56px;border-radius:0;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)"><svg viewBox="0 0 24 24" fill="none" stroke="#F3F5F8" stroke-width="2.4"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+<div class="b" style="left:1104px;top:24px;width:56px;height:56px"><svg viewBox="0 0 24 24" fill="none" stroke="#7FE3FF" stroke-width="2.4"><path d="M12 3 21 12 12 21 3 12Z"/></svg></div>
+<!-- crosshair -->
+<div class="abs" style="left:639px;top:359px;width:3px;height:3px;background:var(--signal);box-shadow:0 0 0 1px rgba(7,9,12,.8)"></div>
+<div class="abs" style="left:623px;top:359px;width:10px;height:2px;background:var(--paper);box-shadow:0 0 0 1px rgba(7,9,12,.8)"></div>
+<div class="abs" style="left:648px;top:359px;width:10px;height:2px;background:var(--paper);box-shadow:0 0 0 1px rgba(7,9,12,.8)"></div>
+<div class="abs" style="left:640px;top:343px;width:2px;height:10px;background:var(--paper);box-shadow:0 0 0 1px rgba(7,9,12,.8)"></div>
+<div class="abs" style="left:640px;top:368px;width:2px;height:10px;background:var(--paper);box-shadow:0 0 0 1px rgba(7,9,12,.8)"></div>
+<!-- event -->
+<div class="abs" style="left:0;right:0;top:470px;display:flex;justify-content:center"><div class="l3" style="height:32px"><span class="tab"></span><span class="slab" style="font-size:20px">Eliminated</span><span class="ext" style="color:var(--score);font-size:22px">+100</span></div></div>
+<!-- health -->
+<div class="abs" style="left:64px;top:156px;width:210px">
+ <div style="display:flex;align-items:flex-end;gap:6px"><span class="ol" style="font:700 46px/.9 'Barlow Condensed'">175</span><span class="ol" style="font:600 18px/1 'Barlow Condensed';color:var(--ink-200);margin-bottom:4px">/ 250</span></div>
+ <div style="display:flex;gap:3px;padding:3px;background:rgba(7,9,12,.6);margin-top:6px"><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:rgba(243,245,248,.14)"></i><i style="flex:1;height:8px;background:rgba(243,245,248,.14)"></i><i style="flex:1;height:8px;background:rgba(243,245,248,.14)"></i></div>
+</div>
+<!-- move stick (resting ghost) -->
+<div class="b" style="left:180px;top:420px;width:224px;height:224px;background:rgba(7,9,12,.22);box-shadow:inset 0 0 0 2px rgba(243,245,248,.3)"></div>
+<div class="b" style="left:244px;top:460px;width:96px;height:96px;background:rgba(243,245,248,.28);box-shadow:inset 0 0 0 2px rgba(243,245,248,.75)"></div>
+<div class="abs" style="left:270px;top:398px;font:700 14px/1 'Barlow Condensed';letter-spacing:.12em;color:rgba(243,245,248,.6)">▲ SPRINT</div>
+<!-- right cluster -->
+<div class="b fire" style="left:984px;top:432px;width:144px;height:144px"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" stroke-width="2"><circle cx="12" cy="12" r="7"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></svg></div>
+<div class="b" style="left:840px;top:496px;width:112px;height:112px"><svg viewBox="0 0 24 24" fill="none" stroke="#F3F5F8" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/></svg></div>
+<div class="b" style="left:1112px;top:288px;width:112px;height:112px"><svg viewBox="0 0 24 24" fill="none" stroke="#F3F5F8" stroke-width="2.4" stroke-linecap="square"><path d="M5 15 12 8 19 15"/><path d="M5 20h14"/></svg></div>
+<div class="b" style="left:848px;top:344px;width:96px;height:96px"><svg viewBox="0 0 24 24" fill="none" stroke="#F3F5F8" stroke-width="2.4" stroke-linecap="square"><path d="M5 9 12 16 19 9"/><path d="M5 20h14"/></svg></div>
+<div class="b" style="left:1008px;top:296px;width:96px;height:96px"><svg viewBox="0 0 24 24" fill="none" stroke="#F3F5F8" stroke-width="2.4"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg></div>
+<div class="sq ready" style="left:628px;top:612px;width:88px;height:88px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F3F5F8" stroke-width="2.2" stroke-linecap="square"><path d="M4 20 L12 4 L20 20 Z"/><path d="M12 10v5"/></svg></div>
+<div class="sq" style="left:524px;top:612px;width:88px;height:88px;background:conic-gradient(rgba(7,9,12,.75) 0 62%,rgba(7,9,12,.4) 62%)"><span style="font:700 32px/1 'Barlow Condensed'">8</span></div>
+<!-- weapon -->
+<div class="abs" style="right:32px;bottom:20px;width:240px;text-align:right">
+ <div class="ol" style="font:600 14px/1 'Barlow Condensed';letter-spacing:.14em;color:var(--ink-200)">VX-9 ⇄ TAP TO SWAP</div>
+ <div><span class="ol" style="font:700 48px/.95 'Barlow Condensed'">24</span><span class="ol" style="font:600 20px/1 'Barlow Condensed';color:var(--ink-200)"> / 96</span></div>
+</div>
+<div class="tag">touch-play.html — what the player sees · sizes per TOUCH_SPEC (fire 14 mm, others 9–11 mm)</div>
+</body></html>

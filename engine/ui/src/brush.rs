@@ -1,4 +1,4 @@
-//! Node backgrounds: a solid colour or a linear gradient drawn by the UI shader.
+//! Node backgrounds (D66 ui-kit-2): a solid colour or a linear gradient drawn by the UI shader.
 //!
 //! Invariants: a gradient's angle is finite; it has two to four stops; each stop position is
 //! finite, within `0..=1`, and not before the stop before it. [`check_gradient`] is the one rule,

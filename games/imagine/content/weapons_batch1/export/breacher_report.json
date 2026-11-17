@@ -1,0 +1,405 @@
+{
+ "desktop": {
+  "file": "breacher.glb",
+  "kb": 5387,
+  "tris": 12040,
+  "primitives": 6,
+  "meshes": 6,
+  "materials": [
+   "M_BREACHER",
+   "M_BREACHER_Glow"
+  ],
+  "images": [
+   [
+    "BREACHER_Emissive_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "BREACHER_Normal_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "BREACHER_BaseColor_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "BREACHER_ORM_2048",
+    "image/png",
+    2048,
+    2048
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_OpticFX",
+     "BREACHER_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.4667,
+    "frames": 14,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_CrownFX",
+     "BREACHER_Pivot",
+     "BREACHER_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Pump",
+    "seconds": 0.6,
+    "frames": 18,
+    "channels": 2,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_Pivot",
+     "BREACHER_Pump"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_Pivot",
+     "BREACHER_Pump",
+     "BREACHER_Shell"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_OpticFX",
+     "BREACHER_Pivot",
+     "BREACHER_Pump"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_CrownFX",
+     "BREACHER_Pivot",
+     "BREACHER_Pump"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "BREACHER_Body",
+   "BREACHER_CrownFX",
+   "BREACHER_OpticFX",
+   "BREACHER_Pump",
+   "BREACHER_Shell",
+   "BREACHER_Socket_Eject",
+   "BREACHER_Socket_LoadPort",
+   "BREACHER_Socket_Muzzle",
+   "BREACHER_Socket_Sight",
+   "BREACHER_Socket_SupportHand",
+   "BREACHER_Trigger",
+   "BREACHER_Pivot",
+   "BREACHER"
+  ],
+  "skins": 0
+ },
+ "mobile": {
+  "file": "breacher_mobile.glb",
+  "kb": 2215,
+  "tris": 12040,
+  "primitives": 6,
+  "meshes": 6,
+  "materials": [
+   "M_BREACHER",
+   "M_BREACHER_Glow"
+  ],
+  "images": [
+   [
+    "BREACHER_Emissive_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "BREACHER_Normal_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "BREACHER_BaseColor_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "BREACHER_ORM_1024",
+    "image/png",
+    1024,
+    1024
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_OpticFX",
+     "BREACHER_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.4667,
+    "frames": 14,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_CrownFX",
+     "BREACHER_Pivot",
+     "BREACHER_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Pump",
+    "seconds": 0.6,
+    "frames": 18,
+    "channels": 2,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_Pivot",
+     "BREACHER_Pump"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_Pivot",
+     "BREACHER_Pump",
+     "BREACHER_Shell"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_OpticFX",
+     "BREACHER_Pivot",
+     "BREACHER_Pump"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "BREACHER_CrownFX",
+     "BREACHER_Pivot",
+     "BREACHER_Pump"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "BREACHER_Body",
+   "BREACHER_CrownFX",
+   "BREACHER_OpticFX",
+   "BREACHER_Pump",
+   "BREACHER_Shell",
+   "BREACHER_Socket_Eject",
+   "BREACHER_Socket_LoadPort",
+   "BREACHER_Socket_Muzzle",
+   "BREACHER_Socket_Sight",
+   "BREACHER_Socket_SupportHand",
+   "BREACHER_Trigger",
+   "BREACHER_Pivot",
+   "BREACHER"
+  ],
+  "skins": 0
+ },
+ "clips": [
+  {
+   "name": "Idle",
+   "frames": 60,
+   "loop": true,
+   "desc": "sway + optic pulse"
+  },
+  {
+   "name": "Fire",
+   "frames": 14,
+   "loop": false,
+   "desc": "heavy kick + crown heat flash (follow with Pump)"
+  },
+  {
+   "name": "Pump",
+   "frames": 18,
+   "loop": false,
+   "desc": "rack the pump; spawn a shell at Socket_Eject on f7"
+  },
+  {
+   "name": "Reload",
+   "frames": 60,
+   "loop": false,
+   "desc": "roll to show the port, load two shells from the side saddle, rack"
+  },
+  {
+   "name": "Equip",
+   "frames": 24,
+   "loop": false,
+   "desc": "raise + rack"
+  },
+  {
+   "name": "Inspect",
+   "frames": 120,
+   "loop": false,
+   "desc": "showcase both sides, crown glow, pump check"
+  }
+ ],
+ "hierarchy": [
+  "- BREACHER (node)",
+  "  - BREACHER_Pivot (node)",
+  "    - BREACHER_Body (mesh)",
+  "    - BREACHER_CrownFX (mesh)",
+  "    - BREACHER_OpticFX (mesh)",
+  "    - BREACHER_Pump (mesh)",
+  "    - BREACHER_Shell (mesh)",
+  "    - BREACHER_Socket_Eject (node)",
+  "    - BREACHER_Socket_LoadPort (node)",
+  "    - BREACHER_Socket_Muzzle (node)",
+  "    - BREACHER_Socket_Sight (node)",
+  "    - BREACHER_Socket_SupportHand (node)",
+  "    - BREACHER_Trigger (mesh)"
+ ],
+ "textures_2k": {
+  "col": "/workspace/weapons/export/textures/breacher/BREACHER_BaseColor_2048.png",
+  "orm": "/workspace/weapons/export/textures/breacher/BREACHER_ORM_2048.png",
+  "normal": "/workspace/weapons/export/textures/breacher/BREACHER_Normal_2048.png",
+  "emit": "/workspace/weapons/export/textures/breacher/BREACHER_Emissive_2048.png"
+ },
+ "textures_1k": {
+  "col": "/workspace/weapons/export/textures/breacher/BREACHER_BaseColor_1024.png",
+  "orm": "/workspace/weapons/export/textures/breacher/BREACHER_ORM_1024.png",
+  "normal": "/workspace/weapons/export/textures/breacher/BREACHER_Normal_1024.png",
+  "emit": "/workspace/weapons/export/textures/breacher/BREACHER_Emissive_1024.png"
+ }
+}

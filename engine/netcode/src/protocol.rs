@@ -180,8 +180,8 @@ pub enum Message<I> {
     /// Opaque session bytes (lobby requests and replies, encoded by the layer above, which
     /// netcode does not depend on). Reliable channel only.
     Session(Vec<u8>),
-    /// The server tells a client which replicated entity it controls; sent again after a
-    /// resume. Reliable channel only.
+    /// The server tells a client which replicated entity it controls (Unreal's
+    /// `ClientRestart`); sent again after a resume. Reliable channel only.
     Possess {
         /// The client's pawn.
         pawn: engine_world::NetId,

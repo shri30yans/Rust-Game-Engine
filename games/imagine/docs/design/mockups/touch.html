@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Touch layout mockup</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{background:url(arena.svg) 0 0/1280px 720px}
+/* simulated safe area: 2.5% left cutout side */
+.safe{position:absolute;left:64px;right:32px;top:24px;bottom:24px;outline:1px dashed rgba(127,227,255,.35)}
+.tb{position:absolute;border-radius:50%;background:rgba(7,9,12,.45);box-shadow:inset 0 0 0 4px rgba(243,245,248,.6);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;color:var(--paper);font:700 20px/1 "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase}
+.tb .mm{font:500 13px/1 "JetBrains Mono";color:var(--ice);letter-spacing:0;text-transform:none}
+.fire{box-shadow:inset 0 0 0 5px var(--signal)}
+.stick{position:absolute;left:180px;top:420px;width:224px;height:224px;border-radius:50%;background:rgba(7,9,12,.3);box-shadow:inset 0 0 0 3px rgba(243,245,248,.45)}
+.knob{position:absolute;left:236px;top:440px;width:96px;height:96px;border-radius:50%;background:rgba(243,245,248,.35);box-shadow:inset 0 0 0 3px rgba(243,245,248,.8)}
+.zone{position:absolute;left:64px;top:216px;width:448px;height:480px;border:2px dashed rgba(255,106,26,.45)}
+.zl{position:absolute;font:600 16px/1 "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase;color:var(--paper)}
+.look{position:absolute;left:520px;top:216px;width:728px;height:480px;border:2px dashed rgba(127,227,255,.35)}
+.mini{position:absolute;background:var(--scrim);padding:6px 10px}
+.rule{position:absolute;height:2px;background:var(--ice)}
+</style></head><body>
+<div class="safe"></div>
+<div class="zone"></div><div class="zl outline" style="left:76px;top:228px">Move zone — floating stick (left 40%)</div>
+<div class="look"></div><div class="zl outline" style="left:532px;top:228px;color:var(--ice)">Look — drag anywhere not on a button</div>
+
+<!-- compact HUD for touch (health + ammo + timer) -->
+<div class="mini" style="left:576px;top:24px;width:128px;text-align:center;font:700 36px/1.2 'Barlow Condensed'">04:37</div>
+<div class="mini" style="left:64px;top:24px;font:700 26px/1.4 'Barlow Condensed';color:var(--score)"><span style="color:var(--ember)">▲</span> 38 <span class="you-chip" style="background:var(--signal);color:var(--ink-900);padding:0 6px;font-size:14px;vertical-align:middle">YOU</span></div>
+<div class="tb" style="left:1176px;top:24px;width:72px;height:72px;border-radius:8px">☰<span class="mm">9 mm</span></div>
+
+<!-- move stick -->
+<div class="stick"></div><div class="knob"></div>
+<div class="zl outline" style="left:214px;top:654px">Stick 112 px · 21 mm</div>
+<div class="tb" style="left:258px;top:350px;width:64px;height:48px;border-radius:6px;background:rgba(255,106,26,.85);box-shadow:none;color:var(--ink-900)">▲▲<span class="mm" style="color:var(--ink-900)">sprint lock</span></div>
+
+<!-- health compact -->
+<div class="mini" style="left:64px;top:110px;width:220px"><span class="num" style="font-size:40px">175</span><div style="display:flex;gap:3px;margin-top:4px"><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--paper)"></i><i style="flex:1;height:8px;background:var(--ink-600)"></i><i style="flex:1;height:8px;background:var(--ink-600)"></i><i style="flex:1;height:8px;background:var(--ink-600)"></i></div></div>
+
+<!-- right cluster: centres from spec (right/bottom offsets from safe area, x2) -->
+<!-- fire: right 96 bottom 96 -> centre x=1248-192=1056, y=696-192=504, size 144 -->
+<div class="tb fire" style="left:984px;top:432px;width:144px;height:144px;font-size:26px">Fire<span class="mm">14 mm</span></div>
+<!-- ADS: right 176 bottom 72 -> x=896,y=552 size 112 -->
+<div class="tb" style="left:840px;top:496px;width:112px;height:112px">ADS<span class="mm">11 mm</span></div>
+<!-- jump: right 40 bottom 176 -> x=1168,y=344 size 112 -->
+<div class="tb" style="left:1112px;top:288px;width:112px;height:112px">Jump<span class="mm">11 mm</span></div>
+<!-- crouch: right 176 bottom 152 -> x=896,y=392 size 96 -->
+<div class="tb" style="left:848px;top:344px;width:96px;height:96px">Slide<span class="mm">9 mm</span></div>
+<!-- reload: right 96 bottom 176 -> x=1056,y=344 size 96 -->
+<div class="tb" style="left:1008px;top:296px;width:96px;height:96px;font-size:18px">Reload<span class="mm">9 mm</span></div>
+<!-- abilities: right 248 bottom 48 / 112 -> x=752, y=600 / 472 size 96 -->
+<div class="tb" style="left:704px;top:552px;width:96px;height:96px;box-shadow:inset 0 0 0 4px var(--signal)">Q<span class="mm">9 mm</span></div>
+<div class="tb" style="left:704px;top:424px;width:96px;height:96px">E 8s<span class="mm">9 mm</span></div>
+
+<!-- weapon block, tap to swap -->
+<div class="mini" style="right:32px;bottom:24px;width:236px;display:flex;align-items:baseline;gap:8px"><span class="label" style="font-size:18px;color:var(--ink-200);flex:1">VX-9 ⇄</span><span class="num" style="font-size:40px">24</span><span style="font:600 20px 'Barlow Condensed';color:var(--ink-300)">/ 96</span></div>
+
+<div class="tag">touch.html — default "Thumbs" preset · dashed cyan = safe area · mm at 0.19 mm/logical px</div>
+</body></html>

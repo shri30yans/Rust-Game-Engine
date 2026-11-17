@@ -23,6 +23,8 @@ use kit_fps::{
     WeaponParams,
 };
 
+/// Most actors a test scene holds; the kit's event logs are sized from it.
+pub const MAX_ACTORS: usize = 4;
 /// Fixed timestep: 60 ticks per second.
 pub const DT: f32 = 1.0 / 60.0;
 /// Half height of the capsule's cylinder, in metres.
@@ -161,7 +163,7 @@ pub fn add_triangle_mesh_box(
 /// A world with the kit installed, the physics world and the motor inserted as resources.
 pub fn world(physics: PhysicsWorld, seed: u64) -> Result<World, Box<dyn Error>> {
     let mut world = World::new(seed)?;
-    kit_fps::install(&mut world)?;
+    kit_fps::install(&mut world, MAX_ACTORS)?;
     world.insert_resource(physics)?;
     world.insert_resource(motor()?)?;
     Ok(world)
@@ -176,8 +178,7 @@ fn step_physics(world: &mut World, _ctx: &mut SystemContext<'_>) -> Result<(), W
 /// The kit's systems followed by the physics step. The seed forks each system's RNG stream.
 pub fn schedule(seed: u64) -> Result<Schedule, Box<dyn Error>> {
     let mut schedule = Schedule::new(&SimRng::new(seed, 0), DT)?;
-    kit_fps::add_systems(&mut schedule)?;
-    schedule.add_system("physics.step", step_physics)?;
+    kit_fps::add_systems(&mut schedule, step_physics)?;
     Ok(schedule)
 }
 

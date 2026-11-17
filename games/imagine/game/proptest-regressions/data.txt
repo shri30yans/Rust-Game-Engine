@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 153e8862c5fe362bb3ea9331a45d716deed989615203d652df306c5f482dc571 # shrinks to walk_speed = 0.1, damage = 1, sight = 5.0, engage_fraction = 0.1

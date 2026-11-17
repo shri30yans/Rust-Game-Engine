@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::error::AppError;
 
-/// Identity of a game for the network handshake.
+/// Identity of a game for the network handshake (ARCHITECTURE §0 rule 7).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GameInfo {
     /// Human-readable game name, for logs and handshake errors.

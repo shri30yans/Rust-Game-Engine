@@ -1,0 +1,13 @@
+(
+    footstep_stride_m: 1.7,
+    sounds: [
+        (id: rifle_near, file: "rifle_near.wav", bus: Weapons, volume: 0.88, pitch_jitter: 0.035, max_voices: 8, priority: 10, spatial: Some((min_distance: 1.0, max_distance: 85.0))),
+        (id: rifle_far, file: "rifle_far.wav", bus: Weapons, volume: 0.74, pitch_jitter: 0.02, max_voices: 12, priority: 8, spatial: Some((min_distance: 12.0, max_distance: 250.0))),
+        (id: footstep_1, file: "footstep_1.wav", bus: Foley, volume: 0.52, pitch_jitter: 0.025, max_voices: 8, priority: 2, spatial: Some((min_distance: 0.7, max_distance: 28.0))),
+        (id: footstep_2, file: "footstep_2.wav", bus: Foley, volume: 0.52, pitch_jitter: 0.025, max_voices: 8, priority: 2, spatial: Some((min_distance: 0.7, max_distance: 28.0))),
+        (id: footstep_3, file: "footstep_3.wav", bus: Foley, volume: 0.52, pitch_jitter: 0.025, max_voices: 8, priority: 2, spatial: Some((min_distance: 0.7, max_distance: 28.0))),
+        (id: hit_tick, file: "hit_tick.wav", bus: Ui, volume: 0.64, pitch_jitter: 0.0, max_voices: 4, priority: 15, spatial: None),
+        (id: kill_confirm, file: "kill_confirm.wav", bus: Ui, volume: 0.76, pitch_jitter: 0.0, max_voices: 2, priority: 20, spatial: None),
+        (id: dry_fire, file: "dry_fire.wav", bus: Weapons, volume: 0.5, pitch_jitter: 0.0, max_voices: 2, priority: 4, spatial: None),
+    ],
+)

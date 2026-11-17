@@ -28,7 +28,7 @@ pub(crate) fn generate_tangents(vertices: &mut [Vertex], indices: &[u32]) -> Res
         vertices: &'a mut [Vertex],
         indices: &'a [u32],
     }
-    impl mikktspace::Geometry for Geometry<'_> {
+    impl bevy_mikktspace::Geometry for Geometry<'_> {
         fn num_faces(&self) -> usize {
             self.indices.len() / 3
         }
@@ -56,7 +56,16 @@ pub(crate) fn generate_tangents(vertices: &mut [Vertex], indices: &[u32]) -> Res
                 .and_then(|index| self.vertices.get(index))
                 .map_or([0.0; 2], |vertex| vertex.uv)
         }
-        fn set_tangent_encoded(&mut self, tangent: [f32; 4], face: usize, vert: usize) {
+        fn set_tangent(
+            &mut self,
+            tangent_space: Option<bevy_mikktspace::TangentSpace>,
+            face: usize,
+            vert: usize,
+        ) {
+            let Some(tangent_space) = tangent_space else {
+                return;
+            };
+            let tangent = tangent_space.tangent_encoded();
             if let Some(index) = self
                 .indices
                 .get(face * 3 + vert)
@@ -71,7 +80,7 @@ pub(crate) fn generate_tangents(vertices: &mut [Vertex], indices: &[u32]) -> Res
         return Err(CookError::Mesh);
     }
     let mut geometry = Geometry { vertices, indices };
-    if !mikktspace::generate_tangents(&mut geometry) {
+    if bevy_mikktspace::generate_tangents(&mut geometry).is_err() {
         return Err(CookError::Mesh);
     }
     Ok(())

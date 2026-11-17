@@ -1,0 +1,17 @@
+(
+    rows: 0,
+    options: 3,
+    text: "SAMPLE",
+    number: 1.0,
+    flag: true,
+    values: {
+        "health": Text("100"),
+        "max_health": Text("100"),
+        "health_frac": Num(1.0),
+        "low": Flag(false),
+        "downed": Flag(false),
+        "kill": Flag(false),
+        "respawn": Num(2.3),
+        "player": Text("PLAYER"),
+    },
+)

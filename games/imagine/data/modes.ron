@@ -1,0 +1,26 @@
+[
+    (
+        id: "survival_protocol",
+        name: "SURVIVAL PROTOCOL",
+        capacity: (min_players: 12, max_players: 24),
+        length: "12 MIN",
+        rule: "SURVIVE THE DIRECTOR'S CHANGING ARENA.",
+        available: false,
+    ),
+    (
+        id: "control_shift",
+        name: "CONTROL SHIFT",
+        capacity: (min_players: 2, max_players: 10),
+        length: "10 MIN",
+        rule: "HOLD ZONES AS THE ARENA REFORMS.",
+        available: false,
+    ),
+    (
+        id: "practice",
+        name: "PRACTICE",
+        capacity: (min_players: 1, max_players: 7),
+        length: "10 MIN",
+        rule: "LEARN THE ARENA WITH BOTS.",
+        available: true,
+    ),
+]

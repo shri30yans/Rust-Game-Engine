@@ -1,25 +1,21 @@
 //! Hit points, teams and damage.
 //!
 //! [`Health`] is a component that can only be built through validated constructors, so its
-//! current value always lies in `[0, max]`. Weapons never change health directly: they queue a
-//! [`DamageEvent`] in the [`DamageLog`] resource, and [`damage_system`] applies the queue once per
-//! tick and records every death in the same log. The game reads the log for hit markers and kill
-//! feeds, and it is cleared at the start of the next tick's damage pass.
+//! current value always lies in `[0, max]`. Nothing changes health directly: weapons and lethal
+//! movers write a [`DamageEvent`], and [`damage_system`] applies this tick's hits in write order
+//! and writes a [`Damaged`] event for each and a [`Killed`] event for each death. The game reads
+//! those events for hit markers, kill feeds and scores.
 //!
 //! Invariants: `1 <= max` and `0 <= current <= max`; damage is a `u32` and saturates at zero; an
-//! entity is alive exactly when its current health is above zero; the log contents enter the state
-//! hash, so a queue left behind by a schedule that skipped [`damage_system`] changes the hash
-//! instead of hiding.
+//! entity is alive exactly when its current health is above zero; one death writes exactly one
+//! [`Killed`], because only the hit that takes health from above zero to zero reports a death.
 
-use engine_core::StateHasher;
-use engine_world::{NetId, Resource, SystemContext, World, WorldError};
+use engine_world::{NetId, SystemContext, World, WorldError};
 use serde::{Deserialize, Serialize};
 
 use crate::error::KitError;
+use crate::events::{DamageEvent, Damaged, Killed};
 use crate::validate::at_least_one;
-
-/// Capacity reserved for the damage log at install. More events grow the buffer once.
-pub(crate) const DAMAGE_LOG_CAPACITY: usize = 64;
 
 /// An amount of damage in whole hit points.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
@@ -160,125 +156,27 @@ impl Team {
     }
 }
 
-/// One hit waiting to be applied: who was hit, who hit them, and how much damage.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct DamageEvent {
-    target: NetId,
-    source: NetId,
-    amount: Damage,
-}
-
-impl DamageEvent {
-    /// A hit on `target` by `source` for `amount`.
-    #[must_use]
-    pub const fn new(target: NetId, source: NetId, amount: Damage) -> Self {
-        Self {
-            target,
-            source,
-            amount,
-        }
-    }
-
-    /// The entity that was hit.
-    #[must_use]
-    pub const fn target(self) -> NetId {
-        self.target
-    }
-
-    /// The entity that dealt the hit.
-    #[must_use]
-    pub const fn source(self) -> NetId {
-        self.source
-    }
-
-    /// The damage dealt.
-    #[must_use]
-    pub const fn amount(self) -> Damage {
-        self.amount
-    }
-}
-
-/// The hits queued for [`damage_system`], and the deaths it recorded. Owned by the world as a
-/// resource; the game reads it after each tick.
-pub struct DamageLog {
-    events: Vec<DamageEvent>,
-    deaths: Vec<NetId>,
-}
-
-impl DamageLog {
-    /// An empty log with [`DAMAGE_LOG_CAPACITY`] reserved for each list.
-    #[must_use]
-    pub fn new() -> Self {
-        Self {
-            events: Vec::with_capacity(DAMAGE_LOG_CAPACITY),
-            deaths: Vec::with_capacity(DAMAGE_LOG_CAPACITY),
-        }
-    }
-
-    /// Queues a hit for the next [`damage_system`] run.
-    pub fn push(&mut self, event: DamageEvent) {
-        self.events.push(event);
-    }
-
-    /// The hits queued since the last damage pass, in the order they were pushed.
-    #[must_use]
-    pub fn events(&self) -> &[DamageEvent] {
-        &self.events
-    }
-
-    /// The entities that died in the last damage pass, in the order they were hit.
-    #[must_use]
-    pub fn deaths(&self) -> &[NetId] {
-        &self.deaths
-    }
-}
-
-impl Default for DamageLog {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl Resource for DamageLog {
-    fn hash_into(&self, hasher: &mut StateHasher) {
-        hasher.write_u64(self.events.len() as u64);
-        for event in &self.events {
-            hasher.write_u32(event.amount.amount());
-        }
-        hasher.write_u64(self.deaths.len() as u64);
-    }
-}
-
-/// Applies every queued hit to its target's [`Health`] and records each death, then empties the
-/// queue. Both lists keep their capacity: they are taken out, drained and handed back, so a tick
-/// that stays within capacity allocates nothing.
+/// Applies every hit queued this tick ([`DamageEvent`]s, in write order) to its target's
+/// [`Health`], writing a [`Damaged`] event for each and a [`Killed`] event for each hit that takes
+/// its target from alive to dead. It never clears a log: the schedule does, before each tick.
 ///
 /// # Errors
 ///
-/// Returns a world error when the log is missing, or a target is not a live entity with
-/// [`Health`]. The queue is emptied even when a hit fails.
+/// Returns a world error when an event log is missing, or a target is not a live entity with
+/// [`Health`].
 pub fn damage_system(world: &mut World, _ctx: &mut SystemContext<'_>) -> Result<(), WorldError> {
-    let mut events = std::mem::take(&mut world.resource_mut::<DamageLog>()?.events);
-    let mut deaths = std::mem::take(&mut world.resource_mut::<DamageLog>()?.deaths);
-    deaths.clear();
-    let result = apply_all(world, &events, &mut deaths);
-    events.clear();
-    let log = world.resource_mut::<DamageLog>()?;
-    log.events = events;
-    log.deaths = deaths;
-    result
-}
-
-/// Applies each queued hit in order, recording deaths, and stops at the first failure.
-fn apply_all(
-    world: &mut World,
-    events: &[DamageEvent],
-    deaths: &mut Vec<NetId>,
-) -> Result<(), WorldError> {
-    for event in events {
-        let outcome = world.get_mut::<Health>(event.target)?.apply(event.amount);
+    let count = world.events::<DamageEvent>()?.len();
+    for index in 0..count {
+        let Some(hit) = world.events::<DamageEvent>()?.get(index).copied() else {
+            break;
+        };
+        let outcome = world.get_mut::<Health>(hit.target())?.apply(hit.amount());
+        world.send(Damaged { hit, outcome })?;
         if outcome == Outcome::Died {
-            deaths.push(event.target);
+            world.send(Killed {
+                victim: hit.target(),
+                cause: hit.source(),
+            })?;
         }
     }
     Ok(())

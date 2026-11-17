@@ -1,0 +1,13 @@
+<!doctype html><html><head><style>
+body { background-color: #07090cbf; display: flex; align-items: center; justify-content: center; }
+.card { width: 420px; padding: 20px; background-color: #141922; display: flex; flex-direction: column; gap: 12px; }
+.title { font-size: 32px; color: #f3f5f8; }
+.copy { font-size: 14px; color: #c3cad4; }
+.buttons { display: flex; justify-content: flex-end; gap: 8px; }
+.cancel { width: 112px; }
+button { height: 48px; padding: 8px; background-color: #1e2530; border: 1px solid #46505f; color: #f3f5f8; }
+button:focus-visible { border: 3px solid #ff6a1a; }
+.danger { width: 112px; border: 2px solid #ff3d52; color: #ff3d52; }
+</style></head><body data-default-focus="cancel">
+<div class="card"><p class="title">{title}</p><p class="copy">{body}</p><div class="buttons"><button id="cancel" class="cancel" data-action="cancel">CANCEL</button><button id="confirm" class="danger" data-action="confirm">CONFIRM</button></div></div>
+</body></html>

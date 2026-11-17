@@ -212,6 +212,13 @@ impl Resource for Player {
 /// The sandbox game: registers the physics world, the scene and the player, and adds the systems.
 pub struct SandboxGame {
     content: ContentPack,
+    startup_scene: StartupScene,
+}
+
+#[derive(Debug, Clone, Copy)]
+enum StartupScene {
+    Sandbox,
+    SampleArena { lockdown: bool },
 }
 
 impl SandboxGame {
@@ -220,6 +227,25 @@ impl SandboxGame {
     pub fn from_content(content: &ContentPack) -> Self {
         Self {
             content: content.clone(),
+            startup_scene: StartupScene::Sandbox,
+        }
+    }
+
+    /// Starts the generated sample arena from the mounted pack.
+    #[must_use]
+    pub fn sample_arena(content: &ContentPack) -> Self {
+        Self {
+            content: content.clone(),
+            startup_scene: StartupScene::SampleArena { lockdown: false },
+        }
+    }
+
+    /// Starts the generated sample arena with its authored lockdown layout applied.
+    #[must_use]
+    pub fn sample_arena_lockdown(content: &ContentPack) -> Self {
+        Self {
+            content: content.clone(),
+            startup_scene: StartupScene::SampleArena { lockdown: true },
         }
     }
 }
@@ -266,8 +292,42 @@ impl Game for SandboxGame {
         world.insert_resource(Bodies::default())?;
         engine_scene::register_components(world)?;
         world.insert_resource(crate::scene::SceneContent(self.content.clone()))?;
-        start_level(world)?;
-        let player = spawn_player(world, PLAYER_SPAWN_M)?;
+        let (player_spawn, sample_level) = match self.startup_scene {
+            StartupScene::Sandbox => {
+                start_level(world)?;
+                (PLAYER_SPAWN_M, false)
+            }
+            StartupScene::SampleArena { lockdown } => {
+                let path = engine_assets::AssetPath::new("content/cooked/sample_arena.level.ron")?;
+                let text = self.content.load_text(&path).map_err(|error| {
+                    engine_scene::SceneError::Tuning {
+                        file: path.as_str().to_owned(),
+                        reason: error.to_string(),
+                    }
+                })?;
+                let level = engine_scene::Level::parse(text, path.as_str())?;
+                crate::scene::install_scene(world, &level)?;
+                if lockdown {
+                    let layout = level
+                        .layouts()
+                        .iter()
+                        .find(|layout| layout.name == "lockdown")
+                        .ok_or_else(|| engine_scene::SceneError::Tuning {
+                            file: path.as_str().to_owned(),
+                            reason: "layout \"lockdown\" is absent".to_owned(),
+                        })?;
+                    apply_layout(world, layout)?;
+                }
+                (SAMPLE_ARENA_PLAYER_SPAWN_M, true)
+            }
+        };
+        if sample_level {
+            let path = engine_assets::AssetPath::new("content/cooked/sample_arena.level.ron")?;
+            world.insert_resource(engine_scene::WatchedLevel::new(
+                engine_scene::Watched::level(path, &self.content)?,
+            ))?;
+        }
+        let player = spawn_player(world, player_spawn)?;
         world.insert_resource(player)?;
         schedule.add_system("character_move", character_move)?;
         schedule.add_system("physics_step", physics_step)?;

@@ -1,0 +1,453 @@
+{
+ "desktop": {
+  "file": "partycrasher.glb",
+  "kb": 6128,
+  "tris": 8762,
+  "primitives": 16,
+  "meshes": 16,
+  "materials": [
+   "M_PARTYCRASHER",
+   "M_PARTYCRASHER_Glow"
+  ],
+  "images": [
+   [
+    "PARTYCRASHER_Emissive_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "PARTYCRASHER_Normal_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "PARTYCRASHER_BaseColor_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "PARTYCRASHER_ORM_2048",
+    "image/png",
+    2048,
+    2048
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Fire",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 17,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_ChargeFX0",
+     "PARTYCRASHER_ChargeFX1",
+     "PARTYCRASHER_ChargeFX2",
+     "PARTYCRASHER_ChargeFX3",
+     "PARTYCRASHER_ChargeFX4",
+     "PARTYCRASHER_ChargeFX5",
+     "PARTYCRASHER_ChargeFX6",
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot",
+     "PARTYCRASHER_Pod",
+     "PARTYCRASHER_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2.4,
+    "frames": 72,
+    "channels": 17,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_ChargeFX0",
+     "PARTYCRASHER_ChargeFX1",
+     "PARTYCRASHER_ChargeFX2",
+     "PARTYCRASHER_ChargeFX3",
+     "PARTYCRASHER_ChargeFX4",
+     "PARTYCRASHER_ChargeFX5",
+     "PARTYCRASHER_ChargeFX6",
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot",
+     "PARTYCRASHER_Pod"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 8,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 1,
+    "frames": 30,
+    "channels": 8,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_Pivot",
+     "PARTYCRASHER_Pod"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "PARTYCRASHER_Body",
+   "PARTYCRASHER_LED1",
+   "PARTYCRASHER_LED2",
+   "PARTYCRASHER_LED3",
+   "PARTYCRASHER_LED4",
+   "PARTYCRASHER_LED5",
+   "PARTYCRASHER_LED6",
+   "PARTYCRASHER_ChargeFX0",
+   "PARTYCRASHER_ChargeFX1",
+   "PARTYCRASHER_ChargeFX2",
+   "PARTYCRASHER_ChargeFX3",
+   "PARTYCRASHER_ChargeFX4",
+   "PARTYCRASHER_ChargeFX5",
+   "PARTYCRASHER_ChargeFX6",
+   "PARTYCRASHER_Pod",
+   "PARTYCRASHER_Socket_Muzzle",
+   "PARTYCRASHER_Socket_Sight",
+   "PARTYCRASHER_Socket_SupportHand",
+   "PARTYCRASHER_Trigger",
+   "PARTYCRASHER_Pivot",
+   "PARTYCRASHER"
+  ],
+  "skins": 0
+ },
+ "mobile": {
+  "file": "partycrasher_mobile.glb",
+  "kb": 2143,
+  "tris": 8762,
+  "primitives": 16,
+  "meshes": 16,
+  "materials": [
+   "M_PARTYCRASHER",
+   "M_PARTYCRASHER_Glow"
+  ],
+  "images": [
+   [
+    "PARTYCRASHER_Emissive_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "PARTYCRASHER_Normal_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "PARTYCRASHER_BaseColor_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "PARTYCRASHER_ORM_1024",
+    "image/png",
+    1024,
+    1024
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Fire",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 17,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_ChargeFX0",
+     "PARTYCRASHER_ChargeFX1",
+     "PARTYCRASHER_ChargeFX2",
+     "PARTYCRASHER_ChargeFX3",
+     "PARTYCRASHER_ChargeFX4",
+     "PARTYCRASHER_ChargeFX5",
+     "PARTYCRASHER_ChargeFX6",
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot",
+     "PARTYCRASHER_Pod",
+     "PARTYCRASHER_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2.4,
+    "frames": 72,
+    "channels": 17,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_ChargeFX0",
+     "PARTYCRASHER_ChargeFX1",
+     "PARTYCRASHER_ChargeFX2",
+     "PARTYCRASHER_ChargeFX3",
+     "PARTYCRASHER_ChargeFX4",
+     "PARTYCRASHER_ChargeFX5",
+     "PARTYCRASHER_ChargeFX6",
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot",
+     "PARTYCRASHER_Pod"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 8,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 1,
+    "frames": 30,
+    "channels": 8,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_LED1",
+     "PARTYCRASHER_LED2",
+     "PARTYCRASHER_LED3",
+     "PARTYCRASHER_LED4",
+     "PARTYCRASHER_LED5",
+     "PARTYCRASHER_LED6",
+     "PARTYCRASHER_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PARTYCRASHER_Pivot",
+     "PARTYCRASHER_Pod"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "PARTYCRASHER_Body",
+   "PARTYCRASHER_LED1",
+   "PARTYCRASHER_LED2",
+   "PARTYCRASHER_LED3",
+   "PARTYCRASHER_LED4",
+   "PARTYCRASHER_LED5",
+   "PARTYCRASHER_LED6",
+   "PARTYCRASHER_ChargeFX0",
+   "PARTYCRASHER_ChargeFX1",
+   "PARTYCRASHER_ChargeFX2",
+   "PARTYCRASHER_ChargeFX3",
+   "PARTYCRASHER_ChargeFX4",
+   "PARTYCRASHER_ChargeFX5",
+   "PARTYCRASHER_ChargeFX6",
+   "PARTYCRASHER_Pod",
+   "PARTYCRASHER_Socket_Muzzle",
+   "PARTYCRASHER_Socket_Sight",
+   "PARTYCRASHER_Socket_SupportHand",
+   "PARTYCRASHER_Trigger",
+   "PARTYCRASHER_Pivot",
+   "PARTYCRASHER"
+  ],
+  "skins": 0
+ },
+ "clips": [
+  {
+   "name": "Fire",
+   "frames": 24,
+   "loop": false,
+   "desc": "launch: pod kicks, the six charges and the six LEDs chase 1..6 then stay dark until Reload"
+  },
+  {
+   "name": "Reload",
+   "frames": 72,
+   "loop": false,
+   "desc": "pod slides out, spins a full turn while the six charges re-arm one by one, slams home; LEDs refill 1..6"
+  },
+  {
+   "name": "Idle",
+   "frames": 60,
+   "loop": true,
+   "desc": "sway + LED ripple"
+  },
+  {
+   "name": "Equip",
+   "frames": 30,
+   "loop": false,
+   "desc": "raise; LEDs boot 1..6"
+  },
+  {
+   "name": "Inspect",
+   "frames": 120,
+   "loop": false,
+   "desc": "showcase both sides, pod twist (120 deg = symmetric rest)"
+  }
+ ],
+ "hierarchy": [
+  "- PARTYCRASHER (node)",
+  "  - PARTYCRASHER_Pivot (node)",
+  "    - PARTYCRASHER_Body (mesh)",
+  "    - PARTYCRASHER_LED1 (mesh)",
+  "    - PARTYCRASHER_LED2 (mesh)",
+  "    - PARTYCRASHER_LED3 (mesh)",
+  "    - PARTYCRASHER_LED4 (mesh)",
+  "    - PARTYCRASHER_LED5 (mesh)",
+  "    - PARTYCRASHER_LED6 (mesh)",
+  "    - PARTYCRASHER_Pod (mesh)",
+  "      - PARTYCRASHER_ChargeFX0 (mesh)",
+  "      - PARTYCRASHER_ChargeFX1 (mesh)",
+  "      - PARTYCRASHER_ChargeFX2 (mesh)",
+  "      - PARTYCRASHER_ChargeFX3 (mesh)",
+  "      - PARTYCRASHER_ChargeFX4 (mesh)",
+  "      - PARTYCRASHER_ChargeFX5 (mesh)",
+  "      - PARTYCRASHER_ChargeFX6 (mesh)",
+  "    - PARTYCRASHER_Socket_Muzzle (node)",
+  "    - PARTYCRASHER_Socket_Sight (node)",
+  "    - PARTYCRASHER_Socket_SupportHand (node)",
+  "    - PARTYCRASHER_Trigger (mesh)"
+ ],
+ "textures_2k": {
+  "col": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_BaseColor_2048.png",
+  "orm": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_ORM_2048.png",
+  "normal": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_Normal_2048.png",
+  "emit": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_Emissive_2048.png"
+ },
+ "textures_1k": {
+  "col": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_BaseColor_1024.png",
+  "orm": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_ORM_1024.png",
+  "normal": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_Normal_1024.png",
+  "emit": "/workspace/weapons/export/textures/partycrasher/PARTYCRASHER_Emissive_1024.png"
+ }
+}

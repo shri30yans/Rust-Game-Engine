@@ -1,0 +1,409 @@
+{
+ "desktop": {
+  "file": "gravitywell.glb",
+  "kb": 5182,
+  "tris": 8076,
+  "primitives": 6,
+  "meshes": 6,
+  "materials": [
+   "M_GRAVITYWELL",
+   "M_GRAVITYWELL_Glow"
+  ],
+  "images": [
+   [
+    "GRAVITYWELL_Emissive_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "GRAVITYWELL_Normal_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "GRAVITYWELL_BaseColor_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "GRAVITYWELL_ORM_2048",
+    "image/png",
+    2048,
+    2048
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Charge",
+    "seconds": 1.5,
+    "frames": 45,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_OrbFX",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.6,
+    "frames": 18,
+    "channels": 7,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_OrbFX",
+     "GRAVITYWELL_Pivot",
+     "GRAVITYWELL_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 7,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_Cell",
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_Cell",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "GRAVITYWELL_Body",
+   "GRAVITYWELL_Cell",
+   "GRAVITYWELL_CoilGlowFX",
+   "GRAVITYWELL_Coils",
+   "GRAVITYWELL_OrbFX",
+   "GRAVITYWELL_Socket_Muzzle",
+   "GRAVITYWELL_Socket_Sight",
+   "GRAVITYWELL_Socket_SupportHand",
+   "GRAVITYWELL_Trigger",
+   "GRAVITYWELL_Pivot",
+   "GRAVITYWELL"
+  ],
+  "skins": 0
+ },
+ "mobile": {
+  "file": "gravitywell_mobile.glb",
+  "kb": 1899,
+  "tris": 8076,
+  "primitives": 6,
+  "meshes": 6,
+  "materials": [
+   "M_GRAVITYWELL",
+   "M_GRAVITYWELL_Glow"
+  ],
+  "images": [
+   [
+    "GRAVITYWELL_Emissive_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "GRAVITYWELL_Normal_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "GRAVITYWELL_BaseColor_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "GRAVITYWELL_ORM_1024",
+    "image/png",
+    1024,
+    1024
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Charge",
+    "seconds": 1.5,
+    "frames": 45,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_OrbFX",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.6,
+    "frames": 18,
+    "channels": 7,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_OrbFX",
+     "GRAVITYWELL_Pivot",
+     "GRAVITYWELL_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 7,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_Cell",
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_CoilGlowFX",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "GRAVITYWELL_Cell",
+     "GRAVITYWELL_Coils",
+     "GRAVITYWELL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "GRAVITYWELL_Body",
+   "GRAVITYWELL_Cell",
+   "GRAVITYWELL_CoilGlowFX",
+   "GRAVITYWELL_Coils",
+   "GRAVITYWELL_OrbFX",
+   "GRAVITYWELL_Socket_Muzzle",
+   "GRAVITYWELL_Socket_Sight",
+   "GRAVITYWELL_Socket_SupportHand",
+   "GRAVITYWELL_Trigger",
+   "GRAVITYWELL_Pivot",
+   "GRAVITYWELL"
+  ],
+  "skins": 0
+ },
+ "clips": [
+  {
+   "name": "Idle",
+   "frames": 60,
+   "loop": true,
+   "desc": "slow coil spin (1 rev / 2 s) + glow breathing"
+  },
+  {
+   "name": "Charge",
+   "frames": 45,
+   "loop": false,
+   "desc": "coils spin up (accelerating), glow swells and the gravity orb grows at the muzzle; chain into Fire from the last frame"
+  },
+  {
+   "name": "Fire",
+   "frames": 18,
+   "loop": false,
+   "desc": "orb launches from the muzzle, coils dump their charge"
+  },
+  {
+   "name": "Reload",
+   "frames": 60,
+   "loop": false,
+   "desc": "spent energy cell ejects from the rear bay, fresh cell slots in, coils restart"
+  },
+  {
+   "name": "Equip",
+   "frames": 24,
+   "loop": false,
+   "desc": "raise; coils spin up"
+  },
+  {
+   "name": "Inspect",
+   "frames": 120,
+   "loop": false,
+   "desc": "showcase both sides, cell check, coils turning"
+  }
+ ],
+ "hierarchy": [
+  "- GRAVITYWELL (node)",
+  "  - GRAVITYWELL_Pivot (node)",
+  "    - GRAVITYWELL_Body (mesh)",
+  "    - GRAVITYWELL_Cell (mesh)",
+  "    - GRAVITYWELL_CoilGlowFX (mesh)",
+  "    - GRAVITYWELL_Coils (mesh)",
+  "    - GRAVITYWELL_OrbFX (mesh)",
+  "    - GRAVITYWELL_Socket_Muzzle (node)",
+  "    - GRAVITYWELL_Socket_Sight (node)",
+  "    - GRAVITYWELL_Socket_SupportHand (node)",
+  "    - GRAVITYWELL_Trigger (mesh)"
+ ],
+ "textures_2k": {
+  "col": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_BaseColor_2048.png",
+  "orm": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_ORM_2048.png",
+  "normal": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_Normal_2048.png",
+  "emit": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_Emissive_2048.png"
+ },
+ "textures_1k": {
+  "col": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_BaseColor_1024.png",
+  "orm": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_ORM_1024.png",
+  "normal": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_Normal_1024.png",
+  "emit": "/workspace/weapons/export/textures/gravitywell/GRAVITYWELL_Emissive_1024.png"
+ }
+}

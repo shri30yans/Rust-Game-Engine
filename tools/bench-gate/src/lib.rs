@@ -1,10 +1,10 @@
 //! The comparison behind `bench-gate`: which bench cases run, how a run's JSON line becomes
 //! [`Metrics`], and when a result counts as a slowdown against the baseline.
 //!
-//! Rules: each case runs [`RUNS`] times and the best value of each metric is
+//! Rules (docs/research/2026-11-11-engine-audit.md §I, now docs/PERFORMANCE.md §2): each case runs [`RUNS`] times and the best value of each metric is
 //! kept, so a slowdown fails only when every run was slow (noise rarely does that). Median
 //! metrics (GPU frame, wall p50) may grow by at most [`Limits::median`]; the wall p99 by at
-//! most [`Limits::tail`]. On tiled GPUs only the whole GPU frame is valid, so
+//! most [`Limits::tail`]. On tiled GPUs only the whole GPU frame is valid (docs/PERFORMANCE.md §2), so
 //! per-pass times are not compared.
 
 use std::collections::BTreeMap;

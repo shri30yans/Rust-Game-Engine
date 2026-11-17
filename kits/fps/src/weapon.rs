@@ -6,7 +6,8 @@
 //!
 //! [`weapon_system`] resolves each shot as a ray from the shooter's eye that ignores the shooter's
 //! own body. A pellet that hits a locomotion actor on another team (or any actor, when friendly
-//! fire is on) queues a [`DamageEvent`]. Walls and floors absorb pellets and deal no damage.
+//! fire is on) writes a [`DamageEvent`]; every shot writes a [`ShotFired`]. Walls and floors absorb
+//! pellets and deal no damage.
 //!
 //! Invariants: every config value is validated, so the magazine, reload and fire interval are at
 //! least one and the spread never exceeds its maximum; retuning clamps ammunition and spread while
@@ -25,7 +26,8 @@ use serde::{Deserialize, Serialize};
 use crate::command::{Trigger, look_direction};
 use crate::controller::Locomotion;
 use crate::error::{KitError, lift};
-use crate::health::{Damage, DamageEvent, DamageLog, Health, Team, is_alive};
+use crate::events::{DamageEvent, ShotFired};
+use crate::health::{Damage, Health, Team, is_alive};
 use crate::roster::for_each_with;
 use crate::validate::{at_least_one, non_negative, positive};
 
@@ -738,14 +740,14 @@ impl Weapon {
 }
 
 /// Resolves every weapon's trigger for one tick: a shot is fired from the eye along each pellet
-/// direction, and each pellet that hits an actor queues a [`DamageEvent`] in the [`DamageLog`].
+/// direction and writes a [`ShotFired`], and each pellet that hits an actor writes a [`DamageEvent`].
 ///
 /// Each shooter needs a [`Locomotion`] (for its eye, body and command) and a [`Team`]. Dead
 /// shooters do not fire or reload. Spread draws come from the system's own RNG stream.
 ///
 /// # Errors
 ///
-/// Returns a world error when a shooter lacks a locomotion or team, the physics world or damage
+/// Returns a world error when a shooter lacks a locomotion or team, the physics world or an event
 /// log is missing, or a ray cannot be cast.
 pub fn weapon_system(world: &mut World, ctx: &mut SystemContext<'_>) -> Result<(), WorldError> {
     let rng = &mut *ctx.rng;
@@ -779,6 +781,12 @@ fn fire(world: &mut World, shooter: NetId, rng: &mut SimRng) -> Result<(), World
     let Some(shot) = shot else {
         return Ok(());
     };
+    world.send(ShotFired {
+        shooter,
+        origin: locomotion.eye(),
+        aim,
+        range_m: weapon.config().max_range(),
+    })?;
 
     let mut targets: [Option<NetId>; MAX_PELLETS] = [None; MAX_PELLETS];
     {
@@ -814,9 +822,7 @@ fn fire(world: &mut World, shooter: NetId, rng: &mut SimRng) -> Result<(), World
             weapon.config().damage(),
             weapon.config().damage_scale(distance),
         );
-        world
-            .resource_mut::<DamageLog>()?
-            .push(DamageEvent::new(target, shooter, damage));
+        world.send(DamageEvent::new(target, shooter, damage, origin, distance))?;
     }
     Ok(())
 }

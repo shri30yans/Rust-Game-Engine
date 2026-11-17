@@ -4,7 +4,7 @@
 //! The presenter turns keyboard state into the movement axes of a [`PlayerCommand`], passes the
 //! engine's view angles through as the command's heading, and asks the engine for the mouse grab,
 //! so mouse motion turns the view. On touch the JUMP button is the jump and is drawn as a plain
-//! ring and disc. The frame telemetry panel sits at the top left: F3 toggles it on desktop,
+//! ring and disc. The frame telemetry panel (D45) sits at the top left: F3 toggles it on desktop,
 //! and on touch it starts shown and an invisible button over its corner toggles it. The character
 //! itself is never drawn; the camera sits at its eye and uses the same view angles the simulation
 //! faces the character with.

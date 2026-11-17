@@ -1,0 +1,119 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Home mockup — Control Room</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{background:var(--ink-900)}
+/* L1 background */
+.bg{inset:0;background:
+  radial-gradient(ellipse 520px 420px at 380px 420px,rgba(255,106,26,.32),transparent 70%),
+  radial-gradient(ellipse 700px 500px at 1100px 0,rgba(127,227,255,.10),transparent 70%),
+  linear-gradient(180deg,#0f131a,#0a0c10)}
+.ghost{left:-30px;top:110px;font-size:330px;color:transparent;-webkit-text-stroke:2px rgba(243,245,248,.06);white-space:nowrap}
+.ht{left:150px;top:150px;width:470px;height:520px;-webkit-mask:radial-gradient(ellipse at 50% 55%,#000 30%,transparent 70%);mask:radial-gradient(ellipse at 50% 55%,#000 30%,transparent 70%);opacity:.55}
+.floor{left:120px;top:600px;width:540px;height:60px;background:radial-gradient(ellipse at 50% 40%,rgba(7,9,12,.9),transparent 70%)}
+.stripe{left:0;top:0;width:100%;height:100%;background:repeating-linear-gradient(115deg,transparent 0 60px,rgba(243,245,248,.018) 60px 61px)}
+/* top bar */
+.top{left:32px;right:32px;top:20px;height:52px;display:flex;align-items:center;gap:26px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .w{font-size:34px}
+.live{display:flex;align-items:center;gap:6px;font:700 13px/1 "Barlow Condensed";letter-spacing:.14em;color:var(--signal);border:1px solid rgba(255,106,26,.5);padding:4px 8px}
+.nav{display:flex;gap:4px;margin-left:24px}
+.nav a{font:700 20px/1 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase;color:var(--ink-300);padding:16px 16px 14px;position:relative}
+.nav a.on{color:var(--paper)}
+.nav a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:4px;background:var(--signal);clip-path:polygon(0 0,calc(100% - 4px) 0,100% 100%,0 100%)}
+.wallet{margin-left:auto;display:flex;align-items:center;gap:18px;font:700 20px/1 "Barlow Condensed";letter-spacing:.04em}
+.lvl{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--paper);color:var(--ink-900);font:900 22px/1 "Big Shoulders Display";clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+.ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ink-600)}
+/* char caption */
+.cap{left:150px;top:150px}
+/* right column */
+.col{left:744px;top:104px;width:504px}
+.eyebrow{display:flex;align-items:center;gap:10px;font:700 15px/1 "Barlow Condensed";letter-spacing:.18em;text-transform:uppercase;color:var(--ink-300)}
+.eyebrow .bar{width:28px;height:2px;background:var(--signal)}
+.mode{margin-top:14px;position:relative;height:230px;background:
+   linear-gradient(90deg,rgba(12,15,20,.95) 30%,rgba(12,15,20,.35)),url(arena.svg) 60% 40%/900px auto;
+   clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);border-left:6px solid var(--signal)}
+.mode .in{position:absolute;left:28px;top:22px;right:24px;bottom:22px;display:flex;flex-direction:column}
+.mode .t{font-size:84px;letter-spacing:.01em}
+.meta{display:flex;gap:18px;margin-top:10px;font:600 18px/1 "Barlow Condensed";letter-spacing:.08em;text-transform:uppercase;color:var(--ink-200)}
+.meta b{color:var(--paper)}
+.swap{margin-top:auto;display:flex;gap:8px}
+.swap span{font:700 14px/1 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;background:rgba(7,9,12,.7);border:1px solid var(--ink-600);color:var(--ink-200)}
+.swap span.on{border-color:var(--signal);color:var(--paper)}
+.squad{margin-top:22px;display:flex;gap:10px}
+.slot{flex:1;height:68px;background:var(--ink-800);display:flex;align-items:center;gap:10px;padding:0 12px;position:relative}
+.slot .av{width:40px;height:40px;background:#2a303a;display:flex;align-items:center;justify-content:center;font:900 20px/1 "Big Shoulders Display";color:var(--ink-900)}
+.slot .nm{font:700 18px/1.1 "Barlow Condensed";letter-spacing:.05em;text-transform:uppercase}
+.slot .sub{font:500 13px/1.2 Barlow;color:var(--ink-300)}
+.slot.empty{background:transparent;border:1px dashed var(--ink-500);justify-content:center;color:var(--ink-300);font:700 16px/1 "Barlow Condensed";letter-spacing:.1em}
+.play{margin-top:22px;height:96px;background:var(--signal);color:var(--ink-900);display:flex;align-items:center;padding:0 28px;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);position:relative;overflow:hidden}
+.play .w{font-size:72px;letter-spacing:.02em}
+.play .s{margin-left:auto;text-align:right;font:700 16px/1.25 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase}
+.play::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(12,15,20,.07) 22px 34px)}
+.sec{margin-top:12px;display:flex;gap:10px}
+.sec div{flex:1;height:44px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--ink-600);font:700 16px/1 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase;color:var(--ink-200)}
+/* news strip */
+.tick{left:0;right:0;bottom:0;height:40px;background:var(--ink-950);border-top:1px solid var(--ink-700);display:flex;align-items:center;overflow:hidden}
+.tick .on{height:100%;display:flex;align-items:center;gap:8px;padding:0 16px;background:var(--signal);color:var(--ink-900);font:700 15px/1 "Barlow Condensed";letter-spacing:.14em}
+.tick .msgs{display:flex;gap:40px;padding-left:24px;white-space:nowrap;font:600 15px/1 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase;color:var(--ink-200)}
+.tick .msgs b{color:var(--score);font-weight:700}
+.tick .msgs i{font-style:normal;color:var(--signal)}
+.challenge{left:32px;bottom:60px;width:300px;padding:12px 14px;background:rgba(12,15,20,.88);border-left:3px solid var(--heal)}
+.prog{height:6px;background:var(--ink-700);margin-top:8px}.prog i{display:block;height:100%;width:64%;background:var(--heal)}
+</style></head><body class="grid">
+<div class="abs bg"></div>
+<div class="abs stripe"></div>
+<div class="abs ghost disp">Kiln Yard</div>
+<div class="abs ht halftone"></div>
+<div class="abs floor"></div>
+<img class="abs" src="player.svg" style="left:190px;top:118px;width:340px;height:544px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))">
+
+<!-- caption brackets on character (CAM framing) -->
+<div class="abs brk" style="left:176px;top:110px;width:370px;height:560px;--bc:rgba(243,245,248,.35)"></div>
+<div class="abs tc" style="left:176px;top:84px">GRID B2 · PLAYER 07 · MEDIUM</div>
+<div class="abs" style="left:560px;top:470px">
+  <div class="l3" style="height:30px"><span class="tab"></span><span class="slab" style="font-size:20px">Kestrel</span></div>
+  <div style="font:600 14px/1.4 'Barlow Condensed';letter-spacing:.12em;color:var(--ink-300);text-transform:uppercase;margin-top:6px;padding-left:8px">Rank Gold II · 412 wins</div>
+</div>
+
+<!-- top bar -->
+<div class="abs top">
+  <div class="logo"><span class="w disp">IMAG<span style="color:var(--signal)">INE</span></span><span class="live"><span class="lamp" style="width:7px;height:7px"></span>ONLINE</span></div>
+  <div class="nav"><a class="on">Play</a><a>Loadout</a><a>Career</a><a>Season Pass</a><a>Store</a></div>
+  <div class="wallet"><span style="color:var(--score)">◈ 3,450</span><span class="lvl">24</span><span class="ib"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C3CAD4" stroke-width="2"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span></div>
+</div>
+<div class="abs" style="left:32px;right:32px;top:76px;height:1px;background:var(--ink-700)"></div>
+
+<!-- right column -->
+<div class="abs col">
+  <div class="eyebrow"><span class="bar"></span>Featured · Launch season</div>
+  <div class="mode">
+    <div class="in">
+      <div class="t disp">Team Fight</div>
+      <div class="meta"><span><b>5v5</b> teams</span><span><b>12</b> min</span><span>Map <b>Kiln Yard</b></span></div>
+      <div class="swap"><span class="on">Team Fight</span><span>Practice</span><span>Private room</span><span>‹ ›</span></div>
+    </div>
+  </div>
+  <div class="squad">
+    <div class="slot" style="box-shadow:inset 3px 0 0 var(--signal)"><span class="av" style="background:var(--ember)">▲</span><div><div class="nm">Kestrel</div><div class="sub">You · Medium</div></div></div>
+    <div class="slot"><span class="av" style="background:var(--ink-300)">J</span><div><div class="nm">Juno</div><div class="sub" style="color:var(--heal)">● Ready</div></div></div>
+    <div class="slot empty">+ Invite</div>
+  </div>
+  <div class="play"><span class="w disp">Play</span><span class="s">Est. 0:24<br>EU-West · 18 ms</span></div>
+  <div class="sec"><div>Loadout</div><div>Party code <span class="mono" style="color:var(--paper);letter-spacing:0">K7-QX2</span></div></div>
+</div>
+
+<!-- challenge -->
+<div class="abs challenge">
+  <div class="eyebrow"><span class="bar" style="background:var(--heal)"></span>Weekly challenge</div>
+  <div style="font:700 20px/1.3 'Barlow Condensed';letter-spacing:.04em;text-transform:uppercase;margin-top:8px">Revive 30 teammates <span style="color:var(--ink-300);float:right">19/30</span></div>
+  <div class="prog"><i></i></div>
+</div>
+
+<!-- registration marks + grid reference -->
+<div class="crop" style="left:24px;top:84px"></div><div class="crop" style="right:24px;top:84px"></div>
+<div class="abs tc" style="right:32px;top:84px">GRID C4 · SHEET 01</div>
+
+<!-- news strip -->
+<div class="abs tick"><span class="on"><span class="lamp" style="background:var(--ink-900);box-shadow:none;width:7px;height:7px"></span>NEWS</span>
+  <div class="msgs"><span>Season 1 <i>"Kiln Yard"</i> — 41 days left</span><span>Double <b>XP</b> this weekend</span><span>Kiln Yard: <b>new crane tower</b> — bring it down</span><span>Patch 0.4 notes →</span></div></div>
+</body></html>

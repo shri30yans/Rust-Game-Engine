@@ -1,0 +1,315 @@
+{
+ "desktop": {
+  "file": "pistol.glb",
+  "kb": 295,
+  "tris": 6321,
+  "primitives": 11,
+  "meshes": 8,
+  "materials": [
+   "steel_barrel",
+   "steel_polished_rim",
+   "steel_gunmetal",
+   "polymer_frame",
+   "checkered_grip",
+   "steel_slide"
+  ],
+  "images": [],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 2,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.3,
+    "frames": 9,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "slide",
+     "trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 1.8,
+    "frames": 54,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "magazine",
+     "slide"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "slide"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 3,
+    "frames": 90,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "slide"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "barrel",
+   "controls",
+   "frame",
+   "grip_panels",
+   "magazine",
+   "PISTOL_Socket_Eject",
+   "PISTOL_Socket_MagWell",
+   "PISTOL_Socket_Muzzle",
+   "PISTOL_Socket_Sight",
+   "sights",
+   "slide",
+   "socket_eject",
+   "socket_grip",
+   "socket_mag",
+   "socket_muzzle",
+   "socket_sight",
+   "trigger",
+   "PISTOL_Pivot",
+   "PISTOL"
+  ],
+  "skins": 0
+ },
+ "mobile": {
+  "file": "pistol_mobile.glb",
+  "kb": 295,
+  "tris": 6321,
+  "primitives": 11,
+  "meshes": 8,
+  "materials": [
+   "steel_barrel",
+   "steel_polished_rim",
+   "steel_gunmetal",
+   "polymer_frame",
+   "checkered_grip",
+   "steel_slide"
+  ],
+  "images": [],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 2,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.3,
+    "frames": 9,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "slide",
+     "trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 1.8,
+    "frames": 54,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "magazine",
+     "slide"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "slide"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 3,
+    "frames": 90,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "PISTOL_Pivot",
+     "slide"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "barrel",
+   "controls",
+   "frame",
+   "grip_panels",
+   "magazine",
+   "PISTOL_Socket_Eject",
+   "PISTOL_Socket_MagWell",
+   "PISTOL_Socket_Muzzle",
+   "PISTOL_Socket_Sight",
+   "sights",
+   "slide",
+   "socket_eject",
+   "socket_grip",
+   "socket_mag",
+   "socket_muzzle",
+   "socket_sight",
+   "trigger",
+   "PISTOL_Pivot",
+   "PISTOL"
+  ],
+  "skins": 0
+ },
+ "clips": [
+  {
+   "name": "Idle",
+   "frames": 60,
+   "loop": true,
+   "desc": "breathing sway"
+  },
+  {
+   "name": "Fire",
+   "frames": 9,
+   "loop": false,
+   "desc": "one shot: muzzle flip, slide blowback, trigger pull"
+  },
+  {
+   "name": "Reload",
+   "frames": 54,
+   "loop": false,
+   "desc": "drop magazine along grip angle, insert fresh magazine, rack slide"
+  },
+  {
+   "name": "Equip",
+   "frames": 24,
+   "loop": false,
+   "desc": "draw from holster and rack slide"
+  },
+  {
+   "name": "Inspect",
+   "frames": 90,
+   "loop": false,
+   "desc": "showcase left and right profiles with press-check"
+  }
+ ],
+ "hierarchy": [
+  "- PISTOL (node)",
+  "  - PISTOL_Pivot (node)",
+  "    - barrel (mesh)",
+  "    - controls (mesh)",
+  "    - frame (mesh)",
+  "    - grip_panels (mesh)",
+  "    - magazine (mesh)",
+  "    - PISTOL_Socket_Eject (node)",
+  "    - PISTOL_Socket_MagWell (node)",
+  "    - PISTOL_Socket_Muzzle (node)",
+  "    - PISTOL_Socket_Sight (node)",
+  "    - sights (mesh)",
+  "    - slide (mesh)",
+  "    - socket_eject (node)",
+  "    - socket_grip (node)",
+  "    - socket_mag (node)",
+  "    - socket_muzzle (node)",
+  "    - socket_sight (node)",
+  "    - trigger (mesh)"
+ ],
+ "textures_2k": {},
+ "textures_1k": {}
+}

@@ -1,0 +1,405 @@
+{
+ "desktop": {
+  "file": "shinobi.glb",
+  "kb": 5939,
+  "tris": 4064,
+  "primitives": 4,
+  "meshes": 4,
+  "materials": [
+   "M_SHINOBI",
+   "M_SHINOBI_Glow"
+  ],
+  "images": [
+   [
+    "SHINOBI_Emissive_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "SHINOBI_Normal_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "SHINOBI_BaseColor_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "SHINOBI_ORM_2048",
+    "image/png",
+    2048,
+    2048
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "SwingLight",
+    "seconds": 0.6,
+    "frames": 18,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "SwingHeavy",
+    "seconds": 1.2,
+    "frames": 36,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Parry",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 5,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_Disc",
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_Disc",
+     "SHINOBI_DiscFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "SHINOBI_Body",
+   "SHINOBI_Disc",
+   "SHINOBI_DiscFX",
+   "SHINOBI_EdgeFX",
+   "SHINOBI_Socket_BladeBase",
+   "SHINOBI_Socket_OffHand",
+   "SHINOBI_Socket_Tip",
+   "SHINOBI_Socket_TrailEnd",
+   "SHINOBI_Socket_TrailStart",
+   "SHINOBI_Pivot",
+   "SHINOBI"
+  ],
+  "skins": 0
+ },
+ "mobile": {
+  "file": "shinobi_mobile.glb",
+  "kb": 2090,
+  "tris": 4064,
+  "primitives": 4,
+  "meshes": 4,
+  "materials": [
+   "M_SHINOBI",
+   "M_SHINOBI_Glow"
+  ],
+  "images": [
+   [
+    "SHINOBI_Emissive_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "SHINOBI_Normal_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "SHINOBI_BaseColor_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "SHINOBI_ORM_1024",
+    "image/png",
+    1024,
+    1024
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "SwingLight",
+    "seconds": 0.6,
+    "frames": 18,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "SwingHeavy",
+    "seconds": 1.2,
+    "frames": 36,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Parry",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 5,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_Disc",
+     "SHINOBI_DiscFX",
+     "SHINOBI_EdgeFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 4,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "SHINOBI_Disc",
+     "SHINOBI_DiscFX",
+     "SHINOBI_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "SHINOBI_Body",
+   "SHINOBI_Disc",
+   "SHINOBI_DiscFX",
+   "SHINOBI_EdgeFX",
+   "SHINOBI_Socket_BladeBase",
+   "SHINOBI_Socket_OffHand",
+   "SHINOBI_Socket_Tip",
+   "SHINOBI_Socket_TrailEnd",
+   "SHINOBI_Socket_TrailStart",
+   "SHINOBI_Pivot",
+   "SHINOBI"
+  ],
+  "skins": 0
+ },
+ "clips": [
+  {
+   "name": "Idle",
+   "frames": 60,
+   "loop": true,
+   "desc": "breathing sway + jade glow pulse"
+  },
+  {
+   "name": "Equip",
+   "frames": 24,
+   "loop": false,
+   "desc": "quick-draw along the blade axis (as if from a saya) then flourish"
+  },
+  {
+   "name": "SwingLight",
+   "frames": 18,
+   "loop": false,
+   "desc": "fast horizontal slash right-to-left; use Socket_TrailStart/TrailEnd for the trail ribbon; hit window f6-f10"
+  },
+  {
+   "name": "SwingHeavy",
+   "frames": 36,
+   "loop": false,
+   "desc": "overhead wind-up and downward cleave; hit window f19-f24"
+  },
+  {
+   "name": "Parry",
+   "frames": 24,
+   "loop": false,
+   "desc": "blade raised flat across the body; the parry disc flares and spins (block window f5-f16)"
+  },
+  {
+   "name": "Inspect",
+   "frames": 120,
+   "loop": false,
+   "desc": "turn the blade edge-on, full twist to show both faces, disc spin"
+  }
+ ],
+ "hierarchy": [
+  "- SHINOBI (node)",
+  "  - SHINOBI_Pivot (node)",
+  "    - SHINOBI_Body (mesh)",
+  "    - SHINOBI_Disc (mesh)",
+  "    - SHINOBI_DiscFX (mesh)",
+  "    - SHINOBI_EdgeFX (mesh)",
+  "    - SHINOBI_Socket_BladeBase (node)",
+  "    - SHINOBI_Socket_OffHand (node)",
+  "    - SHINOBI_Socket_Tip (node)",
+  "    - SHINOBI_Socket_TrailEnd (node)",
+  "    - SHINOBI_Socket_TrailStart (node)"
+ ],
+ "textures_2k": {
+  "col": "/workspace/weapons/export/textures/shinobi/SHINOBI_BaseColor_2048.png",
+  "orm": "/workspace/weapons/export/textures/shinobi/SHINOBI_ORM_2048.png",
+  "normal": "/workspace/weapons/export/textures/shinobi/SHINOBI_Normal_2048.png",
+  "emit": "/workspace/weapons/export/textures/shinobi/SHINOBI_Emissive_2048.png"
+ },
+ "textures_1k": {
+  "col": "/workspace/weapons/export/textures/shinobi/SHINOBI_BaseColor_1024.png",
+  "orm": "/workspace/weapons/export/textures/shinobi/SHINOBI_ORM_1024.png",
+  "normal": "/workspace/weapons/export/textures/shinobi/SHINOBI_Normal_1024.png",
+  "emit": "/workspace/weapons/export/textures/shinobi/SHINOBI_Emissive_1024.png"
+ }
+}

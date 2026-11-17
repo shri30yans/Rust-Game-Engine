@@ -1,5 +1,5 @@
-//! `check-layers`: CI gate for numeric layers and folder zones (engine and kits never depend
-//! on a game; games never depend on each other).
+//! `check-layers`: CI gate for numeric layers and folder zones in
+//! `docs/ARCHITECTURE.md` section 0–1 (decision D24).
 //!
 //! The judgement is pure in [`rules`], [`check`] and [`scan::find_forbidden`], so
 //! it is unit-tested with fixture metadata and files. [`metadata`] runs `cargo`;

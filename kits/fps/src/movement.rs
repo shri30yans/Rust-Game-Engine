@@ -1,10 +1,10 @@
-//! The mutually exclusive locomotion mode and its per-tick event log.
+//! The mutually exclusive locomotion mode and the event a mode change writes.
 //!
 //! Physics queries provide facts to [`next_state`]; the transition table itself is pure and is
-//! shared by players, bots, prediction and tests.
+//! shared by players, bots, prediction and tests. A mode change is written as a [`MovementEvent`]
+//! to the tick's event log, so sound, animation and the HUD follow it.
 
-use engine_core::StateHasher;
-use engine_world::{NetId, Resource};
+use engine_world::NetId;
 use glam::Vec3;
 use serde::{Deserialize, Serialize};
 
@@ -40,7 +40,7 @@ pub enum MoveState {
     },
 }
 
-/// One mode change during a simulation tick.
+/// One mode change during a simulation tick. Landing is a change out of [`MoveState::Air`].
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct MovementEvent {
     /// Actor whose mode changed.
@@ -49,48 +49,6 @@ pub struct MovementEvent {
     pub from: MoveState,
     /// New mode.
     pub to: MoveState,
-}
-
-/// Per-tick movement mode changes. Its actor-sized buffer is allocated during setup.
-pub struct MovementLog {
-    events: Vec<MovementEvent>,
-}
-
-impl MovementLog {
-    /// Creates a log with capacity for the match's actors.
-    #[must_use]
-    pub fn with_capacity(capacity: usize) -> Self {
-        Self {
-            events: Vec::with_capacity(capacity),
-        }
-    }
-
-    /// Mode changes recorded during this tick.
-    #[must_use]
-    pub fn events(&self) -> &[MovementEvent] {
-        &self.events
-    }
-
-    /// Clears the previous tick without releasing its allocation.
-    pub fn clear(&mut self) {
-        self.events.clear();
-    }
-
-    /// Records a mode change.
-    pub fn push(&mut self, event: MovementEvent) {
-        self.events.push(event);
-    }
-}
-
-impl Resource for MovementLog {
-    fn hash_into(&self, hasher: &mut StateHasher) {
-        for event in &self.events {
-            hasher.write_u32(event.actor.index());
-            hasher.write_u32(event.actor.generation());
-            hash_state(hasher, event.from);
-            hash_state(hasher, event.to);
-        }
-    }
 }
 
 /// Physics and tuning facts needed by the pure movement transition table.
@@ -207,32 +165,6 @@ pub fn next_state(state: MoveState, command: MoveCommand, facts: TransitionFacts
         }
         MoveState::Air => MoveState::Walk,
         MoveState::Mantle { .. } => MoveState::Walk,
-    }
-}
-
-fn hash_state(hasher: &mut StateHasher, state: MoveState) {
-    match state {
-        MoveState::Walk => hasher.write_u8(0),
-        MoveState::Sprint => hasher.write_u8(1),
-        MoveState::Crouch => hasher.write_u8(2),
-        MoveState::Slide { ticks_left } => {
-            hasher.write_u8(3);
-            hasher.write_u32(u32::from(ticks_left));
-        }
-        MoveState::Air => hasher.write_u8(4),
-        MoveState::Mantle {
-            from,
-            to,
-            tick,
-            ticks,
-        } => {
-            hasher.write_u8(5);
-            for value in [from.x, from.y, from.z, to.x, to.y, to.z] {
-                hasher.write_f32(value);
-            }
-            hasher.write_u32(u32::from(tick));
-            hasher.write_u32(u32::from(ticks));
-        }
     }
 }
 

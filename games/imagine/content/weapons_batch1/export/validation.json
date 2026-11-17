@@ -1,0 +1,161 @@
+{
+ "breacher.glb": {
+  "errors": 0,
+  "warnings": 4,
+  "infos": 5,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/3/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/4/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/5/primitives/0/material"
+  ]
+ },
+ "breacher_mobile.glb": {
+  "errors": 0,
+  "warnings": 4,
+  "infos": 5,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/3/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/4/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/5/primitives/0/material"
+  ]
+ },
+ "gravitywell.glb": {
+  "errors": 0,
+  "warnings": 4,
+  "infos": 3,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/3/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/5/primitives/0/material"
+  ]
+ },
+ "gravitywell_mobile.glb": {
+  "errors": 0,
+  "warnings": 4,
+  "infos": 3,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/3/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/5/primitives/0/material"
+  ]
+ },
+ "oblivion.glb": {
+  "errors": 0,
+  "warnings": 3,
+  "infos": 6,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/6/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/7/primitives/0/material"
+  ]
+ },
+ "oblivion_mobile.glb": {
+  "errors": 0,
+  "warnings": 3,
+  "infos": 6,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/6/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/7/primitives/0/material"
+  ]
+ },
+ "partycrasher.glb": {
+  "errors": 0,
+  "warnings": 3,
+  "infos": 3,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/14/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/15/primitives/0/material"
+  ]
+ },
+ "partycrasher_mobile.glb": {
+  "errors": 0,
+  "warnings": 3,
+  "infos": 3,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/14/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/15/primitives/0/material"
+  ]
+ },
+ "raven7.glb": {
+  "errors": 0,
+  "warnings": 5,
+  "infos": 5,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/2/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/4/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/7/primitives/0/material"
+  ]
+ },
+ "raven7_mobile.glb": {
+  "errors": 0,
+  "warnings": 5,
+  "infos": 5,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/2/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/4/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/7/primitives/0/material"
+  ]
+ },
+ "shinobi.glb": {
+  "errors": 0,
+  "warnings": 2,
+  "infos": 5,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material"
+  ]
+ },
+ "shinobi_mobile.glb": {
+  "errors": 0,
+  "warnings": 2,
+  "infos": 5,
+  "hints": 0,
+  "messages": [
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/0/primitives/0/material",
+   "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE: Material requires a tangent space but the mesh primitive does not provide it. Runtime-generated tangent space may be non-portable across implementations. @ /meshes/1/primitives/0/material"
+  ]
+ },
+ "pistol.glb": {
+  "errors": 0,
+  "warnings": 0,
+  "infos": 0,
+  "hints": 0,
+  "messages": []
+ },
+ "pistol_mobile.glb": {
+  "errors": 0,
+  "warnings": 0,
+  "infos": 0,
+  "hints": 0,
+  "messages": []
+ },
+ "pistol_bronze.glb": {
+  "errors": 0,
+  "warnings": 0,
+  "infos": 0,
+  "hints": 0,
+  "messages": []
+ }
+}

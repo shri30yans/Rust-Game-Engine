@@ -1,6 +1,6 @@
 //! Sessions: the lobby layer between "a player opened the game" and "a match is running".
 //!
-//! A [`Room`] owns the seats of
+//! Modelled on Unreal's `AGameSession` and online sessions: a [`Room`] owns the seats of
 //! one game session (humans and bots, teams, ready flags, the host, admission and the
 //! lobby → countdown → match → results cycle), and a [`SessionDirectory`] lists the rooms a
 //! server hosts so players can find one by [`RoomCode`] or by browsing.

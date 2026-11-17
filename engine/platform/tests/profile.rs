@@ -1,4 +1,4 @@
-//! Integration tests for the device profile.
+//! Integration tests for the device profile (D25, D33, D35).
 
 #![allow(clippy::unwrap_used, clippy::expect_used)]
 

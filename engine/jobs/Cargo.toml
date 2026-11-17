@@ -1,6 +1,6 @@
 [package]
 name = "engine-jobs"
-description = "Job pool and background pool: ordered chunked parallel helpers"
+description = "Job pool and background pool: ordered chunked parallel helpers (D25)"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

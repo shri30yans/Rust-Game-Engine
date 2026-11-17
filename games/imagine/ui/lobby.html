@@ -1,0 +1,28 @@
+<!doctype html><html><head><style>
+body { background-color: #0c0f14; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; }
+.title { font-size: 36px; color: #f3f5f8; }
+.code { width: 180px; font-size: 20px; color: #ffd447; text-align: right; }
+.meta { font-size: 14px; color: #98a2b1; }
+.rows { display: flex; flex-direction: column; gap: 4px; }
+.seat { display: flex; align-items: center; justify-content: space-between; height: 28px; padding: 4px; background-color: #141922; border: 2px solid #ff7a3d; }
+.seat-button { height: 20px; padding: 1px; }
+.name { flex-grow: 1; font-size: 16px; color: #f3f5f8; }
+.status { width: 180px; font-size: 12px; color: #c3cad4; }
+.buttons { display: flex; gap: 8px; }
+.actions { display: flex; flex-direction: column; gap: 8px; }
+button { width: 100%; height: 48px; padding: 8px; background-color: #141922; border: 1px solid #46505f; color: #f3f5f8; }
+#team, #kick { width: 48px; }
+button:focus-visible { border: 3px solid #ff6a1a; }
+button:active { opacity: 0.8; transform: scale(0.97); }
+.primary { background-color: #ff6a1a; color: #0c0f14; }
+button:disabled { opacity: 0.4; }
+.banner { font-size: 22px; color: #ffd447; }
+</style></head><body data-default-focus="add_bot">
+<div class="header"><p class="title">LOCAL LOBBY</p><p class="code">ROOM {room_code}</p></div>
+<p class="meta">{mode} · {arena} · OPEN ADMISSION · {seat_count}/{seat_capacity} SEATS</p>
+<p class="banner" data-show-if="countdown">{countdown_text}</p>
+<div class="rows"><template data-repeat="seats" data-max="12"><div class="seat"><p class="name">{item.name} {item.host} · TEAM {item.team}</p><p class="status">{item.kind} · {item.ready}</p><div class="buttons"><button class="seat-button" id="team" data-action="team">TEAM</button><button class="seat-button" id="kick" data-action="kick" data-disabled="item.kick_disabled">KICK</button></div></div></template></div>
+<div class="actions"><button id="add_bot" data-action="add_bot" data-disabled="bot_capacity_reached">ADD BOT</button><button id="remove_bot" data-action="remove_bot" data-disabled="no_bots_to_remove">REMOVE BOT</button><button id="ready" class="primary" data-action="ready">{ready_label}</button><button id="start" data-action="start" data-disabled="cannot_start">START MATCH</button></div>
+<p class="meta">{toast}</p>
+</body></html>

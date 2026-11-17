@@ -177,8 +177,8 @@ impl CharacterController {
         if self.embedded(world, filter, state.position + translation) {
             // Rapier can resolve a move wedged between two surfaces (for example the floor and an
             // overhanging face) into a pose inside one of them (measured: 3.7 cm into the floor
-            // under a box tilted 30 degrees over the character). A move that would end
-            // embedded is not taken: the character keeps its valid start pose.
+            // under a box tilted 30 degrees over the character). Like Unreal's safe move, a move
+            // that would end embedded is not taken: the character keeps its valid start pose.
             translation = Vec3::ZERO;
             grounded = state.grounded;
         }

@@ -156,6 +156,39 @@ mod tests {
     use super::*;
 
     #[test]
+    fn committed_game_packs_match_the_current_content() -> Result<(), Box<dyn std::error::Error>> {
+        let repository = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+        for game in ["imagine", "sandbox"] {
+            let name = ContentName::new(game)?;
+            let root = repository.join("games").join(game);
+            let expected = game_pack_bytes(&root, &name)?;
+            let committed = fs::read(expected.path)?;
+            assert_eq!(
+                committed, expected.bytes,
+                "stale {game} pack; run cargo run -p cook -- {game}"
+            );
+        }
+        Ok(())
+    }
+
+    #[test]
+    fn committed_game_packs_open_and_every_entry_hash_is_available()
+    -> Result<(), Box<dyn std::error::Error>> {
+        let repository = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+        for game in ["imagine", "sandbox"] {
+            let pack_path = game_content_pack_path(&repository.join("games").join(game), game);
+            let pack = engine_assets::PackReader::read(fs::File::open(pack_path)?)?;
+            let entries = pack.entries().collect::<Vec<_>>();
+            assert!(!entries.is_empty(), "{game} pack is empty");
+            for entry in entries {
+                assert_eq!(pack.hash(&entry.path)?, entry.hash);
+                assert_eq!(pack.load(&entry.path)?, entry.bytes.as_slice());
+            }
+        }
+        Ok(())
+    }
+
+    #[test]
     fn game_watch_fingerprint_changes_with_runtime_content()
     -> Result<(), Box<dyn std::error::Error>> {
         let unique = std::time::SystemTime::now()

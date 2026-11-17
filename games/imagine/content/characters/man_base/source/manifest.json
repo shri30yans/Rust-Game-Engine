@@ -1,0 +1,51 @@
+{
+ "slug": "man-base-character",
+ "triangles": 262348,
+ "texture_px": 4096,
+ "triangles_light": 131173,
+ "texture_px_light": 1024,
+ "files": {
+  "glb": {
+   "name": "man-base-character.glb",
+   "bytes": 12351912
+  },
+  "blend": {
+   "name": "man-base-character.blend",
+   "bytes": 14384379
+  },
+  "fbx": {
+   "name": "man-base-character.fbx",
+   "bytes": 18920924
+  },
+  "obj": {
+   "name": "man-base-character-obj.zip",
+   "bytes": 9871637
+  },
+  "usdz": {
+   "name": "man-base-character.usdz",
+   "bytes": 17603567
+  },
+  "glb_light": {
+   "name": "man-base-character-light.glb",
+   "bytes": 4215864
+  },
+  "fbx_light": {
+   "name": "man-base-character-light.fbx",
+   "bytes": 8216060
+  }
+ },
+ "extras": {
+  "license": "CC0-1.0",
+  "source": "grab3d.com",
+  "dimensions_m": "1.081 x 0.342 x 1.800",
+  "triangles": 262348,
+  "variant": "download",
+  "generator": "Created by grab3d",
+  "created": "2026-10-29"
+ },
+ "origin": {
+  "method": "ai-assisted",
+  "detail": "Base mesh and textures generated with an AI image-to-3D tool (Meshy), then cleaned up, scaled, textured and checked in Blender.",
+  "ai_content": true
+ }
+}

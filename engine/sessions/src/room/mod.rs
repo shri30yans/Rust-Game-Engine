@@ -1,4 +1,4 @@
-//! One game session's seats and lifecycle.
+//! One game session's seats and lifecycle, after Unreal's `AGameSession`.
 //!
 //! A [`Room`] is driven by the server: it applies one command at a time, refuses illegal ones
 //! with a [`SessionError`], and records what changed as [`RoomEvent`]s for the server to send.

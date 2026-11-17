@@ -1,4 +1,4 @@
-//! The one place that reads OS and hardware for capability sizing.
+//! The one place that reads OS and hardware for capability sizing (D33).
 //! Every other crate takes a [`DeviceProfile`] built here at start-up.
 
 use crate::PlatformError;
@@ -35,19 +35,19 @@ impl DeviceClass {
     }
 }
 
-/// CPU layout used to size the job pool.
+/// CPU layout used to size the job pool (D25).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CpuProfile {
     /// Logical cores reported by the OS.
     pub logical_cores: NonZeroUsize,
-    /// Estimate from per-core frequency; always `1..=logical_cores`.
+    /// Estimate from per-core frequency; always `1..=logical_cores` (D35).
     pub performance_cores: NonZeroUsize,
 }
 
-/// Minimum share of peak MHz (as a percent) for a core to count as performance.
+/// Minimum share of peak MHz (as a percent) for a core to count as performance (D35).
 const PERFORMANCE_FREQUENCY_PERCENT: u128 = 75;
 
-/// Estimates performance cores from per-core MHz samples (pure).
+/// Estimates performance cores from per-core MHz samples (pure; D35).
 ///
 /// If `frequencies_mhz` is empty, all zero, or every core reports the same frequency, every
 /// logical core is treated as a performance core (homogeneous CPU, or the OS does not report MHz).
@@ -76,7 +76,7 @@ pub fn estimate_performance_cores(frequencies_mhz: &[u64], logical: NonZeroUsize
     NonZeroUsize::new(count).map_or(logical, |n| n.min(logical))
 }
 
-/// GPU identity, capabilities, and optional known-bad match.
+/// GPU identity, capabilities, and optional known-bad match (D33).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct GpuProfile {
     /// Adapter name from wgpu.
@@ -136,7 +136,7 @@ impl GpuProfile {
     }
 }
 
-/// Device capability snapshot at start-up.
+/// Device capability snapshot at start-up (D33).
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DeviceProfile {
     /// Compile-time device class (or [`DeviceClass::Server`] for headless servers).
@@ -186,14 +186,14 @@ impl DeviceProfile {
         Self::detect(DeviceClass::Server, None, false)
     }
 
-    /// Job-pool worker count for this profile.
+    /// Job-pool worker count for this profile (D25).
     #[must_use]
     pub fn job_workers(&self) -> usize {
         worker_count(self.class, &self.cpu)
     }
 }
 
-/// Job-pool size from device class and CPU layout; pure.
+/// Job-pool size from device class and CPU layout (D25); pure.
 #[must_use]
 pub fn worker_count(class: DeviceClass, cpu: &CpuProfile) -> usize {
     match class {

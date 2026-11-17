@@ -57,7 +57,7 @@ impl Gpu {
         format!("{} ({:?})", i.name, i.backend)
     }
 
-    /// Adapter metadata for the device profile.
+    /// Adapter metadata for the device profile (D33).
     pub fn profile(&self, known_bad: &[KnownBadGpu]) -> GpuProfile {
         GpuProfile::from_adapter(&self.adapter, known_bad)
     }

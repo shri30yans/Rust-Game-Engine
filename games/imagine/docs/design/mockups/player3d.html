@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Player 3D render</title>
+<link rel="stylesheet" href="tokens.css">
+<style>html,body{margin:0;background:transparent;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { makePlayer } from './three/char3d.js';
+const q = new URLSearchParams(location.search);
+const W = innerWidth, H = innerHeight;
+await document.fonts.load('900 64px "Big Shoulders Display"').catch(()=>{});
+const r = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.setPixelRatio(1); r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 1.05;
+r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap; r.setClearColor(0, 0);
+document.body.appendChild(r.domElement);
+const s = new THREE.Scene();
+s.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), .04).texture;
+s.environmentIntensity = .45;
+const cam = new THREE.PerspectiveCamera(22, W / H, .1, 50); cam.position.set(0, 1.25, 6.2); cam.lookAt(0, .95, 0);
+const key = new THREE.DirectionalLight(0xfff1e0, 2.6); key.position.set(2.5, 4, 3); key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 6; key.shadow.camera.left = -2.5; key.shadow.camera.right = 2.5; key.shadow.camera.top = 2.5; key.shadow.camera.bottom = -.5; s.add(key);
+const rim = new THREE.DirectionalLight(new THREE.Color(q.get('rim') ?? '#ff7a3d'), 3.2); rim.position.set(-3, 2.5, -2.5); s.add(rim);
+const rim2 = new THREE.DirectionalLight(0x7fe3ff, 1.4); rim2.position.set(3, 1.5, -3); s.add(rim2);
+s.add(new THREE.HemisphereLight(0x9fb4cc, 0x1a1410, .5));
+const floor = new THREE.Mesh(new THREE.CircleGeometry(3, 64), new THREE.ShadowMaterial({ opacity: .55 })); floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; s.add(floor);
+const solo = q.get('solo');
+const cast = solo ? [[q.get('team') ?? '#ff7a3d', q.get('n') ?? '07', solo, +(q.get('ry') ?? .35), 0]]
+  : [['#ff7a3d','07','hero',.35,0],['#3d8bff','12','idle',-.25,-1.15],['#c6f23d','31','aim',.9,1.15]];
+if (solo) { cam.fov = 26; cam.position.set(.4, 1.1, 5.2); cam.lookAt(0, .93, 0); cam.updateProjectionMatrix(); }
+for (const [team, n, pose, ry, x] of cast) { const c = makePlayer({ team, number: n, pose }); c.rotation.y = ry; c.position.set(x, 0, x === 0 ? .25 : -.2); s.add(c); }
+r.render(s, cam);
+document.title = 'ready';
+</script></body></html>

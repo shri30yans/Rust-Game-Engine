@@ -1,0 +1,159 @@
+<!doctype html><html><head><meta charset="utf-8"><title>HUD mockup — Control Room</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{background:url(arena.svg) 0 0/1280px 720px}
+.fade-r{background:linear-gradient(90deg,rgba(7,9,12,.82),rgba(7,9,12,.55) 70%,rgba(7,9,12,0))}
+.fade-l{background:linear-gradient(270deg,rgba(7,9,12,.82),rgba(7,9,12,.55) 70%,rgba(7,9,12,0))}
+/* score bug */
+.bug{left:32px;top:28px;width:300px}
+.bug-h{display:flex;align-items:center;gap:8px;height:24px;padding:0 10px;background:var(--signal);color:var(--ink-900);font:700 15px/1 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,0 100%);width:240px}
+.bug-h .lamp{width:8px;height:8px;background:var(--ink-900);box-shadow:none}
+.row{display:flex;align-items:center;height:36px;gap:10px;padding:0 12px 0 0;border-bottom:1px solid rgba(243,245,248,.08)}
+.row .tb{width:6px;align-self:stretch}
+.row .gl{width:18px;text-align:center;font-size:16px}
+.row .nm{flex:1;font:600 19px/1 "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase;color:var(--ink-200)}
+.row .v{font:700 26px/1 "Barlow Condensed";color:var(--score);font-variant-numeric:tabular-nums}
+.row.you .nm{color:var(--paper)}
+/* timer */
+.timer{left:540px;top:22px;width:200px;text-align:center}
+.timer .t{font:700 54px/1 "Barlow Condensed";font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.timer .tc{color:var(--ink-200)}
+.objs{left:440px;top:104px;width:400px;display:flex;justify-content:center;gap:28px}
+.obj{display:flex;align-items:center;gap:10px;font:700 20px/1 "Barlow Condensed";letter-spacing:.06em;--bc:var(--ice);padding:6px 10px}
+.obj .lt{width:26px;height:26px;background:var(--ice);color:var(--ink-900);display:flex;align-items:center;justify-content:center;font:700 19px/1 "Barlow Condensed"}
+.obj.act .lt{box-shadow:0 0 14px var(--ice)}
+/* kill feed */
+.feed{right:32px;top:28px;width:420px;display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.k{display:flex;align-items:center;height:28px;font:700 18px/1 "Barlow Condensed";letter-spacing:.05em;text-transform:uppercase}
+.k .a,.k .b{height:100%;display:flex;align-items:center;padding:0 10px;background:rgba(7,9,12,.7)}
+.k .w{height:100%;display:flex;align-items:center;padding:0 8px;background:rgba(7,9,12,.5)}
+.k .w i{display:block;width:30px;height:9px;background:var(--ink-200);clip-path:polygon(0 35%,65% 35%,65% 0,100% 0,100% 100%,0 100%)}
+.k .tb{width:4px;height:100%}
+.k.me .a{background:var(--signal);color:var(--ink-900)}
+/* callout strip callouts */
+.callout{left:0;right:0;top:470px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.callout .l3 .slab{font-size:24px}
+.callout .l3 .ext{font-size:26px;color:var(--score)}
+.banner{left:0;right:0;top:158px;display:flex;justify-content:center}
+.banner .l3{height:44px}
+.banner .tab{background:var(--ice);width:12px}
+.banner .slab{background:var(--ice);font:900 28px/1 "Big Shoulders Display";letter-spacing:.04em;padding:0 16px 0 6px}
+.banner .ext{font-size:22px;color:var(--paper);letter-spacing:.08em}
+/* crosshair + hit */
+.xh i{position:absolute;background:var(--paper);box-shadow:0 0 0 1px rgba(7,9,12,.85)}
+.hm i{position:absolute;width:13px;height:3px;background:var(--paper);box-shadow:0 0 0 1px rgba(7,9,12,.7)}
+/* health */
+.hp{left:32px;bottom:28px;width:340px}
+.hp .n{font:700 72px/.9 "Barlow Condensed";font-variant-numeric:tabular-nums}
+.hp .mx{font:600 22px/1 "Barlow Condensed";color:var(--ink-200);margin-left:6px}
+.segs{display:flex;gap:3px;padding:4px;background:rgba(7,9,12,.6)}
+.segs i{flex:1;height:10px;background:var(--paper)}
+.segs i.e{background:rgba(243,245,248,.14)}
+.segs.sh i{height:5px;background:var(--shield)}
+.lbl{font:600 15px/1 "Barlow Condensed";letter-spacing:.14em;text-transform:uppercase;color:var(--ink-200)}
+.sq{display:flex;align-items:center;gap:8px;height:24px;font:700 17px/1 "Barlow Condensed";letter-spacing:.05em;text-transform:uppercase}
+.sq .bar{width:90px;height:5px;background:rgba(243,245,248,.18)}
+.sq .bar i{display:block;height:100%;background:var(--paper)}
+/* weapon */
+.wp{right:32px;bottom:28px;width:340px;text-align:right}
+.wp .n{font:700 72px/.9 "Barlow Condensed";font-variant-numeric:tabular-nums}
+.wp .rs{font:600 26px/1 "Barlow Condensed";color:var(--ink-200)}
+.rule{height:2px;background:linear-gradient(270deg,var(--paper),rgba(243,245,248,0))}
+.pips{display:flex;justify-content:flex-end;gap:6px}
+.pips i{width:34px;height:5px;background:rgba(243,245,248,.25)}
+.pips i.on{background:var(--signal)}
+/* abilities */
+.abil{left:0;right:0;bottom:32px;display:flex;justify-content:center;gap:18px}
+.ab{width:60px;height:60px;position:relative;background:rgba(7,9,12,.55);display:flex;align-items:center;justify-content:center;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);box-shadow:inset 0 0 0 2px rgba(243,245,248,.35)}
+.ab.ready{box-shadow:inset 0 0 0 3px var(--signal);background:rgba(255,106,26,.18)}
+.abw{display:flex;flex-direction:column;align-items:center;gap:6px}
+.key{font:700 14px/1 "Barlow Condensed";color:var(--ink-900);background:var(--paper);padding:2px 6px;border-radius:2px}
+.cd{position:absolute;inset:0;background:conic-gradient(rgba(7,9,12,.7) 0 62%,transparent 62%)}
+.dmg{left:400px;top:120px;width:480px;height:480px}
+.mark{left:226px;top:270px;text-align:center}
+.vig{inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 62%,rgba(7,9,12,.35))}
+</style></head><body>
+<div class="abs vig"></div>
+
+<!-- SCORE BUG -->
+<div class="abs bug">
+  <div class="bug-h"><span class="lamp"></span>TEAM FIGHT · RD 2<span style="flex:1"></span></div>
+  <div class="fade-r">
+    <div class="row you"><span class="tb" style="background:var(--signal)"></span><span class="gl" style="color:var(--ember)">▲</span><span class="nm">Ember <span style="color:var(--signal);font-size:15px">· You</span></span><span class="v">38</span></div>
+    <div class="row"><span class="tb" style="background:var(--tide)"></span><span class="gl" style="color:var(--tide)">●</span><span class="nm">Tide</span><span class="v">9,800</span></div>
+    <div class="row" style="border:0"><span class="tb" style="background:var(--volt)"></span><span class="gl" style="color:var(--volt)">■</span><span class="nm">Volt</span><span class="v">4,150</span></div>
+  </div>
+</div>
+
+<!-- TIMER -->
+<div class="abs timer">
+  <div class="t ol">04:37</div>
+  <div class="tc ol" style="margin-top:4px">GRID D3 · KILN YARD</div>
+</div>
+<div class="abs objs">
+  <div class="obj brk act ol"><span class="lt">A</span>ZONE A <span style="color:var(--ice)">42 M</span></div>
+  <div class="obj brk ol" style="--bc:rgba(243,245,248,.5)"><span class="lt" style="background:rgba(243,245,248,.85)">B</span>ZONE B <span style="color:var(--ink-200)">128 M</span></div>
+</div>
+
+<!-- MATCH BANNER (callout strip style) -->
+<div class="abs banner"><div class="l3"><span class="tab"></span><span class="slab">Zone B open</span><span class="ext">HOLD ◇BT ◇B</span></div></div>
+
+<!-- KILL FEED -->
+<div class="abs feed">
+  <div class="k me"><span class="a">Kestrel</span><span class="w"><i></i></span><span class="b" style="color:var(--tide)">Mako_9</span><span class="tb" style="background:var(--tide)"></span></div>
+  <div class="k"><span class="a" style="color:var(--volt)">Dune</span><span class="w"><i></i></span><span class="b" style="color:var(--tide)">Rook</span><span class="tb" style="background:var(--tide)"></span></div>
+  <div class="k" style="opacity:.55"><span class="a" style="color:var(--tide)">Mako_9</span><span class="w"><i></i></span><span class="b" style="color:var(--volt)">Ash</span><span class="tb" style="background:var(--volt)"></span></div>
+</div>
+
+<!-- WORLD MARKER -->
+<div class="abs mark"><div class="brk" style="--bc:var(--ice);width:40px;height:40px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center"><span style="width:24px;height:24px;background:var(--ice);color:var(--ink-900);display:flex;align-items:center;justify-content:center;font:700 18px/1 'Barlow Condensed';box-shadow:0 0 12px var(--ice)">A</span></div><div class="ol" style="font:700 20px/1 'Barlow Condensed';letter-spacing:.06em">42 M</div></div>
+
+<!-- DAMAGE -->
+<svg class="abs dmg" viewBox="0 0 480 480"><path d="M 431 154 A 210 210 0 0 1 431 326" fill="none" stroke="#FF3D52" stroke-opacity=".8" stroke-width="8"/><path d="M 446 232 L 460 240 L 446 248 Z" fill="#FF3D52"/></svg>
+
+<!-- CROSSHAIR + HIT -->
+<div class="abs xh" style="left:640px;top:360px">
+  <i style="left:-1px;top:-1px;width:3px;height:3px;background:var(--signal)"></i>
+  <i style="left:-17px;top:-1px;width:10px;height:2px"></i><i style="left:8px;top:-1px;width:10px;height:2px"></i>
+  <i style="left:-1px;top:-17px;width:2px;height:10px"></i><i style="left:-1px;top:8px;width:2px;height:10px"></i>
+</div>
+<div class="abs hm" style="left:640px;top:360px">
+  <i style="left:11px;top:11px;transform:rotate(45deg)"></i><i style="left:-24px;top:11px;transform:rotate(-45deg)"></i>
+  <i style="left:11px;top:-13px;transform:rotate(-45deg)"></i><i style="left:-24px;top:-13px;transform:rotate(45deg)"></i>
+</div>
+
+<!-- CALLOUTS -->
+<div class="abs callout">
+  <div class="l3"><span class="tab"></span><span class="slab">Eliminated · Mako_9</span><span class="ext">+100</span></div>
+  <div class="l3" style="height:28px;opacity:.75"><span class="tab" style="background:var(--ink-300)"></span><span class="slab" style="font-size:18px;background:rgba(243,245,248,.85)">Assist</span><span class="ext" style="font-size:20px">+75</span></div>
+</div>
+
+<!-- HEALTH + SQUAD -->
+<div class="abs hp">
+  <div class="sq ol"><span style="color:var(--ember)">▲</span><span style="width:70px">Juno</span><span class="bar"><i style="width:80%"></i></span></div>
+  <div class="sq ol" style="margin-bottom:10px"><span style="color:var(--ember)">▲</span><span style="width:70px;color:var(--danger)">Pax</span><span class="bar"><i style="width:0"></i></span><span style="color:var(--heal);font-size:15px">⊕ REVIVE 6s</span></div>
+  <div style="display:flex;align-items:flex-end;gap:10px">
+    <span class="n ol">175</span><span class="mx ol" style="margin-bottom:8px">/ 250</span><span style="flex:1"></span>
+    <span class="lbl ol" style="margin-bottom:10px;color:var(--shield)">◆ Armor 50</span>
+  </div>
+  <div class="segs sh" style="width:42%;padding-bottom:0"><i></i><i></i><i class="e"></i><i class="e"></i></div>
+  <div class="segs"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="e"></i><i class="e"></i><i class="e"></i></div>
+</div>
+
+<!-- ABILITIES -->
+<div class="abs abil">
+  <div class="abw"><div class="ab ready"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F3F5F8" stroke-width="2.2" stroke-linecap="square"><path d="M4 20 L12 4 L20 20 Z"/><path d="M12 10v5"/></svg></div><span class="key">Q</span></div>
+  <div class="abw"><div class="ab"><div class="cd"></div><span style="position:relative;font:700 30px/1 'Barlow Condensed'">8</span></div><span class="key" style="background:var(--ink-300)">E</span></div>
+  <div class="abw"><div class="ab" style="width:72px;height:72px;margin-top:-12px;box-shadow:inset 0 0 0 2px rgba(255,212,71,.8)"><span style="position:relative;font:700 22px/1 'Barlow Condensed';color:var(--score)">72%</span></div><span class="key">F</span></div>
+</div>
+
+<!-- WEAPON -->
+<div class="abs wp">
+  <div class="lbl ol" style="margin-bottom:2px">VX-9 Carbine · Auto</div>
+  <div><span class="n ol">24</span><span class="rs ol"> / 96</span></div>
+  <div class="rule" style="margin:6px 0"></div>
+  <div class="pips"><span class="lbl ol" style="font-size:13px;margin-right:8px;color:var(--ink-300)">Reload R</span><i class="on"></i><i></i><i></i></div>
+</div>
+
+<div class="tag">hud.html v2 "Control Room" — quiet, branded · placeholder scene</div>
+</body></html>

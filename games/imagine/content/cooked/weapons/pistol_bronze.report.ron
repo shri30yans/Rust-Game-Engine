@@ -1,0 +1,116 @@
+(
+    source_hash: 10522027580317709523,
+    encoder: "basisu_c_sys 0.9.1 UASTC",
+    conventions: "Unreal-style soft references are typed paths; caller-owned handles retain loaded assets. LOD thresholds use projected screen fraction 0.50 and 0.25; clips sample at 30 Hz with linear interpolation; absent loop metadata remains unset. Collision uses role tags or <object>_COL, with static triangle meshes and convex/decomposed prop geometry.",
+    triangles_per_lod: [
+        [
+            1016,
+        ],
+        [
+            12,
+        ],
+        [
+            24,
+        ],
+        [
+            1032,
+            876,
+        ],
+        [
+            1672,
+            836,
+            558,
+        ],
+        [
+            1204,
+            602,
+            440,
+        ],
+        [
+            216,
+            108,
+            54,
+        ],
+        [
+            108,
+            54,
+            26,
+        ],
+        [
+            240,
+            120,
+            60,
+        ],
+        [
+            605,
+            536,
+            534,
+        ],
+        [
+            192,
+            96,
+            48,
+        ],
+    ],
+    stream_bytes: [
+        [
+            (14784, 22176, 6096),
+        ],
+        [
+            (192, 288, 72),
+        ],
+        [
+            (384, 576, 144),
+        ],
+        [
+            (12576, 18864, 6192),
+            (11640, 17460, 5256),
+        ],
+        [
+            (12608, 18912, 10032),
+            (7976, 11964, 5016),
+            (6432, 9648, 3348),
+        ],
+        [
+            (8192, 12288, 7224),
+            (5616, 8424, 3612),
+            (4880, 7320, 2640),
+        ],
+        [
+            (1488, 2232, 1296),
+            (792, 1188, 648),
+            (488, 732, 324),
+        ],
+        [
+            (768, 1152, 648),
+            (384, 576, 324),
+            (248, 372, 156),
+        ],
+        [
+            (1632, 2448, 1440),
+            (904, 1356, 720),
+            (552, 828, 360),
+        ],
+        [
+            (7264, 10896, 3630),
+            (6712, 10068, 3216),
+            (6696, 10044, 3204),
+        ],
+        [
+            (1184, 1776, 1152),
+            (664, 996, 576),
+            (416, 624, 288),
+        ],
+    ],
+    texture_bytes_by_family: {},
+    uncooked_objects: [
+        "barrel",
+        "controls",
+        "frame",
+        "grip_panels",
+        "magazine",
+        "sights",
+        "slide",
+        "trigger",
+    ],
+)

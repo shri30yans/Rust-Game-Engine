@@ -1,7 +1,8 @@
 //! Layer and zone judgement. [`find_violations`] is pure over parsed metadata
 //! and a layer table, so every rule is tested with fixtures and no I/O.
 //!
-//! Enforces numeric layers and folder zones: layer edges, zone edges, per-game isolation, and (with scan)
+//! Enforces numeric layers and folder zones from [ARCHITECTURE.md](../../docs/ARCHITECTURE.md)
+//! section 0–1: layer edges, zone edges, per-game isolation, and (with scan)
 //! forbidden text.
 
 use std::collections::{BTreeMap, BTreeSet};
@@ -166,7 +167,7 @@ pub enum Violation {
     },
     /// Source text contains a forbidden substring for its zone.
     #[error(
-        "file `{file}` line {line} in zone `{zone}` contains forbidden text `{text}`; remove paths into other folders"
+        "file `{file}` line {line} in zone `{zone}` contains forbidden text `{text}`; remove paths into other folders (see ARCHITECTURE.md section 0)"
     )]
     ForbiddenText {
         /// Workspace-relative file path.

@@ -211,7 +211,7 @@ mod tests {
         write_fixture(
             tmp.path(),
             "src/lib.rs",
-            "fn ok() {}\nfn bad() {}\nconst P: &str = \"games/other/content\";\n",
+            "fn ok() {}\nfn bad() {}\nconst P: &str = \"games/imagine/content\";\n",
         );
         let files = scan_zone_sources(
             tmp.path(),
@@ -236,7 +236,7 @@ mod tests {
         write_fixture(
             tmp.path(),
             "src/main.rs",
-            "const P: &str = \"games/other/content\";\n",
+            "const P: &str = \"games/imagine/content\";\n",
         );
         let files =
             scan_zone_sources(tmp.path(), &[(String::new(), zn("tools"), vec![])]).expect("scan");

@@ -13,7 +13,7 @@ use engine_physics::QueryFilter;
 use crate::error::KitError;
 use crate::validate::{finite, fraction, non_negative, positive};
 
-/// Design ceiling for mantle height in metres.
+/// Design ceiling for mantle height in metres, from PLAN §3.6.
 const MAX_MANTLE_HEIGHT_M: f32 = 1.6;
 /// The movement tuning a game passes in. Plain data; [`ControllerConfig::new`] validates it.
 #[derive(Debug, Clone, Copy, PartialEq)]

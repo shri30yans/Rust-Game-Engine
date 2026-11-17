@@ -20,11 +20,11 @@
 //! - `net_client`: [`NetClient`] and client prediction/interpolation.
 //! - `scene_present`: [`ScenePresenter`] draws every entity that carries a scene `Visual`.
 //! - `error_banner`: [`ErrorBanner`], the red bar the client draws after the presenter's UI.
-//! - `telemetry`: [`Telemetry`] and [`FrameReport`], the frame-time window and its percentiles.
-//! - `overlay`: [`draw_overlay`], the telemetry panel any game's presenter can draw.
+//! - `telemetry`: [`Telemetry`] and [`FrameReport`], the frame-time window and its percentiles (D45).
+//! - `overlay`: [`draw_overlay`], the telemetry panel any game's presenter can draw (D45).
 //!
 //! Invariants: frame time arrives as `dt` from the platform. The one clock read is the client
-//! runner's timing of its simulation step for the telemetry; it is never fed back into the
+//! runner's timing of its simulation step for the telemetry (D45); it is never fed back into the
 //! simulation. No OS entropy, no global mutable state, no panics or unchecked indexing in non-test
 //! code. The crate never names a game, mode, map or weapon.
 #![forbid(unsafe_code)]

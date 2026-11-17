@@ -1,4 +1,4 @@
-//! Property tests of the frame telemetry: whatever finite, non-negative frame times go in,
+//! Property tests of the frame telemetry (D45): whatever finite, non-negative frame times go in,
 //! every reported number is finite, the maximum bounds the 99th percentile, and the fps follows the
 //! mean frame time.
 #![allow(clippy::unwrap_used, clippy::expect_used)]

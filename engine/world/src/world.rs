@@ -14,6 +14,7 @@ use serde::Serialize;
 use serde::de::DeserializeOwned;
 
 use crate::error::WorldError;
+use crate::events::{EventStore, Events};
 use crate::hierarchy::hash_parent;
 use crate::net_id::{NetId, NetIdAllocator};
 use crate::registry::{ComponentId, ComponentRegistry, Replication};
@@ -23,13 +24,15 @@ use crate::transform::{GlobalTransform, Transform};
 /// Simulation world. See the module header for the invariants it upholds.
 ///
 /// Besides entities, a world owns its [`Resource`]s (singleton simulation state
-/// such as the physics world). Resources are part of [`World::state_hash`].
+/// such as the physics world) and its per-tick [`Events`] logs. Resources are part of
+/// [`World::state_hash`]; event logs are not, because the schedule empties them before every tick.
 pub struct World {
     pub(crate) ecs: hecs::World,
     pub(crate) ids: NetIdAllocator,
     registry: ComponentRegistry,
     rng: SimRng,
     resources: ResourceStore,
+    events: EventStore,
     /// Traversal buffer reused by transform propagation.
     pub(crate) propagation_stack: Vec<(Entity, glam::Mat4)>,
 }
@@ -51,6 +54,7 @@ impl World {
             registry,
             rng: SimRng::new(seed, 0),
             resources: ResourceStore::default(),
+            events: EventStore::default(),
             propagation_stack: Vec::new(),
         })
     }
@@ -77,6 +81,41 @@ impl World {
     /// Returns [`WorldError::MissingResource`] if no `R` is stored.
     pub fn resource_mut<R: Resource>(&mut self) -> Result<&mut R, WorldError> {
         self.resources.get_mut::<R>()
+    }
+
+    /// Registers the per-tick log for events of type `E`, with room for `capacity` events.
+    ///
+    /// The capacity should come from data (actors times events per actor per tick), so a valid
+    /// match never grows the log and the steady tick allocates nothing.
+    ///
+    /// # Errors
+    /// Returns [`WorldError::DuplicateEvents`] if `E` already has a log.
+    pub fn add_events<E: Send + Sync + 'static>(
+        &mut self,
+        capacity: usize,
+    ) -> Result<(), WorldError> {
+        self.events.add::<E>(capacity)
+    }
+
+    /// The events of type `E` written since the start of the current tick.
+    ///
+    /// # Errors
+    /// Returns [`WorldError::MissingEvents`] if `E` was never registered.
+    pub fn events<E: Send + Sync + 'static>(&self) -> Result<&Events<E>, WorldError> {
+        self.events.get::<E>()
+    }
+
+    /// Writes one event to this tick's log for its type.
+    ///
+    /// # Errors
+    /// Returns [`WorldError::MissingEvents`] if `E` was never registered.
+    pub fn send<E: Send + Sync + 'static>(&mut self, event: E) -> Result<(), WorldError> {
+        self.events.send(event)
+    }
+
+    /// Empties every event log. Only the schedule calls this, once before each tick.
+    pub(crate) fn clear_events(&mut self) {
+        self.events.clear_all();
     }
 
     /// Root RNG for this match. Systems draw from their own forked streams, not from this one.

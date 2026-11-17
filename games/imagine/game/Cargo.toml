@@ -1,0 +1,54 @@
+[package]
+name = "imagine"
+description = "IMAGINE: the first playable arena built on kit-fps, with scripted headless tests"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "imagine"
+path = "src/lib.rs"
+# cdylib is the shared library the Android APK loads (`libimagine.so`); lib is the Rust API.
+crate-type = ["lib", "cdylib"]
+
+[[bin]]
+name = "imagine"
+path = "src/main.rs"
+
+[[test]]
+name = "e2e"
+path = "tests/e2e/main.rs"
+
+[[test]]
+name = "hud_no_alloc"
+path = "tests/hud_no_alloc.rs"
+
+[dependencies]
+app.workspace = true
+engine-core.workspace = true
+engine-assets.workspace = true
+engine-netcode.workspace = true
+engine-sessions.workspace = true
+engine-physics.workspace = true
+engine-scene.workspace = true
+engine-ui.workspace = true
+engine-world.workspace = true
+glam.workspace = true
+kit-fps.workspace = true
+platform.workspace = true
+render.workspace = true
+ron.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+jobs.workspace = true
+png.workspace = true
+proptest.workspace = true
+render = { workspace = true, features = ["golden"] }
+# Test-only: cooks the HUD's HTML to check the committed document is not stale.
+# Test-only allocation counter (the no-alloc test). Its unsafe code lives inside the dependency.
+stats_alloc.workspace = true
+
+[lints]
+workspace = true

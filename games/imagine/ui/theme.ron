@@ -1,0 +1,51 @@
+// Design tokens, the single source for the `ui` crate and its contrast test (README §7 D10).
+// Hex values are sRGB. Alpha blending is done in sRGB space (DESIGN_SYSTEM §3).
+Theme(
+    name: "imagine-dark",
+    colors: {
+        "ink-950": "#07090C", "ink-900": "#0C0F14", "ink-800": "#141922", "ink-700": "#1E2530",
+        "ink-600": "#2C3543", "ink-500": "#46505F", "ink-400": "#6B7686", "ink-300": "#98A2B1",
+        "ink-200": "#C3CAD4", "paper": "#F3F5F8",
+        "signal": "#FF6A1A", "ice": "#7FE3FF", "score": "#FFD447", "shield": "#5CC8FF",
+        "danger": "#FF3D52", "heal": "#3DF5A0", "warn": "#FFB52E",
+        "team-ember": "#FF7A3D", "team-tide": "#3D8CFF", "team-volt": "#C9F23A", "team-orchid": "#C37BFF",
+    },
+    glyphs: { "team-ember": "▲", "team-tide": "●", "team-volt": "■", "team-orchid": "◆" },
+    // Pairs the `engine-ui` contrast test checks: (fg, bg, min_ratio)
+    contrast_rules: [
+        ("paper", "ink-900", 4.5), ("ink-200", "ink-800", 4.5), ("ink-300", "ink-800", 4.5),
+        ("ink-900", "signal", 4.5), ("ink-900", "score", 4.5), ("ink-900", "ice", 4.5),
+        ("danger", "ink-800", 4.5), ("ink-400", "ink-900", 3.0),
+    ],
+    scrim: (color: "ink-950", alpha: 0.75, alpha_if_linear_blend: 0.84),
+    fonts: {
+        "display": (family: "Big Shoulders Display", weights: [800, 900], file: "fonts/BigShouldersDisplay-*.ttf", license: "OFL-1.1"),
+        "hud":     (family: "Barlow Condensed", weights: [600, 700], file: "fonts/BarlowCondensed-*.ttf", license: "OFL-1.1"),
+        "ui":      (family: "Barlow",           weights: [400, 500, 600], file: "fonts/Barlow-*.ttf",   license: "OFL-1.1"),
+        "mono":    (family: "JetBrains Mono",   weights: [400],           file: "fonts/JetBrainsMono-Regular.ttf", license: "OFL-1.1"),
+    },
+    type_scale: {
+        "display-xl": (font: "display", weight: 900, size: 56, line: 56),
+        "display-l":  (font: "display", weight: 800, size: 40, line: 40),
+        "num-xl":     (font: "hud", weight: 700, size: 32, line: 32, tabular: true),
+        "title":      (font: "hud", weight: 600, size: 22, line: 26, caps: true, tracking: 0.04),
+        "body-l":     (font: "ui", weight: 500, size: 16, line: 22),
+        "body":       (font: "ui", weight: 400, size: 14, line: 20),
+        "label":      (font: "hud", weight: 600, size: 12, line: 16, caps: true, tracking: 0.04),
+        "micro":      (font: "hud", weight: 600, size: 10, line: 12, caps: true, tracking: 0.06),
+    },
+    space: { "s0": 2, "s1": 4, "s2": 8, "s3": 12, "s4": 16, "s5": 24, "s6": 32, "s7": 48, "s8": 64 },
+    radius: { "r0": 0, "r1": 2, "r2": 4, "pill": 999 },
+    sizes: { "notch-s": 6, "notch-m": 12 },
+    motion: {
+        "m-press":  (ms: 60,  curve: (0.2, 0.0, 0.0, 1.0)),
+        "m-hover":  (ms: 120, curve: (0.2, 0.0, 0.0, 1.0)),
+        "m-screen": (ms: 220, curve: (0.4, 0.0, 0.2, 1.0)),
+        "m-modal":  (ms: 180, curve: (0.2, 0.0, 0.0, 1.0)),
+        "m-banner": (ms: 240, curve: (0.16, 1.0, 0.3, 1.0)),
+        "m-wipe":   (ms: 180, curve: (0.7, 0.0, 0.2, 1.0)),
+        "m-event":  (ms: 160, curve: (0.16, 1.0, 0.3, 1.0)),
+        "m-count":  (ms: 400, curve: (0.0, 0.0, 1.0, 1.0)),
+    },
+    touch: Some((min_target_mm: 9.0, combat_target_mm: 12.0, min_gap_px: 8.0)),
+)

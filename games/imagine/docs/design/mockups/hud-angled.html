@@ -1,0 +1,318 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Angled HUD — v3</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700;1,800&display=swap">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<style>
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#1a1d22}
+canvas{position:absolute;inset:0}
+/* ---------- visor: two angled clusters ---------- */
+.hud{position:absolute;inset:0;font-family:"Barlow Condensed";font-style:normal;color:var(--paper);pointer-events:none}
+.side{position:absolute;top:0;bottom:0;width:430px;transform-style:preserve-3d}
+.side.l{left:0;transform:perspective(900px) rotateY(22deg);transform-origin:0 50%}
+.side.r{right:0;transform:perspective(900px) rotateY(-22deg);transform-origin:100% 50%}
+.grid{position:absolute;inset:0;opacity:.55;
+  background:
+   repeating-linear-gradient(0deg,rgba(127,227,255,.22) 0 1px,transparent 1px 48px),
+   repeating-linear-gradient(90deg,rgba(127,227,255,.22) 0 1px,transparent 1px 48px)}
+.side.l .grid{-webkit-mask:linear-gradient(90deg,#000 0,rgba(0,0,0,.5) 50px,transparent 120px),linear-gradient(0deg,#000 0,transparent 110px);-webkit-mask-composite:source-over}
+.side.r .grid{-webkit-mask:linear-gradient(270deg,#000 0,rgba(0,0,0,.5) 50px,transparent 120px),linear-gradient(0deg,#000 0,transparent 110px)}
+.edge{position:absolute;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,rgba(127,227,255,.7) 20%,rgba(127,227,255,.7) 80%,transparent)}
+.t{text-shadow:0 0 1px rgba(0,0,0,.9),0 1px 2px rgba(0,0,0,.65),0 0 10px rgba(0,0,0,.35)}
+.abs{position:absolute}
+/* team stack */
+.teams{left:44px;top:24px}
+.team{display:flex;align-items:center;gap:8px;height:24px;margin-bottom:4px}
+.team .rk{width:12px;font:700 15px/1 "Barlow Condensed";font-style:normal;text-align:right;color:var(--ink-200)}
+.team .em{width:22px;height:22px;display:flex;align-items:center;justify-content:center;transform:skewX(-10deg)}
+.team .em svg{width:14px;height:14px;transform:skewX(10deg)}
+.team .v{font:700 17px/1 "Barlow Condensed";font-style:normal;letter-spacing:.02em}
+.team .d{font:700 15px/1 "Barlow Condensed";font-style:normal;color:var(--score)}
+.team.me .em{box-shadow:0 0 0 2px var(--paper)}
+.prog{margin:-1px 0 6px 42px;width:96px;height:3px;background:rgba(243,245,248,.18);transform:skewX(-30deg)}.prog i{display:block;height:100%;width:44%;background:var(--score)}
+/* squad + health */
+.squad{left:40px;bottom:96px;width:240px}
+.sqh{display:flex;align-items:center;gap:8px;font:700 15px/1 "Barlow Condensed";font-style:normal;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.mate{display:grid;grid-template-columns:22px 14px 1fr 16px;align-items:center;gap:6px;height:22px;margin-bottom:8px;font:600 15px/1 "Barlow Condensed";font-style:normal}
+.mate .cls{font-weight:700;color:var(--ink-200)}
+.mbar{grid-column:3;height:4px;background:rgba(243,245,248,.2);transform:skewX(-30deg);margin-top:2px}
+.mbar i{display:block;height:100%;background:var(--paper)}
+.hp{left:40px;bottom:30px;width:260px}
+.hp .n{font:800 34px/.9 "Barlow Condensed";font-style:normal;letter-spacing:.01em}
+.hp .n small{font-size:20px;font-weight:600;color:var(--ink-200)}
+.bar{display:flex;gap:3px;margin-top:6px;transform:skewX(-28deg);padding:2px;background:rgba(7,9,12,.35)}
+.bar i{flex:1;height:11px;background:linear-gradient(180deg,#fff,#dfe5ee)}
+.bar i.e{background:rgba(243,245,248,.16)}
+.bar i.sh{background:linear-gradient(180deg,#9fdcff,#56b7ff)}
+.who{display:flex;gap:8px;align-items:center;margin-top:7px;font:600 15px/1 "Barlow Condensed";font-style:normal}
+/* right */
+.feed{right:44px;top:26px;text-align:right}
+.kf{display:flex;justify-content:flex-end;align-items:center;gap:8px;height:22px;font:700 15px/1 "Barlow Condensed";font-style:normal;margin-bottom:4px}
+.kf svg{width:22px;height:12px}
+.wpn{right:44px;bottom:30px;width:300px;text-align:right}
+.ammo{font:800 34px/.9 "Barlow Condensed";font-style:normal}.ammo small{font-size:20px;font-weight:600;color:var(--ink-200)}
+.wname{font:700 14px/1 "Barlow Condensed";font-style:normal;letter-spacing:.08em;color:var(--ink-200);margin:6px 0 8px}
+.slots{display:flex;justify-content:flex-end;gap:10px;align-items:flex-end}
+.slot{display:flex;flex-direction:column;align-items:center;gap:4px;font:700 12px/1 "Barlow Condensed";font-style:normal;color:var(--ink-200)}
+.slot .ic{width:40px;height:34px;display:flex;align-items:center;justify-content:center}
+.slot.on .ic{width:54px;background:rgba(243,245,248,.92);transform:skewX(-10deg)}
+.slot.on .ic svg{transform:skewX(10deg)}
+.slot .ch{display:flex;gap:2px}.slot .ch i{width:4px;height:4px;background:var(--paper);transform:skewX(-20deg)}.slot .ch i.e{background:rgba(243,245,248,.25)}
+/* centre (flat, not angled) */
+.timer{left:0;right:0;top:16px;display:flex;justify-content:center;align-items:center;gap:8px;font:700 18px/1 "Barlow Condensed";font-style:normal;letter-spacing:.04em}
+.mk{transform:translate(-50%,-100%);text-align:center}
+.ring{width:26px;height:26px;margin:0 auto;border-radius:50%;border:2px solid var(--score);display:flex;align-items:center;justify-content:center;font:800 15px/1 "Barlow Condensed";font-style:normal;color:var(--score);background:rgba(7,9,12,.35);box-shadow:0 0 12px rgba(255,210,63,.45)}
+.kill{left:0;right:0;top:440px;display:flex;justify-content:center}
+.kill .strip{display:flex;align-items:stretch;height:30px;font:700 16px/30px "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase}
+.kill .tab{width:6px;background:var(--signal)}
+.kill .slab{background:var(--paper);color:var(--ink-900);padding:0 10px}
+.kill .lead{background:rgba(7,9,12,.75);color:var(--score);padding:0 10px;border-top:2px solid var(--paper)}
+.kill .a{font:800 22px/1 "Barlow Condensed";font-style:normal;letter-spacing:.03em;text-transform:uppercase}
+.kill .b{font:700 15px/1 "Barlow Condensed";font-style:normal;letter-spacing:.04em;color:var(--score);text-transform:uppercase;display:flex;gap:18px}
+.xh{left:637px;top:357px;width:6px;height:6px;border-radius:50%;border:1.5px solid var(--paper);box-shadow:0 0 0 1px rgba(7,9,12,.6)}
+.build{right:16px;bottom:6px;font:500 10px/1 "JetBrains Mono";font-style:normal;color:rgba(243,245,248,.45)}
+</style></head><body>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { makePlayer } from './three/char3d.js';
+
+const W = 1280, H = 720;
+await Promise.all(['900 120px "Big Shoulders Display"','800 40px "Barlow Condensed"'].map(f => document.fonts.load(f))).catch(() => {});
+const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.setPixelRatio(1); r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = .92;
+r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.prepend(r.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), .04).texture;
+scene.environmentIntensity = .25;
+scene.fog = new THREE.FogExp2(0xd8bfa2, .0105);
+
+// ---- procedural textures
+function canvasTex(w, h, draw, rep = [1, 1]) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(...rep); t.anisotropy = 8; return t;
+}
+const rnd = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
+const paving = canvasTex(512, 512, (g, w, h) => {
+  g.fillStyle = '#5d5a57'; g.fillRect(0, 0, w, h);
+  for (let y = 0; y < h; y += 64) for (let x = 0; x < w; x += 128) {
+    const o = (y / 64) % 2 ? 64 : 0, v = 80 + rnd() * 30;
+    g.fillStyle = `rgb(${v},${v - 3},${v - 6})`; g.fillRect(x + o + 3, y + 3, 122, 58);
+  }
+}, [110, 110]);
+const brick = canvasTex(512, 512, (g, w, h) => {
+  g.fillStyle = '#4a2f26'; g.fillRect(0, 0, w, h);
+  for (let y = 0; y < h; y += 16) for (let x = 0; x < w; x += 48) {
+    const o = (y / 16) % 2 ? 24 : 0, v = rnd() * 30;
+    g.fillStyle = `rgb(${120 + v},${62 + v * .6},${48 + v * .4})`; g.fillRect(x + o + 1, y + 1, 46, 14);
+  }
+});
+function facade(cols, rows, lit) {
+  return canvasTex(512, 512, (g, w, h) => {
+    g.drawImage(brick.image, 0, 0);
+    const cw = w / cols, rh = h / rows;
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+      const on = rnd() < lit;
+      g.fillStyle = '#2a2420'; g.fillRect(i * cw + cw * .2 - 3, j * rh + rh * .18 - 3, cw * .6 + 6, rh * .62 + 6);
+      g.fillStyle = on ? '#ffae5c' : '#141a21'; g.fillRect(i * cw + cw * .2, j * rh + rh * .18, cw * .6, rh * .62);
+      g.fillStyle = 'rgba(255,255,255,.08)'; g.fillRect(i * cw + cw * .2, j * rh + rh * .18, cw * .6, 3);
+    }
+  });
+}
+const concrete = canvasTex(256, 256, (g, w, h) => {
+  g.fillStyle = '#8a8580'; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 2200; i++) { const v = 110 + rnd() * 60; g.fillStyle = `rgba(${v},${v - 4},${v - 8},.35)`; g.fillRect(rnd() * w, rnd() * h, 2, 2); }
+  g.fillStyle = 'rgba(0,0,0,.18)'; for (let y = 0; y < h; y += 64) g.fillRect(0, y, w, 2);
+}, [2, 4]);
+
+// ---- sky
+const sky = new THREE.Mesh(new THREE.SphereGeometry(400, 32, 16), new THREE.ShaderMaterial({
+  side: THREE.BackSide, fog: false, depthWrite: false,
+  uniforms: {}, vertexShader: 'varying vec3 p; void main(){ p = normalize(position); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }',
+  fragmentShader: `varying vec3 p; void main(){ float y = p.y;
+    vec3 hor = vec3(1.0,.78,.55), mid = vec3(.62,.70,.82), top = vec3(.30,.42,.62);
+    vec3 c = mix(hor, mid, smoothstep(0.,.18,y)); c = mix(c, top, smoothstep(.18,.7,y));
+    float sun = pow(max(dot(p, normalize(vec3(-.35,.12,-1.))),0.),220.)*6. + pow(max(dot(p, normalize(vec3(-.35,.12,-1.))),0.),12.)*.35;
+    gl_FragColor = vec4(c + vec3(1.,.8,.55)*sun, 1.); }`
+}));
+scene.add(sky);
+
+// ---- lights
+const sun = new THREE.DirectionalLight(0xffd7a8, 3.0); sun.position.set(-14, 16, -26); sun.target.position.set(0, 0, -10);
+sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -.0004; sun.shadow.normalBias = .03;
+Object.assign(sun.shadow.camera, { left: -30, right: 30, top: 30, bottom: -30, near: 1, far: 90 });
+scene.add(sun, sun.target);
+scene.add(new THREE.HemisphereLight(0xa9c1de, 0x5a4636, 1.1));
+
+const S = (m) => { m.castShadow = true; m.receiveShadow = true; return m; };
+const mat = (o) => new THREE.MeshStandardMaterial(Object.assign({ roughness: .85 }, o));
+
+// ground
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), mat({ map: paving, roughness: .95 }));
+ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+
+// left street: brick warehouses
+const blocks = [[-9, -10, 6, 10, 12], [-10, -26, 8, 14, 16], [-9.5, -44, 7, 11, 18], [-12, -62, 10, 18, 18]];
+for (const [x, z, w, h, d] of blocks) {
+  const tex = facade(Math.round(d / 3), Math.round(h / 3.5), .22); tex.repeat.set(1, 1);
+  const b = S(new THREE.Mesh(new THREE.BoxGeometry(w, h, d), [mat({ map: tex }), mat({ map: tex }), mat({ color: 0x3a2a24 }), mat({ color: 0x3a2a24 }), mat({ map: tex }), mat({ map: tex })]));
+  b.position.set(x, h / 2, z); scene.add(b);
+  const cap = S(new THREE.Mesh(new THREE.BoxGeometry(w + .5, .5, d + .5), mat({ color: 0x6b5e55 }))); cap.position.set(x, h + .25, z); scene.add(cap);
+}
+// a broken corner on the first warehouse (destruction read)
+for (let i = 0; i < 14; i++) {
+  const c = S(new THREE.Mesh(new RoundedBoxGeometry(.4 + rnd() * .7, .25 + rnd() * .4, .4 + rnd() * .6, 2, .05), mat({ map: brick })));
+  c.position.set(-5.4 + rnd() * 1.6, .15 + rnd() * .3, -9 - rnd() * 3); c.rotation.set(rnd(), rnd() * 3, rnd()); scene.add(c);
+}
+// right side: concrete foundry hall with LED wall
+const hall = S(new THREE.Mesh(new THREE.BoxGeometry(10, 15, 34), mat({ map: concrete })));
+hall.position.set(10.5, 7.5, -20); scene.add(hall);
+const led = new THREE.Mesh(new THREE.PlaneGeometry(9, 4.2), new THREE.MeshStandardMaterial({ color: 0x000000, emissive: 0xffffff, emissiveIntensity: 1.6, emissiveMap: canvasTex(512, 240, (g, w, h) => {
+  const grd = g.createLinearGradient(0, 0, w, 0); grd.addColorStop(0, '#ff6a1a'); grd.addColorStop(1, '#ff3d7a'); g.fillStyle = grd; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#0c0f14'; g.fillRect(0, h * .72, w, h * .28);
+  g.fillStyle = '#fff'; g.font = '900 120px "Big Shoulders Display", Impact'; g.textBaseline = 'middle'; g.fillText('IMAGINE', 22, h * .38);
+  g.fillStyle = '#ffd23f'; g.font = '800 40px "Barlow Condensed", sans-serif'; g.fillText('ZONE B OPEN  ·  KILN YARD', 24, h * .86);
+}) }));
+led.rotation.y = -Math.PI / 2; led.position.set(5.48, 8.5, -16); scene.add(led);
+// distant stacks + water tower
+for (const [x, z, h] of [[-4, -78, 34], [3, -84, 40], [14, -70, 28]]) {
+  const st = S(new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.6, h, 20), mat({ map: brick }))); st.position.set(x, h / 2, z); scene.add(st);
+  const band = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, .8, 20), mat({ color: 0xe9ecf0 })); band.position.set(x, h - 2, z); scene.add(band);
+}
+const tower = new THREE.Group(); tower.position.set(-2, 0, -52);
+const tank = S(new THREE.Mesh(new THREE.CylinderGeometry(3, 3, 4, 24), mat({ color: 0x4f6b78, roughness: .6, metalness: .3 }))); tank.position.y = 15; tower.add(tank);
+const roof = S(new THREE.Mesh(new THREE.ConeGeometry(3.3, 1.8, 24), mat({ color: 0x3b4f59 }))); roof.position.y = 17.9; tower.add(roof);
+for (const [a, b] of [[1, 1], [1, -1], [-1, 1], [-1, -1]]) { const leg = S(new THREE.Mesh(new THREE.CylinderGeometry(.15, .15, 13, 8), mat({ color: 0x2a2f36 }))); leg.position.set(a * 2.2, 6.5, b * 2.2); tower.add(leg); }
+scene.add(tower);
+// containers + crates (cover)
+const contCols = [0x2f5d7c, 0x9a3b28, 0x6d7a3a];
+for (const [x, z, ry, c] of [[3.2, -20, .1, 0], [-3.5, -30, -.2, 1], [2.8, -36, .5, 2]]) {
+  const ct = S(new THREE.Mesh(new RoundedBoxGeometry(2.5, 2.6, 6, 2, .05), mat({ color: contCols[c], roughness: .6, metalness: .35 })));
+  ct.position.set(x, 1.3, z); ct.rotation.y = ry; scene.add(ct);
+}
+for (const [x, z] of [[-1.6, -9], [-0.8, -9.4], [2.4, -12]]) { const cr = S(new THREE.Mesh(new RoundedBoxGeometry(1, 1, 1, 2, .04), mat({ color: 0x8a6a42 }))); cr.position.set(x, .5, z); cr.rotation.y = rnd(); scene.add(cr); }
+// objective zone marker
+const station = new THREE.Group(); station.position.set(-1.2, 0, -17);
+const base = S(new THREE.Mesh(new RoundedBoxGeometry(1.6, 1.1, 1.0, 3, .08), mat({ color: 0x23272e, roughness: .4, metalness: .6 }))); base.position.y = .55; station.add(base);
+const glow = new THREE.Mesh(new THREE.TorusGeometry(.55, .05, 12, 48), new THREE.MeshStandardMaterial({ color: 0x000, emissive: 0xffd23f, emissiveIntensity: 4 })); glow.position.set(0, 1.7, 0); station.add(glow);
+const beam = new THREE.Mesh(new THREE.CylinderGeometry(.5, .5, 9, 24, 1, true), new THREE.MeshBasicMaterial({ color: 0xffd23f, transparent: true, opacity: .1, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide })); beam.position.y = 5; station.add(beam);
+const pl = new THREE.PointLight(0xffd23f, 6, 8, 2); pl.position.y = 1.7; station.add(pl);
+scene.add(station);
+// left foreground cover: concrete pillar (dark, close)
+const pillar = S(new THREE.Mesh(new RoundedBoxGeometry(.9, 5, .9, 2, .06), mat({ map: concrete, color: 0x9a948e }))); pillar.position.set(-4.4, 2.5, -7); scene.add(pillar);
+// right foreground wall edge
+const wall = S(new THREE.Mesh(new THREE.BoxGeometry(.6, 6, 6), mat({ map: concrete }))); wall.position.set(4.6, 3, -6.5); scene.add(wall);
+
+// characters
+const enemy = makePlayer({ team: '#3d8bff', number: '12', pose: 'aim' });
+enemy.position.set(.9, 0, -9.5); enemy.rotation.y = -.35; scene.add(enemy);
+const enemy2 = makePlayer({ team: '#3d8bff', number: '19', pose: 'idle' });
+enemy2.position.set(-2.8, 0, -24); enemy2.rotation.y = .5; scene.add(enemy2);
+
+// particles: concrete chips + heal sparks
+function instanced(geo, matl, n, place) {
+  const im = new THREE.InstancedMesh(geo, matl, n); const m = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), p = new THREE.Vector3(), sc = new THREE.Vector3();
+  for (let i = 0; i < n; i++) { place(p, e, sc); q.setFromEuler(e); m.compose(p, q, sc); im.setMatrixAt(i, m); }
+  scene.add(im); return im;
+}
+instanced(new THREE.BoxGeometry(.07, .05, .06), new THREE.MeshStandardMaterial({ color: 0x9a948c, roughness: .9 }), 180,
+  (p, e, s) => { p.set(1.8 + rnd() * 3.5, .3 + rnd() * 3.2, -4 - rnd() * 6); e.set(rnd() * 6, rnd() * 6, rnd() * 6); s.setScalar(.7 + rnd() * .8); });
+const plus = new THREE.Shape(); const a = .02, b = .065;
+plus.moveTo(-a, -b); plus.lineTo(a, -b); plus.lineTo(a, -a); plus.lineTo(b, -a); plus.lineTo(b, a); plus.lineTo(a, a); plus.lineTo(a, b); plus.lineTo(-a, b); plus.lineTo(-a, a); plus.lineTo(-b, a); plus.lineTo(-b, -a); plus.lineTo(-a, -a);
+instanced(new THREE.ShapeGeometry(plus), new THREE.MeshBasicMaterial({ color: 0x7fe3ff, transparent: true, opacity: .55, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide, fog: false }), 70,
+  (p, e, s) => { p.set(-2.2 + rnd() * 2.2, .1 + rnd() * 1.2, -2.5 - rnd() * 3); e.set(0, 0, 0); s.setScalar(.6 + rnd() * 1.4); });
+
+// camera + viewmodel
+const cam = new THREE.PerspectiveCamera(70, W / H, .03, 600);
+cam.position.set(.2, 1.65, 0); cam.lookAt(0, 1.75, -20);
+scene.add(cam);
+const vm = new THREE.Group(); cam.add(vm); vm.position.set(.16, -.13, -.34); vm.rotation.set(.03, .06, 0); vm.scale.setScalar(.42);
+const vmMat = mat({ color: 0x17191d, roughness: .4, metalness: .6 });
+const vmBody = S(new THREE.Mesh(new RoundedBoxGeometry(.09, .12, .5, 3, .015), vmMat)); vm.add(vmBody);
+const rail = S(new THREE.Mesh(new RoundedBoxGeometry(.05, .02, .34, 2, .005), mat({ color: 0x2a2e35, metalness: .7, roughness: .35 }))); rail.position.set(0, .07, -.04); vm.add(rail);
+const sight = new THREE.Mesh(new THREE.TorusGeometry(.045, .008, 8, 24, Math.PI * 1.3), vmMat); sight.position.set(0, .12, .02); sight.rotation.set(0, 0, -.6); vm.add(sight);
+const barrel = S(new THREE.Mesh(new THREE.CylinderGeometry(.016, .016, .3, 12), vmMat)); barrel.rotation.x = Math.PI / 2; barrel.position.set(0, .015, -.36); vm.add(barrel);
+const vmMag = S(new THREE.Mesh(new RoundedBoxGeometry(.05, .17, .09, 2, .01), vmMat)); vmMag.position.set(0, -.13, -.04); vmMag.rotation.x = .25; vm.add(vmMag);
+const vmStripe = new THREE.Mesh(new THREE.BoxGeometry(.092, .03, .22), mat({ color: 0xff6a1a, roughness: .45 })); vmStripe.position.set(0, -.02, .06); vm.add(vmStripe);
+const glove = S(new THREE.Mesh(new THREE.SphereGeometry(.05, 16, 12), mat({ color: 0x111318, roughness: .7 }))); glove.scale.set(1, .8, 1.4); glove.position.set(-.02, -.07, .12); vm.add(glove);
+const sleeve = S(new THREE.Mesh(new THREE.CapsuleGeometry(.05, .2, 6, 12), mat({ color: 0x3b4350 }))); sleeve.rotation.x = Math.PI / 2 - .3; sleeve.position.set(.0, -.11, .3); vm.add(sleeve);
+vm.traverse(o => { if (o.isMesh) o.frustumCulled = false; });
+
+// post
+const comp = new EffectComposer(r); comp.setPixelRatio(1); comp.setSize(W, H);
+comp.addPass(new RenderPass(scene, cam));
+comp.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), .45, .5, .9));
+comp.addPass(new OutputPass());
+comp.render();
+
+// place world-space HUD markers
+const place = (id, v) => { const p = v.clone().project(cam); const el = document.getElementById(id); el.style.left = ((p.x + 1) / 2 * W) + 'px'; el.style.top = ((1 - p.y) / 2 * H) + 'px'; };
+place('mk-obj', new THREE.Vector3(-1.2, 2.6, -17));
+place('mk-e1', new THREE.Vector3(.9, 2.2, -9.5));
+place('mk-e2', new THREE.Vector3(-2.8, 2.2, -24));
+document.title = 'ready';
+</script>
+
+<div class="hud">
+  <!-- LEFT visor cluster -->
+  <div class="side l">
+    <div class="grid"></div><div class="edge" style="left:18px"></div>
+    <div class="abs teams t">
+      <div class="team me"><span class="rk">1</span><span class="em" style="background:var(--ember)"><svg viewBox="0 0 14 14"><path d="M7 1 13 12H1Z" fill="#0C0F14"/></svg></span><span class="v">38</span><span class="d">+ 1</span></div>
+      <div class="prog"><i></i></div>
+      <div class="team"><span class="rk">2</span><span class="em" style="background:var(--tide)"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#0C0F14"/></svg></span><span class="v">31</span></div>
+      <div class="team"><span class="rk">3</span><span class="em" style="background:var(--volt)"><svg viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#0C0F14"/></svg></span><span class="v">17</span></div>
+    </div>
+    <div class="abs t" style="left:46px;top:212px;font:700 15px/1 'Barlow Condensed';font-style:normal">
+      <div>31m</div><svg style="margin-top:6px" width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="#F3F5F8" stroke-width="2"><path d="M1 4h13l-3-3M17 10H4l3 3"/></svg></div>
+    <div class="abs t" style="left:44px;top:296px;display:flex;align-items:center;gap:8px;font:600 15px/1 'Barlow Condensed';font-style:normal;color:var(--ice)">
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1 11 6 6 11 1 6Z" fill="none" stroke="#7FE3FF" stroke-width="1.6"/></svg>[Juno] Zone B is open, on me</div>
+    <div class="abs squad t">
+      <div class="sqh"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1 15 14H1Z" fill="none" stroke="#F3F5F8" stroke-width="1.8"/></svg>The Late Shift</div>
+      <div class="mate"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#F3F5F8" stroke-width="1.8"><circle cx="9" cy="9" r="6"/><path d="M9 3v12M3 9h12"/></svg><span class="cls">M</span><span>Juno</span><svg width="14" height="12" viewBox="0 0 14 12" fill="#F3F5F8"><path d="M1 4h3l4-3v10L4 8H1Z"/></svg><span></span><span></span><span class="mbar"><i style="width:86%"></i></span></div>
+      <div class="mate"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#F3F5F8" stroke-width="1.8"><path d="M3 15 15 3M9 3h6v6"/></svg><span class="cls">L</span><span>Pell</span><span></span><span></span><span></span><span class="mbar"><i style="width:52%"></i></span></div>
+    </div>
+    <div class="abs hp t">
+      <div class="n">175<small>/250</small></div>
+      <div class="bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="e"></i><i class="e"></i><i class="e"></i></div>
+      <div class="who">Kestrel <svg width="14" height="12" viewBox="0 0 14 12" fill="#C3CAD4"><path d="M1 4h3l4-3v10L4 8H1Z"/></svg></div>
+    </div>
+  </div>
+
+  <!-- RIGHT visor cluster -->
+  <div class="side r">
+    <div class="grid"></div><div class="edge" style="right:18px"></div>
+    <div class="abs feed t">
+      <div class="kf"><span style="color:var(--ember)">Juno</span><svg viewBox="0 0 22 12" fill="#F3F5F8"><path d="M0 4h15l3-2h4v6h-4l-3-2H6l-2 4H1Z"/></svg><span style="color:var(--tide)">Rook_3</span></div>
+      <div class="kf"><span style="color:var(--volt)">Halcyon</span><svg viewBox="0 0 22 12" fill="#F3F5F8"><path d="M0 5h22v3H0Z"/><circle cx="6" cy="6.5" r="3"/></svg><span style="color:var(--tide)">Marr</span></div>
+    </div>
+    <div class="abs t" style="right:50px;top:178px;text-align:right;font:700 15px/1 'Barlow Condensed';font-style:normal">21m<br>
+      <svg style="margin-top:6px" width="14" height="18" viewBox="0 0 14 18"><path d="M7 17S1 10 1 6.5a6 6 0 0 1 12 0C13 10 7 17 7 17Z" fill="#7FE3FF"/><circle cx="7" cy="6.5" r="2.2" fill="#0C0F14"/></svg></div>
+    <div class="abs wpn t">
+      <div class="ammo">24<small>/30</small></div>
+      <div class="wname">VX-9 CARBINE</div>
+      <div class="slots">
+        <div class="slot"><span class="ic"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#F3F5F8" stroke-width="2"><path d="M4 22 14 12M12 4l10 10-4 4L8 8Z"/></svg></span>Q</div>
+        <div class="slot on"><span class="ic"><svg width="38" height="20" viewBox="0 0 38 20" fill="#0C0F14"><path d="M1 6h24l3-3h8v7h-6l-2 2H16l-3 7H8l2-7H1Z"/></svg></span>1<span class="ch"><i></i><i></i><i></i></span></div>
+        <div class="slot"><span class="ic"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" stroke="#F3F5F8" stroke-width="2"><circle cx="13" cy="13" r="7"/><path d="M13 2v4M10 2h6"/></svg></span>2<span class="ch"><i></i><i class="e"></i></span></div>
+        <div class="slot"><span class="ic"><svg width="26" height="22" viewBox="0 0 26 22" fill="none" stroke="#F3F5F8" stroke-width="2"><path d="M3 8h13l2-3h5v8h-6l-3 7H9l2-7H3Z"/></svg></span>3</div>
+        <div class="slot"><span class="ic"><svg width="22" height="24" viewBox="0 0 22 24" fill="none" stroke="#F3F5F8" stroke-width="2"><path d="M4 9h14v13H4ZM8 9V5a3 3 0 0 1 6 0v4"/></svg></span>4</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- centre, flat -->
+  <div class="abs timer t"><span class="lamp" style="width:7px;height:7px"></span>10:48</div>
+  <div class="abs mk t" id="mk-obj"><div style="font:700 14px/1 'Barlow Condensed';font-style:normal;color:var(--score);margin-bottom:4px">17m</div><div class="ring">A</div><div style="font:800 15px/1.1 'Barlow Condensed';font-style:normal;color:var(--score);margin-top:4px">ZONE B<br>HOLD</div></div>
+  <div class="abs mk" id="mk-e1"><div style="display:flex;gap:2px;width:64px;transform:skewX(-25deg)"><i style="flex:3;height:4px;background:var(--ice)"></i><i style="flex:1;height:4px;background:rgba(127,227,255,.25)"></i></div></div>
+  <div class="abs mk" id="mk-e2"><div style="display:flex;gap:2px;width:44px;transform:skewX(-25deg)"><i style="flex:1;height:3px;background:var(--ice)"></i></div></div>
+  <div class="abs xh"></div>
+  <div class="abs kill t"><div class="strip"><span class="tab"></span><span class="slab">Eliminated <span style="color:var(--tide)">● Rook_3</span></span><span class="lead">+100</span></div></div>
+  <div class="abs build">IMAGINE 0.4.2 · KILN-07 · 7F3A</div>
+</div>
+</body></html>

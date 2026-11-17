@@ -71,14 +71,14 @@ fn warmed_physics_hot_paths_allocate_nothing() {
             CharacterState::with_motion(Vec3::new(x, 1.0, z), 0.0, true).unwrap()
         })
         .collect::<Vec<_>>();
-    // Measured: Rapier character `move_shape` builds `Vec<ContactManifold>` when shape casts hit dynamics (measured: 2 allocs / 1280 bytes per 64 moves).
+    // D34: Rapier character `move_shape` builds `Vec<ContactManifold>` when shape casts hit dynamics (measured: 2 allocs / 1280 bytes per 64 moves).
     const CHARACTER_DYNAMIC_MOVES_MAX_ALLOCATIONS: usize = 8;
     const CHARACTER_DYNAMIC_MOVES_MAX_BYTES: usize = 1280;
 
     let step_region = Region::new(GLOBAL);
     world.step();
     let step_stats = step_region.change();
-    // Rapier 0.36's narrow phase allocates a few small buffers per warmed step; we bound, not forbid.
+    // D34: Rapier 0.36's narrow phase allocates a few small buffers per warmed step; we bound, not forbid.
     assert!(
         step_stats.allocations <= 3,
         "warmed Rapier contact step allocated: {step_stats:?}"

@@ -1,0 +1,10 @@
+(
+    rows: 0,
+    options: 3,
+    text: "SAMPLE",
+    number: 1.0,
+    flag: true,
+    values: {
+        "build": Text("0.1.0"),
+    },
+)

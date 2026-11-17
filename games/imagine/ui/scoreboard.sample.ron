@@ -1,0 +1,7 @@
+(
+    rows: 12,
+    options: 3,
+    text: "SAMPLE",
+    number: 1.0,
+    flag: true,
+)

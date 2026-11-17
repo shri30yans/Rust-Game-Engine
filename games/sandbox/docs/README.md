@@ -5,11 +5,10 @@ crates (no kit, no other game), so it is also the template for new games.
 
 ## Run it
 
-    cargo run -p cook -- sandbox
     cargo run -p sandbox
 
 Controls: W/S or Up/Down walk forward and back, A/D strafe, Space (or the fire key) jumps, F3
-toggles the frame telemetry panel. On Android the touch controls are below; the telemetry
+toggles the frame telemetry panel (D45). On Android the touch controls are below; the telemetry
 panel starts shown and a tap on its top-left corner toggles it. The mouse turns the view: `SandboxPresenter::grab_mouse` asks the engine to grab the window, and the
 engine's mouse look produces the `ViewAngles` that the presenter passes into each `PlayerCommand`.
 The simulation faces the character along that view, and the camera uses the same view.
@@ -33,7 +32,7 @@ Touch controls: the left half of the screen is a floating stick (drag from anywh
 half; it walks and strafes). The right half turns the view by drag. A JUMP button on the right
 jumps while held. The button is drawn as a plain ring, because the sandbox has no HUD or font. The
 stick reads as centred inside 30 % of full deflection. The presenter returns the button layout from
-`Presenter::touch_buttons`, and the client installs it into the input on the first frame.
+`Presenter::touch_buttons`, and the client installs it into the input on the first frame (see D44).
 
 Not verified: the APK is built, signed and checked with `apksigner verify` and `aapt2 dump
 badging`, and the Android code is cross-compiled, but on-device behaviour has NOT been verified.
@@ -41,18 +40,27 @@ No device or emulator was available when this was built, so it has not been run.
 
 ## Test it
 
-    cargo run -p cook -- sandbox
     cargo test -p sandbox
 
 The scripted headless tests are in `game/tests/`: `movement.rs` (the character and the scene) and
 `determinism.rs` (the state hash). No test is ignored.
+
+`headless_render_golden.rs` renders the generated sample arena at desktop, phone and lockdown
+settings. Its camera starts over the interior walkway and looks down toward the arena center, showing
+the floor, perimeter walls, crates and central structure with depth. The open-layout desktop frame
+shows the central mover raised above the floor; lockdown lowers it behind the floor edge. All three
+golden runs have telemetry disabled; phone retains the jump ring at lower right. The test compares
+the full frame and checks luminance standard deviation before comparing or recording, so a uniform
+clear frame cannot pass. Frame capacity is calculated after each load from the world's entity count
+plus the game's 64-entity dynamic budget. The previous 256-entity ceiling made extraction fail for
+the generated 390-entity scene, leaving the renderer's clear frame as the screenshot.
 
 Each command in the scripted tests carries a view: walking toward +X uses a fixed yaw
 (`FACING_PLUS_X`, built through `ViewAngles::new`).
 
 ## Scene checklist
 
-The scene is the level file `game/levels/sandbox.ron` . The numbers below describe that file.
+The scene is the level file `game/levels/sandbox.ron` (format in [../../../docs/CONTENT.md](../../../docs/CONTENT.md) §6). The numbers below describe that file.
 
 - Floor: 40 m square, top at y = 0.
 - Walls: four, 4 m high, on the floor's edge.

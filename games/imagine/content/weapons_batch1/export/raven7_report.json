@@ -1,0 +1,391 @@
+{
+ "desktop": {
+  "file": "raven7.glb",
+  "kb": 7838,
+  "tris": 14256,
+  "primitives": 8,
+  "meshes": 8,
+  "materials": [
+   "M_RAVEN7",
+   "M_RAVEN7_Glow"
+  ],
+  "images": [
+   [
+    "RAVEN7_Emissive_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "RAVEN7_Normal_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "RAVEN7_BaseColor_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "RAVEN7_ORM_2048",
+    "image/png",
+    2048,
+    2048
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 5,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_GlowFX",
+     "RAVEN7_OpticFX",
+     "RAVEN7_Pivot",
+     "RAVEN7_RingFX"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.3,
+    "frames": 9,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_GlowFX",
+     "RAVEN7_OpticFX",
+     "RAVEN7_Pivot",
+     "RAVEN7_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2.2,
+    "frames": 66,
+    "channels": 7,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_ChargingHandle",
+     "RAVEN7_GlowFX",
+     "RAVEN7_Mag",
+     "RAVEN7_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_ChargingHandle",
+     "RAVEN7_GlowFX",
+     "RAVEN7_OpticFX",
+     "RAVEN7_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_ChargingHandle",
+     "RAVEN7_GlowFX",
+     "RAVEN7_Mag",
+     "RAVEN7_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "RAVEN7_Body",
+   "RAVEN7_Bolt",
+   "RAVEN7_ChargingHandle",
+   "RAVEN7_GlowFX",
+   "RAVEN7_Mag",
+   "RAVEN7_OpticFX",
+   "RAVEN7_RingFX",
+   "RAVEN7_Socket_Eject",
+   "RAVEN7_Socket_MagWell",
+   "RAVEN7_Socket_Muzzle",
+   "RAVEN7_Socket_Sight",
+   "RAVEN7_Socket_SupportHand",
+   "RAVEN7_Trigger",
+   "RAVEN7_Pivot",
+   "RAVEN7"
+  ],
+  "skins": 0
+ },
+ "mobile": {
+  "file": "raven7_mobile.glb",
+  "kb": 2984,
+  "tris": 14256,
+  "primitives": 8,
+  "meshes": 8,
+  "materials": [
+   "M_RAVEN7",
+   "M_RAVEN7_Glow"
+  ],
+  "images": [
+   [
+    "RAVEN7_Emissive_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "RAVEN7_Normal_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "RAVEN7_BaseColor_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "RAVEN7_ORM_1024",
+    "image/png",
+    1024,
+    1024
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 5,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_GlowFX",
+     "RAVEN7_OpticFX",
+     "RAVEN7_Pivot",
+     "RAVEN7_RingFX"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 0.3,
+    "frames": 9,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_GlowFX",
+     "RAVEN7_OpticFX",
+     "RAVEN7_Pivot",
+     "RAVEN7_Trigger"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2.2,
+    "frames": 66,
+    "channels": 7,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_ChargingHandle",
+     "RAVEN7_GlowFX",
+     "RAVEN7_Mag",
+     "RAVEN7_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 0.8,
+    "frames": 24,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_ChargingHandle",
+     "RAVEN7_GlowFX",
+     "RAVEN7_OpticFX",
+     "RAVEN7_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "RAVEN7_Bolt",
+     "RAVEN7_ChargingHandle",
+     "RAVEN7_GlowFX",
+     "RAVEN7_Mag",
+     "RAVEN7_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "RAVEN7_Body",
+   "RAVEN7_Bolt",
+   "RAVEN7_ChargingHandle",
+   "RAVEN7_GlowFX",
+   "RAVEN7_Mag",
+   "RAVEN7_OpticFX",
+   "RAVEN7_RingFX",
+   "RAVEN7_Socket_Eject",
+   "RAVEN7_Socket_MagWell",
+   "RAVEN7_Socket_Muzzle",
+   "RAVEN7_Socket_Sight",
+   "RAVEN7_Socket_SupportHand",
+   "RAVEN7_Trigger",
+   "RAVEN7_Pivot",
+   "RAVEN7"
+  ],
+  "skins": 0
+ },
+ "clips": [
+  {
+   "name": "Idle",
+   "frames": 60,
+   "loop": true,
+   "desc": "breathing sway + light-pipe pulse"
+  },
+  {
+   "name": "Fire",
+   "frames": 9,
+   "loop": false,
+   "desc": "one shot: kick, bolt cycle, trigger, light flash"
+  },
+  {
+   "name": "Reload",
+   "frames": 66,
+   "loop": false,
+   "desc": "mag out (drops off-screen), fresh mag in at f30, slap, charge"
+  },
+  {
+   "name": "Equip",
+   "frames": 24,
+   "loop": false,
+   "desc": "raise from below + charge, lights boot up"
+  },
+  {
+   "name": "Inspect",
+   "frames": 120,
+   "loop": false,
+   "desc": "showcase both sides, mag check, chamber check"
+  }
+ ],
+ "hierarchy": [
+  "- RAVEN7 (node)",
+  "  - RAVEN7_Pivot (node)",
+  "    - RAVEN7_Body (mesh)",
+  "    - RAVEN7_Bolt (mesh)",
+  "    - RAVEN7_ChargingHandle (mesh)",
+  "    - RAVEN7_GlowFX (mesh)",
+  "    - RAVEN7_Mag (mesh)",
+  "    - RAVEN7_OpticFX (mesh)",
+  "    - RAVEN7_RingFX (mesh)",
+  "    - RAVEN7_Socket_Eject (node)",
+  "    - RAVEN7_Socket_MagWell (node)",
+  "    - RAVEN7_Socket_Muzzle (node)",
+  "    - RAVEN7_Socket_Sight (node)",
+  "    - RAVEN7_Socket_SupportHand (node)",
+  "    - RAVEN7_Trigger (mesh)"
+ ],
+ "textures_2k": {
+  "col": "/workspace/weapons/export/textures/raven7/RAVEN7_BaseColor_2048.png",
+  "orm": "/workspace/weapons/export/textures/raven7/RAVEN7_ORM_2048.png",
+  "normal": "/workspace/weapons/export/textures/raven7/RAVEN7_Normal_2048.png",
+  "emit": "/workspace/weapons/export/textures/raven7/RAVEN7_Emissive_2048.png"
+ },
+ "textures_1k": {
+  "col": "/workspace/weapons/export/textures/raven7/RAVEN7_BaseColor_1024.png",
+  "orm": "/workspace/weapons/export/textures/raven7/RAVEN7_ORM_1024.png",
+  "normal": "/workspace/weapons/export/textures/raven7/RAVEN7_Normal_1024.png",
+  "emit": "/workspace/weapons/export/textures/raven7/RAVEN7_Emissive_1024.png"
+ }
+}

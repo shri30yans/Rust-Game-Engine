@@ -1,0 +1,60 @@
+/* Mockup tokens — mirrors ../theme.ron. Canvas 1280x720 = 2x the 640x360 reference, so every spec px is doubled here via --u. */
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono&display=block");
+:root{
+  --u:2px;
+  --ink-950:#07090C;--ink-900:#0C0F14;--ink-800:#141922;--ink-700:#1E2530;--ink-600:#2C3543;--ink-500:#46505F;
+  --ink-400:#6B7686;--ink-300:#98A2B1;--ink-200:#C3CAD4;--paper:#F3F5F8;
+  --signal:#FF6A1A;--ice:#7FE3FF;--score:#FFD447;--shield:#5CC8FF;--danger:#FF3D52;--heal:#3DF5A0;--warn:#FFB52E;
+  --ember:#FF7A3D;--tide:#3D8CFF;--volt:#C9F23A;--orchid:#C37BFF;
+  --scrim:rgba(7,9,12,.75);
+  --notch-s:calc(6*var(--u));--notch-m:calc(12*var(--u));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px;height:720px;overflow:hidden;background:var(--ink-900);color:var(--paper);font-family:Barlow,system-ui,sans-serif}
+.cond{font-family:"Barlow Condensed",sans-serif}
+.caps{text-transform:uppercase;letter-spacing:.04em}
+.num{font-family:"Barlow Condensed";font-weight:700;font-variant-numeric:tabular-nums}
+.mono{font-family:"JetBrains Mono",monospace}
+.display-xl{font:700 calc(56*var(--u))/1 "Barlow Condensed"}
+.display-l{font:700 calc(40*var(--u))/1 "Barlow Condensed"}
+.num-xl{font:700 calc(32*var(--u))/1 "Barlow Condensed";font-variant-numeric:tabular-nums}
+.title{font:600 calc(22*var(--u))/calc(26*var(--u)) "Barlow Condensed";text-transform:uppercase;letter-spacing:.04em}
+.body-l{font:500 calc(16*var(--u))/calc(22*var(--u)) Barlow}
+.body{font:400 calc(14*var(--u))/calc(20*var(--u)) Barlow}
+.label{font:600 calc(12*var(--u))/calc(16*var(--u)) "Barlow Condensed";text-transform:uppercase;letter-spacing:.04em}
+.micro{font:600 calc(10*var(--u))/calc(12*var(--u)) "Barlow Condensed";text-transform:uppercase;letter-spacing:.06em}
+.notch-m{clip-path:polygon(0 0,calc(100% - var(--notch-m)) 0,100% var(--notch-m),100% 100%,0 100%)}
+.notch-s{clip-path:polygon(0 0,calc(100% - var(--notch-s)) 0,100% var(--notch-s),100% 100%,0 100%)}
+.btn-primary{background:var(--signal);color:var(--ink-900);height:calc(28*var(--u));display:flex;align-items:center;justify-content:center;padding:0 calc(16*var(--u));font:700 calc(16*var(--u))/1 "Barlow Condensed";text-transform:uppercase;letter-spacing:.06em}
+.btn-secondary{background:var(--ink-800);border:1px solid var(--ink-500);color:var(--paper);height:calc(24*var(--u));display:flex;align-items:center;justify-content:center;padding:0 calc(12*var(--u));border-radius:calc(4*var(--u))}
+.panel{background:var(--ink-800);box-shadow:inset 0 1px 0 var(--ink-600)}
+.chip{display:inline-flex;align-items:center;gap:calc(3*var(--u));height:calc(10*var(--u));padding:0 calc(4*var(--u));border-radius:calc(2*var(--u))}
+.scrim{background:var(--scrim)}
+.outline{text-shadow:0 0 2px var(--ink-950),0 0 2px var(--ink-950),0 2px 2px rgba(7,9,12,.8)}
+.abs{position:absolute}
+.tag{position:absolute;right:12px;bottom:8px;font:500 11px/1 "JetBrains Mono";color:var(--ink-400);opacity:.8}
+
+/* ---- Control Room kit (UI_STUDY §3) ---- */
+.disp{font-family:"Big Shoulders Display",Anton,sans-serif;font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:.005em}
+.tc{font:400 12px/1 "JetBrains Mono";color:var(--ink-400);letter-spacing:.04em}
+.lamp{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal)}
+.grid{background-image:linear-gradient(rgba(243,245,248,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(243,245,248,.04) 1px,transparent 1px);background-size:16px 16px}
+.halftone{background-image:radial-gradient(rgba(255,106,26,.55) 1.4px,transparent 1.6px);background-size:9px 9px}
+.brk{position:relative}
+.brk::before,.brk::after{content:"";position:absolute;inset:-8px;pointer-events:none;
+  background:
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 0 0/16px 2px no-repeat,
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 0 0/2px 16px no-repeat,
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 100% 0/16px 2px no-repeat,
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 100% 0/2px 16px no-repeat,
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 0 100%/16px 2px no-repeat,
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 0 100%/2px 16px no-repeat,
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 100% 100%/16px 2px no-repeat,
+   linear-gradient(var(--bc,var(--paper)),var(--bc,var(--paper))) 100% 100%/2px 16px no-repeat}
+.brk::after{display:none}
+.crop{position:absolute;width:14px;height:14px;background:linear-gradient(var(--ink-500),var(--ink-500)) 50% 0/1px 100% no-repeat,linear-gradient(var(--ink-500),var(--ink-500)) 0 50%/100% 1px no-repeat}
+.l3{display:flex;align-items:stretch;height:36px}
+.l3 .tab{width:8px;background:var(--signal)}
+.l3 .slab{background:var(--paper);color:var(--ink-900);display:flex;align-items:center;padding:0 14px;font:700 22px/1 "Barlow Condensed";text-transform:uppercase;letter-spacing:.05em}
+.l3 .ext{display:flex;align-items:center;padding:0 12px;background:rgba(7,9,12,.8);font:700 22px/1 "Barlow Condensed";letter-spacing:.04em}
+.ol{text-shadow:0 0 1px #07090C,0 0 2px #07090C,0 0 3px rgba(7,9,12,.9),0 2px 3px rgba(7,9,12,.8)}

@@ -5,6 +5,7 @@ members = [
     "tools/ui-cook",
     "tools/cook",
     "tools/texture-encode",
+    "tools/sfx-gen",
     "engine/core",
     "engine/assets",
     "engine/jobs",
@@ -19,6 +20,7 @@ members = [
     "engine/sessions",
     "engine/ui",
     "games/sandbox/game",
+    "games/imagine/game",
     "kits/fps",
     "tools/check-layers",
     "tools/bench-gate",
@@ -95,12 +97,12 @@ codegen-units = 4
 opt-level = 1
 incremental = true
 # Line tables keep file:line in backtraces and profilers; full variable info made the target
-# folder and link times several times larger.
+# folder and link times several times larger (D76).
 debug = "line-tables-only"
 
 [profile.dev.package."*"]
 opt-level = 3
-# Dependencies are not debugged here; their debug info was most of the target size.
+# Dependencies are not debugged here; their debug info was most of the target size (D76).
 debug = false
 
 [profile.play]

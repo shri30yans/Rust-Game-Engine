@@ -1,0 +1,18 @@
+(
+    rows: 12,
+    options: 3,
+    text: "SAMPLE",
+    number: 1.0,
+    flag: true,
+    values: {
+        "room_code": Text("K7M4Q2"),
+        "mode": Text("PRACTICE"),
+        "arena": Text("KILN YARD"),
+        "seat_count": Num(12.0),
+        "seat_capacity": Num(12.0),
+        "countdown": Flag(false),
+        "countdown_text": Text("STARTING"),
+        "ready_label": Text("READY"),
+        "toast": Text("ROOM READY"),
+    },
+)

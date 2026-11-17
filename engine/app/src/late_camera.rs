@@ -1,6 +1,6 @@
 //! Late camera: the render thread applies the newest look input just before it
 //! records a frame, and the input sent to the server carries the same angles.
-//! Pipelining therefore adds no aim delay.
+//! Pipelining therefore adds no aim delay (PRINCIPLES §5.1 G1).
 //!
 //! [`ViewAngles`] always holds finite values: yaw is wrapped into `(-PI, PI]` and
 //! pitch is clamped to `±PITCH_LIMIT`. [`LookInbox`] is the one shared piece: the
@@ -108,8 +108,8 @@ impl LookDelta {
     }
 }
 
-/// Radians of view change per device pixel on each axis, used by default (raised
-/// from 0.0025, which felt slow on a phone).
+/// Radians of view change per device pixel on each axis, used by default (D49: raised from
+/// 0.0025, which felt slow on a phone).
 const DEFAULT_RADIANS_PER_PIXEL: f32 = 0.004;
 
 /// How far the view turns per pixel of mouse or touch motion, on each axis. Both finite and

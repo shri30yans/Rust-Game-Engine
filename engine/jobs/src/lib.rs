@@ -1,4 +1,4 @@
-//! Ordered chunked parallelism and a background worker pool.
+//! Ordered chunked parallelism and a background worker pool (D25).
 //!
 //! `engine-jobs` is the only engine crate that names rayon. Simulation crates split work into
 //! fixed-size chunks, write one result slot per chunk, and combine slots in index order on one thread.

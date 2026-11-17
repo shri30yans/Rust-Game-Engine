@@ -9,7 +9,7 @@ use common::{add_box, add_triangle_mesh_box, physics, run, schedule, spawn_actor
 use engine_physics::{ColliderId, ConvexShape, PhysicsWorld, QueryFilter, RayCast};
 use engine_world::{NetId, Schedule, World};
 use glam::{Vec2, Vec3};
-use kit_fps::{Locomotion, MoveCommand, MoveState, MovementLog, Trigger};
+use kit_fps::{Locomotion, MoveCommand, MoveState, MovementEvent, Trigger};
 use proptest::prelude::*;
 
 const ROOF_BOTTOM_Y: f32 = 1.4;
@@ -128,7 +128,7 @@ fn low_roof_blocks_standing_until_clear_and_capsule_tracks_mode()
         centre,
         STANDING_HEIGHT_M
     )?);
-    let events = world.resource::<MovementLog>()?.events();
+    let events = world.events::<MovementEvent>()?.as_slice();
     assert_eq!(events.len(), 1);
     assert_eq!(events[0].from, MoveState::Crouch);
     assert_eq!(events[0].to, MoveState::Walk);

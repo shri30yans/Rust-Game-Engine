@@ -192,7 +192,7 @@ mod tests {
         for value in ["", "has space", "bad/part", &"x".repeat(65)] {
             assert!(AppId::new(value).is_err(), "{value:?}");
         }
-        assert!(AppId::new("GAME_1").is_ok());
+        assert!(AppId::new("IMAGINE_1").is_ok());
     }
 
     proptest::proptest! {

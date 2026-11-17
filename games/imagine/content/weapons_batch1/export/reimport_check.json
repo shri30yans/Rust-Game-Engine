@@ -1,0 +1,337 @@
+{
+ "breacher.glb": {
+  "objects": 13,
+  "tris": 12040,
+  "materials": [
+   "M_BREACHER",
+   "M_BREACHER_Glow"
+  ],
+  "images": [
+   "BREACHER_BaseColor_2048:2048",
+   "BREACHER_Emissive_2048:2048",
+   "BREACHER_Normal_2048:2048",
+   "BREACHER_ORM_2048:2048"
+  ],
+  "actions": 6,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Pump",
+   "Reload"
+  ]
+ },
+ "breacher_mobile.glb": {
+  "objects": 13,
+  "tris": 12040,
+  "materials": [
+   "M_BREACHER",
+   "M_BREACHER_Glow"
+  ],
+  "images": [
+   "BREACHER_BaseColor_1024:1024",
+   "BREACHER_Emissive_1024:1024",
+   "BREACHER_Normal_1024:1024",
+   "BREACHER_ORM_1024:1024"
+  ],
+  "actions": 6,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Pump",
+   "Reload"
+  ]
+ },
+ "gravitywell.glb": {
+  "objects": 11,
+  "tris": 8076,
+  "materials": [
+   "M_GRAVITYWELL",
+   "M_GRAVITYWELL_Glow"
+  ],
+  "images": [
+   "GRAVITYWELL_BaseColor_2048:2048",
+   "GRAVITYWELL_Emissive_2048:2048",
+   "GRAVITYWELL_Normal_2048:2048",
+   "GRAVITYWELL_ORM_2048:2048"
+  ],
+  "actions": 6,
+  "clips": [
+   "Charge",
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "gravitywell_mobile.glb": {
+  "objects": 11,
+  "tris": 8076,
+  "materials": [
+   "M_GRAVITYWELL",
+   "M_GRAVITYWELL_Glow"
+  ],
+  "images": [
+   "GRAVITYWELL_BaseColor_1024:1024",
+   "GRAVITYWELL_Emissive_1024:1024",
+   "GRAVITYWELL_Normal_1024:1024",
+   "GRAVITYWELL_ORM_1024:1024"
+  ],
+  "actions": 6,
+  "clips": [
+   "Charge",
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "oblivion.glb": {
+  "objects": 16,
+  "tris": 13098,
+  "materials": [
+   "M_OBLIVION",
+   "M_OBLIVION_Glow"
+  ],
+  "images": [
+   "OBLIVION_BaseColor_2048:2048",
+   "OBLIVION_Emissive_2048:2048",
+   "OBLIVION_Normal_2048:2048",
+   "OBLIVION_ORM_2048:2048"
+  ],
+  "actions": 6,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "LockOn",
+   "Reload"
+  ]
+ },
+ "oblivion_mobile.glb": {
+  "objects": 16,
+  "tris": 13098,
+  "materials": [
+   "M_OBLIVION",
+   "M_OBLIVION_Glow"
+  ],
+  "images": [
+   "OBLIVION_BaseColor_1024:1024",
+   "OBLIVION_Emissive_1024:1024",
+   "OBLIVION_Normal_1024:1024",
+   "OBLIVION_ORM_1024:1024"
+  ],
+  "actions": 6,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "LockOn",
+   "Reload"
+  ]
+ },
+ "partycrasher.glb": {
+  "objects": 21,
+  "tris": 8762,
+  "materials": [
+   "M_PARTYCRASHER",
+   "M_PARTYCRASHER_Glow"
+  ],
+  "images": [
+   "PARTYCRASHER_BaseColor_2048:2048",
+   "PARTYCRASHER_Emissive_2048:2048",
+   "PARTYCRASHER_Normal_2048:2048",
+   "PARTYCRASHER_ORM_2048:2048"
+  ],
+  "actions": 5,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "partycrasher_mobile.glb": {
+  "objects": 21,
+  "tris": 8762,
+  "materials": [
+   "M_PARTYCRASHER",
+   "M_PARTYCRASHER_Glow"
+  ],
+  "images": [
+   "PARTYCRASHER_BaseColor_1024:1024",
+   "PARTYCRASHER_Emissive_1024:1024",
+   "PARTYCRASHER_Normal_1024:1024",
+   "PARTYCRASHER_ORM_1024:1024"
+  ],
+  "actions": 5,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "raven7.glb": {
+  "objects": 15,
+  "tris": 14256,
+  "materials": [
+   "M_RAVEN7",
+   "M_RAVEN7_Glow"
+  ],
+  "images": [
+   "RAVEN7_BaseColor_2048:2048",
+   "RAVEN7_Emissive_2048:2048",
+   "RAVEN7_Normal_2048:2048",
+   "RAVEN7_ORM_2048:2048"
+  ],
+  "actions": 5,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "raven7_mobile.glb": {
+  "objects": 15,
+  "tris": 14256,
+  "materials": [
+   "M_RAVEN7",
+   "M_RAVEN7_Glow"
+  ],
+  "images": [
+   "RAVEN7_BaseColor_1024:1024",
+   "RAVEN7_Emissive_1024:1024",
+   "RAVEN7_Normal_1024:1024",
+   "RAVEN7_ORM_1024:1024"
+  ],
+  "actions": 5,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "shinobi.glb": {
+  "objects": 11,
+  "tris": 4064,
+  "materials": [
+   "M_SHINOBI",
+   "M_SHINOBI_Glow"
+  ],
+  "images": [
+   "SHINOBI_BaseColor_2048:2048",
+   "SHINOBI_Emissive_2048:2048",
+   "SHINOBI_Normal_2048:2048",
+   "SHINOBI_ORM_2048:2048"
+  ],
+  "actions": 6,
+  "clips": [
+   "Equip",
+   "Idle",
+   "Inspect",
+   "Parry",
+   "SwingHeavy",
+   "SwingLight"
+  ]
+ },
+ "shinobi_mobile.glb": {
+  "objects": 11,
+  "tris": 4064,
+  "materials": [
+   "M_SHINOBI",
+   "M_SHINOBI_Glow"
+  ],
+  "images": [
+   "SHINOBI_BaseColor_1024:1024",
+   "SHINOBI_Emissive_1024:1024",
+   "SHINOBI_Normal_1024:1024",
+   "SHINOBI_ORM_1024:1024"
+  ],
+  "actions": 6,
+  "clips": [
+   "Equip",
+   "Idle",
+   "Inspect",
+   "Parry",
+   "SwingHeavy",
+   "SwingLight"
+  ]
+ },
+ "pistol.glb": {
+  "objects": 19,
+  "tris": 6321,
+  "materials": [
+   "checkered_grip",
+   "polymer_frame",
+   "steel_barrel",
+   "steel_gunmetal",
+   "steel_polished_rim",
+   "steel_slide"
+  ],
+  "images": [],
+  "actions": 5,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "pistol_mobile.glb": {
+  "objects": 19,
+  "tris": 6321,
+  "materials": [
+   "checkered_grip",
+   "polymer_frame",
+   "steel_barrel",
+   "steel_gunmetal",
+   "steel_polished_rim",
+   "steel_slide"
+  ],
+  "images": [],
+  "actions": 5,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ },
+ "pistol_bronze.glb": {
+  "objects": 19,
+  "tris": 6321,
+  "materials": [
+   "checkered_grip",
+   "polymer_frame",
+   "steel_barrel",
+   "steel_gunmetal",
+   "steel_polished_rim",
+   "steel_slide"
+  ],
+  "images": [],
+  "actions": 5,
+  "clips": [
+   "Equip",
+   "Fire",
+   "Idle",
+   "Inspect",
+   "Reload"
+  ]
+ }
+}

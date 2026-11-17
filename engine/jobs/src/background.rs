@@ -1,4 +1,4 @@
-//! Background worker pool for file loading and other off-frame work.
+//! Background worker pool for file loading and other off-frame work (D25).
 //!
 //! Frame code never waits on this pool. The `Mutex` around the job receiver is not simulation state:
 //! only background worker threads contend on it.

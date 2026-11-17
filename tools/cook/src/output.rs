@@ -257,7 +257,7 @@ pub(super) fn write(
     let report = CookReport {
         source_hash,
         encoder: texture_encode::ENCODER_LABEL.to_owned(),
-        conventions: "Soft references are typed paths; caller-owned handles retain loaded assets. LOD thresholds use projected screen fraction 0.50 and 0.25; clips sample at 30 Hz with linear interpolation; absent loop metadata remains unset. Collision uses role tags or <object>_COL, with static triangle meshes and convex/decomposed prop geometry.".to_owned(),
+        conventions: "Unreal-style soft references are typed paths; caller-owned handles retain loaded assets. LOD thresholds use projected screen fraction 0.50 and 0.25; clips sample at 30 Hz with linear interpolation; absent loop metadata remains unset. Collision uses role tags or <object>_COL, with static triangle meshes and convex/decomposed prop geometry.".to_owned(),
         triangles_per_lod: metrics.triangles_per_lod,
         stream_bytes: metrics.stream_bytes,
         texture_bytes_by_family: metrics.texture_bytes_by_family,

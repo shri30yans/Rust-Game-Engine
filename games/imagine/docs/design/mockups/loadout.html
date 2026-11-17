@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Loadout mockup — Control Room</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+body{background:radial-gradient(ellipse 480px 420px at 300px 430px,rgba(255,106,26,.22),transparent 70%),linear-gradient(180deg,#0f131a,#0a0c10)}
+.hdr{left:32px;right:32px;top:20px;height:56px;display:flex;align-items:center;gap:16px}
+.back{display:flex;align-items:center;gap:8px;height:44px;padding:0 14px;border:1px solid var(--ink-600);font:700 16px/1 "Barlow Condensed";letter-spacing:.1em;color:var(--ink-200)}
+.ttl{font-size:46px;margin-left:8px}
+.cls{margin-left:40px;display:flex;gap:0}
+.cls a{text-transform:uppercase;height:44px;display:flex;align-items:center;gap:8px;padding:0 22px;font:700 18px/1 "Barlow Condensed";letter-spacing:.12em;color:var(--ink-300);border-bottom:2px solid var(--ink-700)}
+.cls a.on{color:var(--ink-900);background:var(--paper);border-color:var(--paper);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+.slots{left:32px;top:112px;width:230px;display:flex;flex-direction:column;gap:10px}
+.slot{height:84px;background:var(--ink-800);padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.slot.sel{background:var(--ink-700);box-shadow:inset 4px 0 0 var(--signal)}
+.slot .k{font:600 13px/1 "Barlow Condensed";letter-spacing:.16em;color:var(--ink-300);text-transform:uppercase}
+.slot .n{font:700 22px/1 "Barlow Condensed";letter-spacing:.05em;text-transform:uppercase}
+.slot .ic{position:absolute;right:12px;bottom:12px;width:70px;height:22px;background:var(--ink-300);clip-path:polygon(0 40%,60% 40%,60% 0,100% 0,100% 100%,0 100%)}
+.char{left:300px;top:120px;width:300px;height:480px}
+.grid{left:640px;top:112px;width:608px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.it{height:112px;background:var(--ink-800);position:relative;padding:10px;display:flex;flex-direction:column;justify-content:flex-end}
+.it .n{font:700 16px/1.1 "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase}
+.it .ty{font:500 12px/1.2 Barlow;color:var(--ink-300)}
+.it .g{position:absolute;left:14px;top:18px;width:96px;height:28px;background:linear-gradient(90deg,#3a414d,#596171);clip-path:polygon(0 35%,55% 35%,55% 0,100% 0,100% 100%,0 100%)}
+.it .r{position:absolute;right:0;top:0;width:24px;height:4px}
+.it.sel{background:var(--ink-700);--bc:var(--signal)}
+.it.lock{opacity:.45}
+.det{left:640px;top:376px;width:608px;height:256px;background:var(--ink-800);padding:20px 22px;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+.stat{width:360px;display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:12px;height:24px;font:600 15px/1 "Barlow Condensed";letter-spacing:.12em;text-transform:uppercase;color:var(--ink-200)}
+.bar{display:flex;gap:3px}.bar i{flex:1;height:8px;background:var(--ink-600)}.bar i.f{background:var(--paper)}.bar i.up{background:var(--heal)}.bar i.dn{background:var(--danger)}
+.v{text-align:right;color:var(--paper);font-weight:700}
+.equip{position:absolute;right:22px;bottom:20px;height:56px;width:200px;background:var(--signal);color:var(--ink-900);display:flex;align-items:center;justify-content:center;font:900 30px/1 "Big Shoulders Display";letter-spacing:.04em;text-transform:uppercase;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}
+.hint{left:32px;bottom:20px;display:flex;gap:22px;font:600 15px/1 "Barlow Condensed";letter-spacing:.1em;color:var(--ink-300);text-transform:uppercase}
+.hint b{display:inline-block;background:var(--paper);color:var(--ink-900);padding:2px 6px;margin-right:6px;border-radius:2px}
+</style></head><body class="grid">
+<div class="abs hdr">
+  <span class="back">‹ BACK</span>
+  <span class="ttl disp">Loadout</span>
+  <div class="cls"><a>▲ Light</a><a class="on">■ Medium</a><a>◆ Heavy</a></div>
+  <span style="margin-left:auto" class="tc">GRID A1 · LOADOUT · SHEET 02</span>
+</div>
+<div class="abs" style="left:32px;right:32px;top:84px;height:1px;background:var(--ink-700)"></div>
+
+<div class="abs slots">
+  <div class="slot sel"><span class="k">Primary</span><span class="n">VX-9 Carbine</span><span class="ic"></span></div>
+  <div class="slot"><span class="k">Gadget 1</span><span class="n">Breach Charge</span></div>
+  <div class="slot"><span class="k">Gadget 2</span><span class="n">Smoke Canister</span></div>
+  <div class="slot"><span class="k">Specialization</span><span class="n">Revive Beam</span></div>
+  <div class="slot" style="height:64px;background:transparent;border:1px dashed var(--ink-500);justify-content:center"><span class="k" style="text-align:center">+ Save preset (2/5)</span></div>
+</div>
+
+<img class="abs" src="player.svg" style="left:310px;top:130px;width:290px;height:464px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))">
+<div class="abs brk" style="left:300px;top:118px;width:310px;height:490px;--bc:rgba(243,245,248,.3)"></div>
+<div class="abs tc" style="left:300px;top:616px">DRAG TO ROTATE · PINCH TO ZOOM</div>
+
+<div class="abs grid">
+  <div class="it sel brk"><span class="r" style="background:var(--signal)"></span><span class="g"></span><span class="n">VX-9 Carbine</span><span class="ty">Assault rifle · equipped</span></div>
+  <div class="it"><span class="r" style="background:var(--ice)"></span><span class="g" style="width:110px"></span><span class="n">Halyard LMG</span><span class="ty">Light machine gun</span></div>
+  <div class="it"><span class="g" style="width:80px"></span><span class="n">Pike-12</span><span class="ty">Pump shotgun</span></div>
+  <div class="it"><span class="r" style="background:var(--score)"></span><span class="g" style="width:104px;height:22px;top:22px"></span><span class="n">Marrow DMR</span><span class="ty">Marksman rifle</span></div>
+  <div class="it"><span class="g" style="width:60px"></span><span class="n">Wasp SMG</span><span class="ty">Submachine gun</span></div>
+  <div class="it"><span class="g" style="width:46px;height:24px"></span><span class="n">Torque .45</span><span class="ty">Pistol</span></div>
+  <div class="it lock"><span class="g" style="width:100px"></span><span class="n">🔒 Lv 30</span><span class="ty">Grenade launcher</span></div>
+  <div class="it lock"><span class="g" style="width:90px"></span><span class="n">🔒 Lv 36</span><span class="ty">Burst rifle</span></div>
+</div>
+
+<div class="abs det">
+  <div style="display:flex;align-items:baseline;gap:14px"><span class="disp" style="font-size:42px">VX-9 Carbine</span><span class="label" style="color:var(--ink-300);font-size:15px">Assault rifle · 30 rnd · auto</span></div>
+  <div style="font:400 15px/1.45 Barlow;color:var(--ink-200);margin:6px 0 14px;max-width:520px">Reliable all-rounder. Tight first-shot spread, moderate recoil climb. Pairs well with breach charges for fast entries.</div>
+  <div class="stat"><span>Damage</span><span class="bar"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span><span class="v">28</span></div>
+  <div class="stat"><span>Fire rate</span><span class="bar"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="v">660</span></div>
+  <div class="stat"><span>Range</span><span class="bar"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="up"></i><i></i><i></i><i></i></span><span class="v" style="color:var(--heal)">▲ 42 m</span></div>
+  <div class="stat"><span>Handling</span><span class="bar"><i class="f"></i><i class="f"></i><i class="f"></i><i class="dn"></i><i></i><i></i><i></i><i></i></span><span class="v" style="color:var(--danger)">▼ 3</span></div>
+  <div class="equip">Equipped ✓</div>
+</div>
+
+<div class="abs hint"><span><b>A</b>Select</span><span><b>B</b>Back</span><span><b>LB/RB</b>Class</span><span><b>Y</b>Inspect</span></div>
+</body></html>

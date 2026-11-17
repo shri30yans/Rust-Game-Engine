@@ -5,7 +5,7 @@
 // so bright aliased edges do not dominate the average.
 // Cost (H10): history is a 5-tap Catmull-Rom that lets the bilinear filter do the rest of the
 // 16-tap kernel (Jimenez, "Filmic SMAA", 2016), and the closest-depth search reads the centre
-// and the four diagonals (a cross pattern) instead of all nine pixels.
+// and the four diagonals (Unreal's cross pattern) instead of all nine pixels.
 
 struct Light { pos_r: vec4<f32>, col_i: vec4<f32> };
 

@@ -37,5 +37,5 @@ mod tests;
 pub use config::{ControllerConfig, ControllerTuning};
 pub use locomotion::Locomotion;
 pub use motor::Motor;
-pub use system::{clear_movement_log_system, locomotion_system, move_one};
+pub use system::{locomotion_system, move_one};
 pub use velocity::{LocomotionState, step_velocity};

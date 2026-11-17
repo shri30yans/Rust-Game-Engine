@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# The one quality gate: formatting, layering, clippy and tests.
+# The one quality gate: per change and once per merge batch (docs/WORKFLOW.md §4).
 #
 #   scripts/gate.sh [--base REF]   changed crates only: fmt, layers, clippy and tests of the
 #                                  crates this branch touched (default base: main)
@@ -53,8 +53,12 @@ if [[ "$full" -eq 1 ]]; then
 fi
 
 # Map each changed file to the workspace crate whose folder holds it (the deepest match).
+# The list goes through a file: thousands of untracked content files overflow an environment variable.
+changed_file="$(mktemp)"
+trap 'rm -f "$changed_file"' EXIT
+printf '%s\n' "$changed" >"$changed_file"
 crates="$(
-  cargo metadata --no-deps --format-version 1 | CHANGED="$changed" python3 -I -c '
+  cargo metadata --no-deps --format-version 1 | python3 -I -c '
 import json, os, sys
 root = os.getcwd()
 meta = json.load(sys.stdin)
@@ -63,13 +67,13 @@ dirs = sorted(
     key=lambda d: -len(d[0]),
 )
 found = set()
-for path in os.environ["CHANGED"].splitlines():
+for path in open(sys.argv[1], encoding="utf-8").read().splitlines():
     for folder, name in dirs:
         if path.startswith(folder):
             found.add(name)
             break
 print(" ".join(sorted(found)))
-'
+' "$changed_file"
 )"
 
 if [[ -z "$crates" ]]; then
@@ -85,4 +89,4 @@ step "clippy (changed crates)"
 cargo clippy "${packages[@]}" --all-targets -- -D warnings
 step "test (changed crates)"
 cargo test "${packages[@]}" --no-fail-fast
-echo; echo "gate: changed-crate gate passed (the reviewer runs --full per merge batch)"
+echo; echo "gate: changed-crate gate passed (--full runs once per merge batch on main)"

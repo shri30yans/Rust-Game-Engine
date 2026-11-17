@@ -4,6 +4,9 @@
 //! carries the tick, the fixed timestep and a private RNG stream. Each stream is
 //! forked from the world's root RNG using a hash of the system's name, so adding
 //! or reordering other systems never changes a system's random sequence.
+//!
+//! Before the first system of a tick the schedule empties every registered event log (see
+//! [`crate::events`]), so a log always holds exactly the current tick's events and no system clears one.
 
 use engine_core::{SimRng, StateHasher, Tick};
 
@@ -78,13 +81,14 @@ impl Schedule {
         self.dt
     }
 
-    /// Runs every system once, in order, for `tick`.
+    /// Empties every event log, then runs every system once, in order, for `tick`.
     ///
     /// # Errors
     /// Stops at the first failing system and returns it as
     /// [`WorldError::System`]. Systems before it have already run.
     pub fn run_tick(&mut self, world: &mut World, tick: Tick) -> Result<(), WorldError> {
         let dt = self.dt;
+        world.clear_events();
         for entry in &mut self.systems {
             let mut ctx = SystemContext {
                 tick,

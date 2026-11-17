@@ -29,7 +29,7 @@ make_game() {
   : > "$fixture/games/$name/android/AndroidManifest.xml"
 }
 make_game sandbox
-make_game demo
+make_game imagine
 make_game tiny-game
 
 script="$fixture/scripts/build-android.sh"
@@ -52,11 +52,11 @@ grep -q 'library libsandbox.so' <<<"$out" || fail "sandbox library name is wrong
 grep -q 'APK .*/target/android/sandbox-debug.apk' <<<"$out" || fail "sandbox APK path is wrong: $out"
 
 # A named game derives its own names.
-expect_status 0 --dry-run demo
-grep -q 'library libdemo.so' <<<"$out" || fail "demo library name is wrong: $out"
-grep -q 'APK .*/target/android/demo-debug.apk' <<<"$out" || fail "demo APK path is wrong: $out"
-grep -q 'manifest .*games/demo/android/AndroidManifest.xml' <<<"$out" \
-  || fail "demo manifest path is wrong: $out"
+expect_status 0 --dry-run imagine
+grep -q 'library libimagine.so' <<<"$out" || fail "imagine library name is wrong: $out"
+grep -q 'APK .*/target/android/imagine-debug.apk' <<<"$out" || fail "imagine APK path is wrong: $out"
+grep -q 'manifest .*games/imagine/android/AndroidManifest.xml' <<<"$out" \
+  || fail "imagine manifest path is wrong: $out"
 
 # A dash in the game name becomes an underscore in the library name only.
 expect_status 0 --dry-run tiny-game
@@ -77,7 +77,7 @@ mkdir -p "$fixture/games/nomanifest/game"
 expect_status 1 --dry-run nomanifest
 
 # Extra arguments are refused.
-expect_status 1 --dry-run demo extra
+expect_status 1 --dry-run imagine extra
 
 # A dry run builds nothing and writes nothing.
 [[ ! -e "$fixture/target" ]] || fail "a dry run must not create target/"

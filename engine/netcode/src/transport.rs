@@ -1,5 +1,6 @@
 //! The transport contracts. A client talks to one server through [`Transport`]; a server talks to
-//! many clients through [`ServerTransport`], each named by a [`ClientId`]. Everything above these traits (handshake, lobby, replication) never
+//! many clients through [`ServerTransport`], each named by a [`ClientId`]. Following Unreal's
+//! net driver split (D55), everything above these traits (handshake, lobby, replication) never
 //! sees a socket, so the loopback and QUIC transports are interchangeable.
 
 use crate::error::NetError;

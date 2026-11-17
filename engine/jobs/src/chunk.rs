@@ -1,10 +1,10 @@
-//! Fixed chunk sizing for deterministic parallel splits.
+//! Fixed chunk sizing for deterministic parallel splits (D25).
 
 use std::num::NonZeroUsize;
 
 use crate::JobError;
 
-/// Fixed chunk length in items. Never derived from the worker count.
+/// Fixed chunk length in items. Never derived from the worker count (D25).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct ChunkSize(NonZeroUsize);
 

@@ -1,7 +1,8 @@
 //! Layer table and folder zones, parsed from `tools/check-layers/layers.json`.
 //!
 //! Layer rules map workspace-relative directory globs to a layer number; zone
-//! rules map the same globs to decoupling policy. In a glob, `*` matches exactly one path segment.
+//! rules map the same globs to decoupling policy ([`docs/ARCHITECTURE.md`](../../docs/ARCHITECTURE.md)
+//! section 0–1). In a glob, `*` matches exactly one path segment.
 //!
 //! `same_layer_allowed` lists the only same-layer dependencies that are
 //! permitted, as directed `from` -> `to` pairs of package names.

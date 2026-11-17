@@ -1,0 +1,418 @@
+{
+ "desktop": {
+  "file": "oblivion.glb",
+  "kb": 7073,
+  "tris": 13098,
+  "primitives": 8,
+  "meshes": 8,
+  "materials": [
+   "M_OBLIVION_Glow",
+   "M_OBLIVION"
+  ],
+  "images": [
+   [
+    "OBLIVION_Emissive_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "OBLIVION_Normal_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "OBLIVION_BaseColor_2048",
+    "image/png",
+    2048,
+    2048
+   ],
+   [
+    "OBLIVION_ORM_2048",
+    "image/png",
+    2048,
+    2048
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "LockOn",
+    "seconds": 1.5,
+    "frames": 45,
+    "channels": 5,
+    "paths": [
+     "rotation",
+     "scale"
+    ],
+    "nodes": [
+     "OBLIVION_LockPip1",
+     "OBLIVION_LockPip2",
+     "OBLIVION_LockPip3",
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 1,
+    "frames": 30,
+    "channels": 8,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_BackblastFX",
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot",
+     "OBLIVION_Trigger",
+     "OBLIVION_Warhead"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2.5,
+    "frames": 75,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot",
+     "OBLIVION_Warhead"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 1,
+    "frames": 30,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_Pivot",
+     "OBLIVION_Warhead"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "OBLIVION_BackblastFX",
+   "OBLIVION_Body",
+   "OBLIVION_LockPip1",
+   "OBLIVION_LockPip2",
+   "OBLIVION_LockPip3",
+   "OBLIVION_OpticFX",
+   "OBLIVION_Socket_Backblast",
+   "OBLIVION_Socket_Muzzle",
+   "OBLIVION_Socket_RocketTip",
+   "OBLIVION_Socket_Shoulder",
+   "OBLIVION_Socket_Sight",
+   "OBLIVION_Socket_SupportHand",
+   "OBLIVION_Trigger",
+   "OBLIVION_Warhead",
+   "OBLIVION_Pivot",
+   "OBLIVION"
+  ],
+  "skins": 0
+ },
+ "mobile": {
+  "file": "oblivion_mobile.glb",
+  "kb": 2759,
+  "tris": 13098,
+  "primitives": 8,
+  "meshes": 8,
+  "materials": [
+   "M_OBLIVION_Glow",
+   "M_OBLIVION"
+  ],
+  "images": [
+   [
+    "OBLIVION_Emissive_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "OBLIVION_Normal_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "OBLIVION_BaseColor_1024",
+    "image/png",
+    1024,
+    1024
+   ],
+   [
+    "OBLIVION_ORM_1024",
+    "image/png",
+    1024,
+    1024
+   ]
+  ],
+  "animations": [
+   {
+    "name": "Idle",
+    "seconds": 2,
+    "frames": 60,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "LockOn",
+    "seconds": 1.5,
+    "frames": 45,
+    "channels": 5,
+    "paths": [
+     "rotation",
+     "scale"
+    ],
+    "nodes": [
+     "OBLIVION_LockPip1",
+     "OBLIVION_LockPip2",
+     "OBLIVION_LockPip3",
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Fire",
+    "seconds": 1,
+    "frames": 30,
+    "channels": 8,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_BackblastFX",
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot",
+     "OBLIVION_Trigger",
+     "OBLIVION_Warhead"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Reload",
+    "seconds": 2.5,
+    "frames": 75,
+    "channels": 6,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot",
+     "OBLIVION_Warhead"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Equip",
+    "seconds": 1,
+    "frames": 30,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "scale",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_OpticFX",
+     "OBLIVION_Pivot"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   },
+   {
+    "name": "Inspect",
+    "seconds": 4,
+    "frames": 120,
+    "channels": 3,
+    "paths": [
+     "rotation",
+     "translation"
+    ],
+    "nodes": [
+     "OBLIVION_Pivot",
+     "OBLIVION_Warhead"
+    ],
+    "interp": [
+     "LINEAR"
+    ]
+   }
+  ],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "scenes": 1,
+  "nodes": [
+   "OBLIVION_BackblastFX",
+   "OBLIVION_Body",
+   "OBLIVION_LockPip1",
+   "OBLIVION_LockPip2",
+   "OBLIVION_LockPip3",
+   "OBLIVION_OpticFX",
+   "OBLIVION_Socket_Backblast",
+   "OBLIVION_Socket_Muzzle",
+   "OBLIVION_Socket_RocketTip",
+   "OBLIVION_Socket_Shoulder",
+   "OBLIVION_Socket_Sight",
+   "OBLIVION_Socket_SupportHand",
+   "OBLIVION_Trigger",
+   "OBLIVION_Warhead",
+   "OBLIVION_Pivot",
+   "OBLIVION"
+  ],
+  "skins": 0
+ },
+ "clips": [
+  {
+   "name": "Idle",
+   "frames": 60,
+   "loop": true,
+   "desc": "heavy sway + amber optic breathing"
+  },
+  {
+   "name": "LockOn",
+   "frames": 45,
+   "loop": false,
+   "desc": "optic light ramps up, three lock pips light in sequence; hold last frame while locked"
+  },
+  {
+   "name": "Fire",
+   "frames": 30,
+   "loop": false,
+   "desc": "launch: the rocket accelerates out of the tube spinning, disappears at f7 (scale 0.01) and stays hidden until Reload; back-blast flash"
+  },
+  {
+   "name": "Reload",
+   "frames": 75,
+   "loop": false,
+   "desc": "a fresh rocket is brought up in front of the muzzle, lines up with the tube, slides straight in and twist-locks; optic re-arms"
+  },
+  {
+   "name": "Equip",
+   "frames": 30,
+   "loop": false,
+   "desc": "shoulder the launcher, optic boots"
+  },
+  {
+   "name": "Inspect",
+   "frames": 120,
+   "loop": false,
+   "desc": "showcase both sides, warhead twist check"
+  }
+ ],
+ "hierarchy": [
+  "- OBLIVION (node)",
+  "  - OBLIVION_Pivot (node)",
+  "    - OBLIVION_BackblastFX (mesh)",
+  "    - OBLIVION_Body (mesh)",
+  "    - OBLIVION_LockPip1 (mesh)",
+  "    - OBLIVION_LockPip2 (mesh)",
+  "    - OBLIVION_LockPip3 (mesh)",
+  "    - OBLIVION_OpticFX (mesh)",
+  "    - OBLIVION_Socket_Backblast (node)",
+  "    - OBLIVION_Socket_Muzzle (node)",
+  "    - OBLIVION_Socket_RocketTip (node)",
+  "    - OBLIVION_Socket_Shoulder (node)",
+  "    - OBLIVION_Socket_Sight (node)",
+  "    - OBLIVION_Socket_SupportHand (node)",
+  "    - OBLIVION_Trigger (mesh)",
+  "    - OBLIVION_Warhead (mesh)"
+ ],
+ "textures_2k": {
+  "col": "/workspace/weapons/export/textures/oblivion/OBLIVION_BaseColor_2048.png",
+  "orm": "/workspace/weapons/export/textures/oblivion/OBLIVION_ORM_2048.png",
+  "normal": "/workspace/weapons/export/textures/oblivion/OBLIVION_Normal_2048.png",
+  "emit": "/workspace/weapons/export/textures/oblivion/OBLIVION_Emissive_2048.png"
+ },
+ "textures_1k": {
+  "col": "/workspace/weapons/export/textures/oblivion/OBLIVION_BaseColor_1024.png",
+  "orm": "/workspace/weapons/export/textures/oblivion/OBLIVION_ORM_1024.png",
+  "normal": "/workspace/weapons/export/textures/oblivion/OBLIVION_Normal_1024.png",
+  "emit": "/workspace/weapons/export/textures/oblivion/OBLIVION_Emissive_1024.png"
+ }
+}

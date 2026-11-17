@@ -15,7 +15,7 @@ rayon.workspace = true
 engine-core.workspace = true
 gltf = { version = "1.4.1", features = ["import", "extras"] }
 meshopt = "0.7"
-mikktspace = "0.3"
+bevy_mikktspace = "1.0"
 half = "2"
 image = { version = "0.25", default-features = false, features = ["png"] }
 thiserror.workspace = true

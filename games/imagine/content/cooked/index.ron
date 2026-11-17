@@ -1,0 +1,2097 @@
+{
+    86478642244892618: (
+        pack: "sample_arena.meshpack",
+        node: Some(363),
+        content_hash: 2729806870903764719,
+    ),
+    134315464491960394: (
+        pack: "sample_arena.meshpack",
+        node: Some(255),
+        content_hash: 2729806870903764719,
+    ),
+    136646194622155899: (
+        pack: "sample_arena.meshpack",
+        node: Some(198),
+        content_hash: 2729806870903764719,
+    ),
+    175799677871261786: (
+        pack: "sample_arena.meshpack",
+        node: Some(322),
+        content_hash: 2729806870903764719,
+    ),
+    252383591158766159: (
+        pack: "sample_arena.meshpack",
+        node: Some(276),
+        content_hash: 2729806870903764719,
+    ),
+    350765444437544768: (
+        pack: "sample_arena.meshpack",
+        node: Some(335),
+        content_hash: 2729806870903764719,
+    ),
+    545915138536493557: (
+        pack: "sample_arena.meshpack",
+        node: Some(241),
+        content_hash: 2729806870903764719,
+    ),
+    740749020540405453: (
+        pack: "sample_arena.meshpack",
+        node: Some(234),
+        content_hash: 2729806870903764719,
+    ),
+    764843576369107029: (
+        pack: "sample_arena.meshpack",
+        node: Some(279),
+        content_hash: 2729806870903764719,
+    ),
+    766713236881122989: (
+        pack: "sample_arena.meshpack",
+        node: Some(377),
+        content_hash: 2729806870903764719,
+    ),
+    804434814902807524: (
+        pack: "sample_arena.meshpack",
+        node: Some(162),
+        content_hash: 2729806870903764719,
+    ),
+    814090045338273271: (
+        pack: "sample_arena.meshpack",
+        node: Some(77),
+        content_hash: 2729806870903764719,
+    ),
+    869759038184809651: (
+        pack: "sample_arena.meshpack",
+        node: Some(116),
+        content_hash: 2729806870903764719,
+    ),
+    973352310889387865: (
+        pack: "sample_arena.meshpack",
+        node: Some(262),
+        content_hash: 2729806870903764719,
+    ),
+    1018405834641303170: (
+        pack: "sample_arena.meshpack",
+        node: Some(392),
+        content_hash: 2729806870903764719,
+    ),
+    1080401324117645265: (
+        pack: "sample_arena.meshpack",
+        node: Some(317),
+        content_hash: 2729806870903764719,
+    ),
+    1134195727896371147: (
+        pack: "sample_arena.meshpack",
+        node: Some(220),
+        content_hash: 2729806870903764719,
+    ),
+    1199143172201038504: (
+        pack: "sample_arena.meshpack",
+        node: Some(193),
+        content_hash: 2729806870903764719,
+    ),
+    1200461708205027215: (
+        pack: "sample_arena.meshpack",
+        node: Some(372),
+        content_hash: 2729806870903764719,
+    ),
+    1258722325533529730: (
+        pack: "sample_arena.meshpack",
+        node: Some(307),
+        content_hash: 2729806870903764719,
+    ),
+    1263820844453992638: (
+        pack: "sample_arena.meshpack",
+        node: Some(219),
+        content_hash: 2729806870903764719,
+    ),
+    1302251032331379545: (
+        pack: "sample_arena.meshpack",
+        node: Some(284),
+        content_hash: 2729806870903764719,
+    ),
+    1317429814462747589: (
+        pack: "sample_arena.meshpack",
+        node: Some(257),
+        content_hash: 2729806870903764719,
+    ),
+    1337895765503739713: (
+        pack: "sample_arena.meshpack",
+        node: Some(159),
+        content_hash: 2729806870903764719,
+    ),
+    1347258837300997638: (
+        pack: "sample_arena.meshpack",
+        node: Some(245),
+        content_hash: 2729806870903764719,
+    ),
+    1399644599803783374: (
+        pack: "sample_arena.meshpack",
+        node: None,
+        content_hash: 2729806870903764719,
+    ),
+    1495377243512707870: (
+        pack: "sample_arena.meshpack",
+        node: Some(357),
+        content_hash: 2729806870903764719,
+    ),
+    1508676925417603939: (
+        pack: "sample_arena.meshpack",
+        node: Some(31),
+        content_hash: 2729806870903764719,
+    ),
+    1516093214278147690: (
+        pack: "sample_arena.meshpack",
+        node: Some(250),
+        content_hash: 2729806870903764719,
+    ),
+    1521310798706650249: (
+        pack: "sample_arena.meshpack",
+        node: Some(237),
+        content_hash: 2729806870903764719,
+    ),
+    1534401031245972940: (
+        pack: "sample_arena.meshpack",
+        node: Some(259),
+        content_hash: 2729806870903764719,
+    ),
+    1579327050476474332: (
+        pack: "sample_arena.meshpack",
+        node: Some(128),
+        content_hash: 2729806870903764719,
+    ),
+    1626863817730110301: (
+        pack: "sample_arena.meshpack",
+        node: Some(271),
+        content_hash: 2729806870903764719,
+    ),
+    1726552797611551793: (
+        pack: "sample_arena.meshpack",
+        node: Some(364),
+        content_hash: 2729806870903764719,
+    ),
+    1809238897798916930: (
+        pack: "sample_arena.meshpack",
+        node: Some(380),
+        content_hash: 2729806870903764719,
+    ),
+    1885254667813680002: (
+        pack: "sample_arena.meshpack",
+        node: Some(154),
+        content_hash: 2729806870903764719,
+    ),
+    1944373614336352902: (
+        pack: "sample_arena.meshpack",
+        node: Some(40),
+        content_hash: 2729806870903764719,
+    ),
+    1969380994665622935: (
+        pack: "sample_arena.meshpack",
+        node: Some(4),
+        content_hash: 2729806870903764719,
+    ),
+    1983710270320995700: (
+        pack: "sample_arena.meshpack",
+        node: Some(53),
+        content_hash: 2729806870903764719,
+    ),
+    1984590077401386904: (
+        pack: "sample_arena.meshpack",
+        node: Some(93),
+        content_hash: 2729806870903764719,
+    ),
+    1994331648981530541: (
+        pack: "sample_arena.meshpack",
+        node: Some(22),
+        content_hash: 2729806870903764719,
+    ),
+    1994511353465740984: (
+        pack: "sample_arena.meshpack",
+        node: Some(303),
+        content_hash: 2729806870903764719,
+    ),
+    2132986787848625635: (
+        pack: "sample_arena.meshpack",
+        node: Some(80),
+        content_hash: 2729806870903764719,
+    ),
+    2182320666419998325: (
+        pack: "sample_arena.meshpack",
+        node: Some(291),
+        content_hash: 2729806870903764719,
+    ),
+    2366559903182711178: (
+        pack: "sample_arena.meshpack",
+        node: Some(288),
+        content_hash: 2729806870903764719,
+    ),
+    2371364148658561464: (
+        pack: "sample_arena.meshpack",
+        node: Some(87),
+        content_hash: 2729806870903764719,
+    ),
+    2391846909425113859: (
+        pack: "sample_arena.meshpack",
+        node: Some(179),
+        content_hash: 2729806870903764719,
+    ),
+    2461287262729022817: (
+        pack: "sample_arena.meshpack",
+        node: Some(73),
+        content_hash: 2729806870903764719,
+    ),
+    2465078316802350582: (
+        pack: "sample_arena.meshpack",
+        node: Some(25),
+        content_hash: 2729806870903764719,
+    ),
+    2566783858638226561: (
+        pack: "sample_arena.meshpack",
+        node: Some(350),
+        content_hash: 2729806870903764719,
+    ),
+    2608540849487396029: (
+        pack: "sample_arena.meshpack",
+        node: Some(50),
+        content_hash: 2729806870903764719,
+    ),
+    2638894308005306081: (
+        pack: "sample_arena.meshpack",
+        node: Some(101),
+        content_hash: 2729806870903764719,
+    ),
+    2646648657020792212: (
+        pack: "sample_arena.meshpack",
+        node: Some(180),
+        content_hash: 2729806870903764719,
+    ),
+    2678185713447128760: (
+        pack: "sample_arena.meshpack",
+        node: Some(9),
+        content_hash: 2729806870903764719,
+    ),
+    2685574590154389465: (
+        pack: "sample_arena.meshpack",
+        node: Some(2),
+        content_hash: 2729806870903764719,
+    ),
+    2761283098007549384: (
+        pack: "sample_arena.meshpack",
+        node: Some(100),
+        content_hash: 2729806870903764719,
+    ),
+    2773672475289254123: (
+        pack: "sample_arena.meshpack",
+        node: Some(383),
+        content_hash: 2729806870903764719,
+    ),
+    2791515158996662555: (
+        pack: "sample_arena.meshpack",
+        node: Some(302),
+        content_hash: 2729806870903764719,
+    ),
+    2803737211268339353: (
+        pack: "sample_arena.meshpack",
+        node: Some(66),
+        content_hash: 2729806870903764719,
+    ),
+    2849506927265441802: (
+        pack: "sample_arena.meshpack",
+        node: Some(78),
+        content_hash: 2729806870903764719,
+    ),
+    2882135057279128923: (
+        pack: "sample_arena.meshpack",
+        node: Some(158),
+        content_hash: 2729806870903764719,
+    ),
+    2886058674653288208: (
+        pack: "sample_arena.meshpack",
+        node: Some(310),
+        content_hash: 2729806870903764719,
+    ),
+    2931796549831023740: (
+        pack: "sample_arena.meshpack",
+        node: Some(205),
+        content_hash: 2729806870903764719,
+    ),
+    2948528900195661718: (
+        pack: "sample_arena.meshpack",
+        node: Some(115),
+        content_hash: 2729806870903764719,
+    ),
+    3013768724322465685: (
+        pack: "sample_arena.meshpack",
+        node: Some(249),
+        content_hash: 2729806870903764719,
+    ),
+    3022017312020927753: (
+        pack: "sample_arena.meshpack",
+        node: Some(59),
+        content_hash: 2729806870903764719,
+    ),
+    3077919089060074437: (
+        pack: "sample_arena.meshpack",
+        node: Some(69),
+        content_hash: 2729806870903764719,
+    ),
+    3083451527638296144: (
+        pack: "sample_arena.meshpack",
+        node: Some(52),
+        content_hash: 2729806870903764719,
+    ),
+    3108123871447827856: (
+        pack: "sample_arena.meshpack",
+        node: Some(3),
+        content_hash: 2729806870903764719,
+    ),
+    3179922930727306520: (
+        pack: "sample_arena.meshpack",
+        node: Some(139),
+        content_hash: 2729806870903764719,
+    ),
+    3235616374512582423: (
+        pack: "sample_arena.meshpack",
+        node: Some(171),
+        content_hash: 2729806870903764719,
+    ),
+    3246359121565071853: (
+        pack: "sample_arena.meshpack",
+        node: Some(106),
+        content_hash: 2729806870903764719,
+    ),
+    3248702910624545015: (
+        pack: "sample_arena.meshpack",
+        node: Some(153),
+        content_hash: 2729806870903764719,
+    ),
+    3445975992634292227: (
+        pack: "sample_arena.meshpack",
+        node: Some(215),
+        content_hash: 2729806870903764719,
+    ),
+    3458620287562554533: (
+        pack: "sample_arena.meshpack",
+        node: Some(339),
+        content_hash: 2729806870903764719,
+    ),
+    3506954581862265835: (
+        pack: "sample_arena.meshpack",
+        node: Some(393),
+        content_hash: 2729806870903764719,
+    ),
+    3520607134902555439: (
+        pack: "sample_arena.meshpack",
+        node: Some(258),
+        content_hash: 2729806870903764719,
+    ),
+    3523096436403952408: (
+        pack: "sample_arena.meshpack",
+        node: Some(248),
+        content_hash: 2729806870903764719,
+    ),
+    3529272087729651688: (
+        pack: "sample_arena.meshpack",
+        node: Some(14),
+        content_hash: 2729806870903764719,
+    ),
+    3712075951352399627: (
+        pack: "sample_arena.meshpack",
+        node: Some(263),
+        content_hash: 2729806870903764719,
+    ),
+    3750865446296225622: (
+        pack: "sample_arena.meshpack",
+        node: Some(190),
+        content_hash: 2729806870903764719,
+    ),
+    3812268984370655799: (
+        pack: "sample_arena.meshpack",
+        node: Some(343),
+        content_hash: 2729806870903764719,
+    ),
+    3917301277324655361: (
+        pack: "sample_arena.meshpack",
+        node: Some(247),
+        content_hash: 2729806870903764719,
+    ),
+    3942959607596953386: (
+        pack: "sample_arena.meshpack",
+        node: Some(326),
+        content_hash: 2729806870903764719,
+    ),
+    3991872011412903790: (
+        pack: "sample_arena.meshpack",
+        node: Some(308),
+        content_hash: 2729806870903764719,
+    ),
+    4010236987815395570: (
+        pack: "sample_arena.meshpack",
+        node: Some(183),
+        content_hash: 2729806870903764719,
+    ),
+    4030445584837506778: (
+        pack: "sample_arena.meshpack",
+        node: Some(399),
+        content_hash: 2729806870903764719,
+    ),
+    4072050714664337636: (
+        pack: "sample_arena.meshpack",
+        node: Some(166),
+        content_hash: 2729806870903764719,
+    ),
+    4108028330511769979: (
+        pack: "sample_arena.meshpack",
+        node: Some(17),
+        content_hash: 2729806870903764719,
+    ),
+    4112012341844134265: (
+        pack: "sample_arena.meshpack",
+        node: Some(229),
+        content_hash: 2729806870903764719,
+    ),
+    4133391878482804941: (
+        pack: "sample_arena.meshpack",
+        node: Some(8),
+        content_hash: 2729806870903764719,
+    ),
+    4144527757730469797: (
+        pack: "sample_arena.meshpack",
+        node: Some(313),
+        content_hash: 2729806870903764719,
+    ),
+    4163286994251510849: (
+        pack: "sample_arena.meshpack",
+        node: Some(160),
+        content_hash: 2729806870903764719,
+    ),
+    4190885642115931768: (
+        pack: "sample_arena.meshpack",
+        node: Some(23),
+        content_hash: 2729806870903764719,
+    ),
+    4391093242670106208: (
+        pack: "sample_arena.meshpack",
+        node: Some(19),
+        content_hash: 2729806870903764719,
+    ),
+    4464627365147519527: (
+        pack: "sample_arena.meshpack",
+        node: Some(301),
+        content_hash: 2729806870903764719,
+    ),
+    4515075902586326890: (
+        pack: "sample_arena.meshpack",
+        node: Some(305),
+        content_hash: 2729806870903764719,
+    ),
+    4552494220022791069: (
+        pack: "sample_arena.meshpack",
+        node: Some(228),
+        content_hash: 2729806870903764719,
+    ),
+    4580325754596476610: (
+        pack: "sample_arena.meshpack",
+        node: Some(358),
+        content_hash: 2729806870903764719,
+    ),
+    4592410794799904586: (
+        pack: "sample_arena.meshpack",
+        node: Some(140),
+        content_hash: 2729806870903764719,
+    ),
+    4763287639846952868: (
+        pack: "sample_arena.meshpack",
+        node: Some(283),
+        content_hash: 2729806870903764719,
+    ),
+    4825320983937710447: (
+        pack: "sample_arena.meshpack",
+        node: Some(210),
+        content_hash: 2729806870903764719,
+    ),
+    4881534008146439650: (
+        pack: "sample_arena.meshpack",
+        node: Some(62),
+        content_hash: 2729806870903764719,
+    ),
+    5095454902304027121: (
+        pack: "sample_arena.meshpack",
+        node: Some(85),
+        content_hash: 2729806870903764719,
+    ),
+    5153185118482903627: (
+        pack: "sample_arena.meshpack",
+        node: Some(274),
+        content_hash: 2729806870903764719,
+    ),
+    5163972602229198474: (
+        pack: "sample_arena.meshpack",
+        node: Some(112),
+        content_hash: 2729806870903764719,
+    ),
+    5233030792024092945: (
+        pack: "sample_arena.meshpack",
+        node: Some(240),
+        content_hash: 2729806870903764719,
+    ),
+    5346838424015302429: (
+        pack: "sample_arena.meshpack",
+        node: Some(126),
+        content_hash: 2729806870903764719,
+    ),
+    5479765750608439056: (
+        pack: "sample_arena.meshpack",
+        node: Some(224),
+        content_hash: 2729806870903764719,
+    ),
+    5482822578564058809: (
+        pack: "sample_arena.meshpack",
+        node: Some(256),
+        content_hash: 2729806870903764719,
+    ),
+    5485779533811490157: (
+        pack: "sample_arena.meshpack",
+        node: Some(386),
+        content_hash: 2729806870903764719,
+    ),
+    5490317180557158479: (
+        pack: "sample_arena.meshpack",
+        node: Some(293),
+        content_hash: 2729806870903764719,
+    ),
+    5534005285101020786: (
+        pack: "sample_arena.meshpack",
+        node: Some(384),
+        content_hash: 2729806870903764719,
+    ),
+    5574927928120602898: (
+        pack: "sample_arena.meshpack",
+        node: Some(405),
+        content_hash: 2729806870903764719,
+    ),
+    5619605812403557169: (
+        pack: "sample_arena.meshpack",
+        node: Some(176),
+        content_hash: 2729806870903764719,
+    ),
+    5640189946130912101: (
+        pack: "sample_arena.meshpack",
+        node: Some(36),
+        content_hash: 2729806870903764719,
+    ),
+    5674458377221075235: (
+        pack: "sample_arena.meshpack",
+        node: Some(174),
+        content_hash: 2729806870903764719,
+    ),
+    5685286763124306349: (
+        pack: "sample_arena.meshpack",
+        node: Some(360),
+        content_hash: 2729806870903764719,
+    ),
+    5686382849156398415: (
+        pack: "sample_arena.meshpack",
+        node: Some(48),
+        content_hash: 2729806870903764719,
+    ),
+    5696354720624818129: (
+        pack: "sample_arena.meshpack",
+        node: Some(120),
+        content_hash: 2729806870903764719,
+    ),
+    5703265624580396565: (
+        pack: "sample_arena.meshpack",
+        node: Some(152),
+        content_hash: 2729806870903764719,
+    ),
+    5774455260318452087: (
+        pack: "sample_arena.meshpack",
+        node: Some(61),
+        content_hash: 2729806870903764719,
+    ),
+    5896109532174341426: (
+        pack: "sample_arena.meshpack",
+        node: Some(232),
+        content_hash: 2729806870903764719,
+    ),
+    6004131880055099202: (
+        pack: "sample_arena.meshpack",
+        node: Some(385),
+        content_hash: 2729806870903764719,
+    ),
+    6009228885429389557: (
+        pack: "sample_arena.meshpack",
+        node: Some(138),
+        content_hash: 2729806870903764719,
+    ),
+    6010610288003617009: (
+        pack: "sample_arena.meshpack",
+        node: Some(331),
+        content_hash: 2729806870903764719,
+    ),
+    6021917558655003805: (
+        pack: "sample_arena.meshpack",
+        node: Some(16),
+        content_hash: 2729806870903764719,
+    ),
+    6027207735447572208: (
+        pack: "sample_arena.meshpack",
+        node: Some(191),
+        content_hash: 2729806870903764719,
+    ),
+    6137003549695225823: (
+        pack: "sample_arena.meshpack",
+        node: Some(404),
+        content_hash: 2729806870903764719,
+    ),
+    6232608144909597877: (
+        pack: "sample_arena.meshpack",
+        node: Some(370),
+        content_hash: 2729806870903764719,
+    ),
+    6248017120005526943: (
+        pack: "sample_arena.meshpack",
+        node: Some(125),
+        content_hash: 2729806870903764719,
+    ),
+    6369171174641787746: (
+        pack: "sample_arena.meshpack",
+        node: Some(286),
+        content_hash: 2729806870903764719,
+    ),
+    6379624753234625055: (
+        pack: "sample_arena.meshpack",
+        node: Some(206),
+        content_hash: 2729806870903764719,
+    ),
+    6388675227312314256: (
+        pack: "sample_arena.meshpack",
+        node: Some(321),
+        content_hash: 2729806870903764719,
+    ),
+    6432079416351868518: (
+        pack: "sample_arena.meshpack",
+        node: Some(277),
+        content_hash: 2729806870903764719,
+    ),
+    6464015285315965644: (
+        pack: "sample_arena.meshpack",
+        node: Some(178),
+        content_hash: 2729806870903764719,
+    ),
+    6500207538661015570: (
+        pack: "sample_arena.meshpack",
+        node: Some(189),
+        content_hash: 2729806870903764719,
+    ),
+    6538307242785340254: (
+        pack: "sample_arena.meshpack",
+        node: Some(7),
+        content_hash: 2729806870903764719,
+    ),
+    6648954120662571765: (
+        pack: "sample_arena.meshpack",
+        node: Some(239),
+        content_hash: 2729806870903764719,
+    ),
+    6683739547839047772: (
+        pack: "sample_arena.meshpack",
+        node: Some(147),
+        content_hash: 2729806870903764719,
+    ),
+    6765555432595832284: (
+        pack: "sample_arena.meshpack",
+        node: Some(70),
+        content_hash: 2729806870903764719,
+    ),
+    6824804820738362933: (
+        pack: "sample_arena.meshpack",
+        node: Some(337),
+        content_hash: 2729806870903764719,
+    ),
+    6885238059328125120: (
+        pack: "sample_arena.meshpack",
+        node: Some(332),
+        content_hash: 2729806870903764719,
+    ),
+    6963163697770303253: (
+        pack: "sample_arena.meshpack",
+        node: Some(233),
+        content_hash: 2729806870903764719,
+    ),
+    6985689957437550640: (
+        pack: "sample_arena.meshpack",
+        node: Some(398),
+        content_hash: 2729806870903764719,
+    ),
+    7101811130817851464: (
+        pack: "sample_arena.meshpack",
+        node: Some(136),
+        content_hash: 2729806870903764719,
+    ),
+    7207584544084335773: (
+        pack: "sample_arena.meshpack",
+        node: Some(382),
+        content_hash: 2729806870903764719,
+    ),
+    7284366179528248764: (
+        pack: "sample_arena.meshpack",
+        node: Some(216),
+        content_hash: 2729806870903764719,
+    ),
+    7301108735161479831: (
+        pack: "sample_arena.meshpack",
+        node: Some(231),
+        content_hash: 2729806870903764719,
+    ),
+    7337895251724533503: (
+        pack: "sample_arena.meshpack",
+        node: Some(314),
+        content_hash: 2729806870903764719,
+    ),
+    7367088923971384642: (
+        pack: "sample_arena.meshpack",
+        node: Some(15),
+        content_hash: 2729806870903764719,
+    ),
+    7491903861233066058: (
+        pack: "sample_arena.meshpack",
+        node: Some(374),
+        content_hash: 2729806870903764719,
+    ),
+    7520285054117631436: (
+        pack: "sample_arena.meshpack",
+        node: Some(35),
+        content_hash: 2729806870903764719,
+    ),
+    7537630853167844927: (
+        pack: "sample_arena.meshpack",
+        node: Some(182),
+        content_hash: 2729806870903764719,
+    ),
+    7553033039794981554: (
+        pack: "sample_arena.meshpack",
+        node: Some(409),
+        content_hash: 2729806870903764719,
+    ),
+    7556110238065796598: (
+        pack: "sample_arena.meshpack",
+        node: Some(342),
+        content_hash: 2729806870903764719,
+    ),
+    7563123784249148865: (
+        pack: "sample_arena.meshpack",
+        node: Some(141),
+        content_hash: 2729806870903764719,
+    ),
+    7567093114248360094: (
+        pack: "sample_arena.meshpack",
+        node: Some(79),
+        content_hash: 2729806870903764719,
+    ),
+    7644727360862576304: (
+        pack: "sample_arena.meshpack",
+        node: Some(296),
+        content_hash: 2729806870903764719,
+    ),
+    7679232766094730772: (
+        pack: "sample_arena.meshpack",
+        node: Some(11),
+        content_hash: 2729806870903764719,
+    ),
+    7725847684069122461: (
+        pack: "sample_arena.meshpack",
+        node: Some(387),
+        content_hash: 2729806870903764719,
+    ),
+    7736021375778528646: (
+        pack: "sample_arena.meshpack",
+        node: Some(230),
+        content_hash: 2729806870903764719,
+    ),
+    7760541965311817882: (
+        pack: "sample_arena.meshpack",
+        node: Some(6),
+        content_hash: 2729806870903764719,
+    ),
+    7900841462949663349: (
+        pack: "sample_arena.meshpack",
+        node: Some(130),
+        content_hash: 2729806870903764719,
+    ),
+    7923726949150691815: (
+        pack: "sample_arena.meshpack",
+        node: Some(344),
+        content_hash: 2729806870903764719,
+    ),
+    7944650181907707395: (
+        pack: "sample_arena.meshpack",
+        node: Some(406),
+        content_hash: 2729806870903764719,
+    ),
+    7963258261380423000: (
+        pack: "sample_arena.meshpack",
+        node: Some(390),
+        content_hash: 2729806870903764719,
+    ),
+    8000859226499284655: (
+        pack: "sample_arena.meshpack",
+        node: Some(43),
+        content_hash: 2729806870903764719,
+    ),
+    8027998205061890914: (
+        pack: "sample_arena.meshpack",
+        node: Some(278),
+        content_hash: 2729806870903764719,
+    ),
+    8037035607897629118: (
+        pack: "sample_arena.meshpack",
+        node: Some(282),
+        content_hash: 2729806870903764719,
+    ),
+    8068728765689708505: (
+        pack: "sample_arena.meshpack",
+        node: Some(366),
+        content_hash: 2729806870903764719,
+    ),
+    8089811134759879701: (
+        pack: "sample_arena.meshpack",
+        node: Some(175),
+        content_hash: 2729806870903764719,
+    ),
+    8186200677026058079: (
+        pack: "sample_arena.meshpack",
+        node: Some(218),
+        content_hash: 2729806870903764719,
+    ),
+    8205480680779967095: (
+        pack: "sample_arena.meshpack",
+        node: Some(287),
+        content_hash: 2729806870903764719,
+    ),
+    8221026940632554550: (
+        pack: "sample_arena.meshpack",
+        node: Some(340),
+        content_hash: 2729806870903764719,
+    ),
+    8228579909296999571: (
+        pack: "sample_arena.meshpack",
+        node: Some(261),
+        content_hash: 2729806870903764719,
+    ),
+    8229547751705020231: (
+        pack: "sample_arena.meshpack",
+        node: Some(379),
+        content_hash: 2729806870903764719,
+    ),
+    8254341544053682433: (
+        pack: "sample_arena.meshpack",
+        node: Some(134),
+        content_hash: 2729806870903764719,
+    ),
+    8266282324223152250: (
+        pack: "sample_arena.meshpack",
+        node: Some(267),
+        content_hash: 2729806870903764719,
+    ),
+    8382313318127445758: (
+        pack: "sample_arena.meshpack",
+        node: Some(251),
+        content_hash: 2729806870903764719,
+    ),
+    8394589286215452097: (
+        pack: "sample_arena.meshpack",
+        node: Some(341),
+        content_hash: 2729806870903764719,
+    ),
+    8511108809555726213: (
+        pack: "sample_arena.meshpack",
+        node: Some(184),
+        content_hash: 2729806870903764719,
+    ),
+    8535849064664818655: (
+        pack: "sample_arena.meshpack",
+        node: Some(60),
+        content_hash: 2729806870903764719,
+    ),
+    8585813688173358901: (
+        pack: "sample_arena.meshpack",
+        node: Some(104),
+        content_hash: 2729806870903764719,
+    ),
+    8643675019025663765: (
+        pack: "sample_arena.meshpack",
+        node: Some(103),
+        content_hash: 2729806870903764719,
+    ),
+    8660879995219555279: (
+        pack: "sample_arena.meshpack",
+        node: Some(289),
+        content_hash: 2729806870903764719,
+    ),
+    8674724021348894496: (
+        pack: "sample_arena.meshpack",
+        node: Some(181),
+        content_hash: 2729806870903764719,
+    ),
+    8734609204288471542: (
+        pack: "sample_arena.meshpack",
+        node: Some(47),
+        content_hash: 2729806870903764719,
+    ),
+    8744974139690704884: (
+        pack: "sample_arena.meshpack",
+        node: Some(412),
+        content_hash: 2729806870903764719,
+    ),
+    8764947636351838377: (
+        pack: "sample_arena.meshpack",
+        node: Some(170),
+        content_hash: 2729806870903764719,
+    ),
+    8849106564011205198: (
+        pack: "sample_arena.meshpack",
+        node: Some(45),
+        content_hash: 2729806870903764719,
+    ),
+    8893788579014139563: (
+        pack: "sample_arena.meshpack",
+        node: Some(29),
+        content_hash: 2729806870903764719,
+    ),
+    8894797359740312975: (
+        pack: "sample_arena.meshpack",
+        node: Some(226),
+        content_hash: 2729806870903764719,
+    ),
+    8921389099346347297: (
+        pack: "sample_arena.meshpack",
+        node: Some(269),
+        content_hash: 2729806870903764719,
+    ),
+    8948353837832016052: (
+        pack: "sample_arena.meshpack",
+        node: Some(97),
+        content_hash: 2729806870903764719,
+    ),
+    8962367655589970204: (
+        pack: "sample_arena.meshpack",
+        node: Some(57),
+        content_hash: 2729806870903764719,
+    ),
+    9007424234217281112: (
+        pack: "sample_arena.meshpack",
+        node: Some(89),
+        content_hash: 2729806870903764719,
+    ),
+    9038722019031005571: (
+        pack: "sample_arena.meshpack",
+        node: Some(336),
+        content_hash: 2729806870903764719,
+    ),
+    9076264108275839010: (
+        pack: "prefabs/crate.prefab.ron",
+        node: None,
+        content_hash: 8743052885278776108,
+    ),
+    9091229917427564707: (
+        pack: "sample_arena.meshpack",
+        node: Some(334),
+        content_hash: 2729806870903764719,
+    ),
+    9095409340997198347: (
+        pack: "sample_arena.meshpack",
+        node: Some(51),
+        content_hash: 2729806870903764719,
+    ),
+    9138553281491772327: (
+        pack: "sample_arena.meshpack",
+        node: Some(10),
+        content_hash: 2729806870903764719,
+    ),
+    9148995992699029543: (
+        pack: "sample_arena.meshpack",
+        node: Some(368),
+        content_hash: 2729806870903764719,
+    ),
+    9242398154682145459: (
+        pack: "sample_arena.meshpack",
+        node: Some(253),
+        content_hash: 2729806870903764719,
+    ),
+    9319792846478752829: (
+        pack: "sample_arena.meshpack",
+        node: Some(376),
+        content_hash: 2729806870903764719,
+    ),
+    9328348826427656266: (
+        pack: "sample_arena.meshpack",
+        node: Some(187),
+        content_hash: 2729806870903764719,
+    ),
+    9358552530400048942: (
+        pack: "sample_arena.meshpack",
+        node: Some(107),
+        content_hash: 2729806870903764719,
+    ),
+    9399389522883134590: (
+        pack: "sample_arena.meshpack",
+        node: Some(354),
+        content_hash: 2729806870903764719,
+    ),
+    9514528706313010013: (
+        pack: "sample_arena.meshpack",
+        node: Some(167),
+        content_hash: 2729806870903764719,
+    ),
+    9518362502268689693: (
+        pack: "sample_arena.meshpack",
+        node: Some(110),
+        content_hash: 2729806870903764719,
+    ),
+    9529016319947805329: (
+        pack: "sample_arena.meshpack",
+        node: Some(21),
+        content_hash: 2729806870903764719,
+    ),
+    9547759658033690146: (
+        pack: "sample_arena.meshpack",
+        node: Some(204),
+        content_hash: 2729806870903764719,
+    ),
+    9550225354261815255: (
+        pack: "sample_arena.meshpack",
+        node: Some(362),
+        content_hash: 2729806870903764719,
+    ),
+    9603970759946764298: (
+        pack: "sample_arena.meshpack",
+        node: Some(30),
+        content_hash: 2729806870903764719,
+    ),
+    9761355132939139338: (
+        pack: "sample_arena.meshpack",
+        node: Some(235),
+        content_hash: 2729806870903764719,
+    ),
+    9799663438327233531: (
+        pack: "sample_arena.meshpack",
+        node: Some(24),
+        content_hash: 2729806870903764719,
+    ),
+    9830505991018238764: (
+        pack: "sample_arena.meshpack",
+        node: Some(32),
+        content_hash: 2729806870903764719,
+    ),
+    9853035723879585371: (
+        pack: "sample_arena.meshpack",
+        node: Some(46),
+        content_hash: 2729806870903764719,
+    ),
+    9892438147105342586: (
+        pack: "sample_arena.meshpack",
+        node: Some(212),
+        content_hash: 2729806870903764719,
+    ),
+    9926371930249018087: (
+        pack: "sample_arena.meshpack",
+        node: Some(375),
+        content_hash: 2729806870903764719,
+    ),
+    9954058217863404870: (
+        pack: "sample_arena.meshpack",
+        node: Some(292),
+        content_hash: 2729806870903764719,
+    ),
+    9977848096737303612: (
+        pack: "sample_arena.meshpack",
+        node: Some(207),
+        content_hash: 2729806870903764719,
+    ),
+    9982163628583869072: (
+        pack: "sample_arena.meshpack",
+        node: Some(266),
+        content_hash: 2729806870903764719,
+    ),
+    10108256669180203469: (
+        pack: "sample_arena.meshpack",
+        node: Some(223),
+        content_hash: 2729806870903764719,
+    ),
+    10144426284122745279: (
+        pack: "sample_arena.meshpack",
+        node: Some(319),
+        content_hash: 2729806870903764719,
+    ),
+    10229319445965164491: (
+        pack: "sample_arena.meshpack",
+        node: Some(133),
+        content_hash: 2729806870903764719,
+    ),
+    10471862568002141789: (
+        pack: "sample_arena.meshpack",
+        node: Some(5),
+        content_hash: 2729806870903764719,
+    ),
+    10499885222494766155: (
+        pack: "sample_arena.meshpack",
+        node: Some(246),
+        content_hash: 2729806870903764719,
+    ),
+    10530472835131287159: (
+        pack: "sample_arena.meshpack",
+        node: Some(195),
+        content_hash: 2729806870903764719,
+    ),
+    10541270149364143698: (
+        pack: "sample_arena.meshpack",
+        node: Some(329),
+        content_hash: 2729806870903764719,
+    ),
+    10571339844693700259: (
+        pack: "sample_arena.meshpack",
+        node: Some(275),
+        content_hash: 2729806870903764719,
+    ),
+    10601250229285989260: (
+        pack: "sample_arena.meshpack",
+        node: Some(407),
+        content_hash: 2729806870903764719,
+    ),
+    10644052744918934162: (
+        pack: "sample_arena.meshpack",
+        node: Some(268),
+        content_hash: 2729806870903764719,
+    ),
+    10646182331104122833: (
+        pack: "sample_arena.meshpack",
+        node: Some(295),
+        content_hash: 2729806870903764719,
+    ),
+    10687661697414645404: (
+        pack: "sample_arena.meshpack",
+        node: Some(323),
+        content_hash: 2729806870903764719,
+    ),
+    10760863372680030515: (
+        pack: "sample_arena.meshpack",
+        node: Some(146),
+        content_hash: 2729806870903764719,
+    ),
+    10764264146886552797: (
+        pack: "sample_arena.meshpack",
+        node: Some(347),
+        content_hash: 2729806870903764719,
+    ),
+    10872907122699823285: (
+        pack: "sample_arena.meshpack",
+        node: Some(121),
+        content_hash: 2729806870903764719,
+    ),
+    10890091662003394794: (
+        pack: "prefabs/turret_base.prefab.ron",
+        node: None,
+        content_hash: 3499139979152317364,
+    ),
+    10956967808832557769: (
+        pack: "sample_arena.meshpack",
+        node: Some(320),
+        content_hash: 2729806870903764719,
+    ),
+    10986345975456444016: (
+        pack: "sample_arena.meshpack",
+        node: Some(33),
+        content_hash: 2729806870903764719,
+    ),
+    10993468971816422288: (
+        pack: "sample_arena.meshpack",
+        node: Some(252),
+        content_hash: 2729806870903764719,
+    ),
+    11027905318957970709: (
+        pack: "sample_arena.meshpack",
+        node: Some(64),
+        content_hash: 2729806870903764719,
+    ),
+    11071402223626358943: (
+        pack: "sample_arena.meshpack",
+        node: Some(98),
+        content_hash: 2729806870903764719,
+    ),
+    11158311360471343212: (
+        pack: "sample_arena.meshpack",
+        node: Some(95),
+        content_hash: 2729806870903764719,
+    ),
+    11174362860841948102: (
+        pack: "sample_arena.meshpack",
+        node: Some(111),
+        content_hash: 2729806870903764719,
+    ),
+    11180358621446066710: (
+        pack: "sample_arena.meshpack",
+        node: Some(265),
+        content_hash: 2729806870903764719,
+    ),
+    11219972339062712484: (
+        pack: "sample_arena.meshpack",
+        node: Some(244),
+        content_hash: 2729806870903764719,
+    ),
+    11291596087017861245: (
+        pack: "sample_arena.meshpack",
+        node: Some(192),
+        content_hash: 2729806870903764719,
+    ),
+    11310003554339134521: (
+        pack: "sample_arena.meshpack",
+        node: Some(1),
+        content_hash: 2729806870903764719,
+    ),
+    11346134111292397196: (
+        pack: "sample_arena.meshpack",
+        node: Some(316),
+        content_hash: 2729806870903764719,
+    ),
+    11439189478434314037: (
+        pack: "sample_arena.meshpack",
+        node: Some(402),
+        content_hash: 2729806870903764719,
+    ),
+    11459045072789589719: (
+        pack: "sample_arena.meshpack",
+        node: Some(309),
+        content_hash: 2729806870903764719,
+    ),
+    11487047879029048195: (
+        pack: "sample_arena.meshpack",
+        node: Some(222),
+        content_hash: 2729806870903764719,
+    ),
+    11538769899953759020: (
+        pack: "sample_arena.meshpack",
+        node: Some(148),
+        content_hash: 2729806870903764719,
+    ),
+    11554394954706205046: (
+        pack: "sample_arena.meshpack",
+        node: Some(68),
+        content_hash: 2729806870903764719,
+    ),
+    11560723255762193303: (
+        pack: "sample_arena.meshpack",
+        node: Some(27),
+        content_hash: 2729806870903764719,
+    ),
+    11608772728169666187: (
+        pack: "sample_arena.meshpack",
+        node: Some(346),
+        content_hash: 2729806870903764719,
+    ),
+    11610699216662513990: (
+        pack: "sample_arena.meshpack",
+        node: Some(373),
+        content_hash: 2729806870903764719,
+    ),
+    11630059980302666484: (
+        pack: "sample_arena.meshpack",
+        node: Some(39),
+        content_hash: 2729806870903764719,
+    ),
+    11734942983578420705: (
+        pack: "sample_arena.meshpack",
+        node: Some(196),
+        content_hash: 2729806870903764719,
+    ),
+    11785098122504862521: (
+        pack: "sample_arena.meshpack",
+        node: Some(172),
+        content_hash: 2729806870903764719,
+    ),
+    11805500600765156646: (
+        pack: "sample_arena.meshpack",
+        node: Some(371),
+        content_hash: 2729806870903764719,
+    ),
+    11853305112714525896: (
+        pack: "sample_arena.meshpack",
+        node: Some(155),
+        content_hash: 2729806870903764719,
+    ),
+    11914600799898146206: (
+        pack: "sample_arena.meshpack",
+        node: Some(169),
+        content_hash: 2729806870903764719,
+    ),
+    11940175686794232975: (
+        pack: "sample_arena.meshpack",
+        node: Some(163),
+        content_hash: 2729806870903764719,
+    ),
+    11947801719364479879: (
+        pack: "sample_arena.meshpack",
+        node: Some(127),
+        content_hash: 2729806870903764719,
+    ),
+    11950104699681377280: (
+        pack: "sample_arena.meshpack",
+        node: Some(396),
+        content_hash: 2729806870903764719,
+    ),
+    12012329500292217348: (
+        pack: "sample_arena.meshpack",
+        node: Some(328),
+        content_hash: 2729806870903764719,
+    ),
+    12068767856223192998: (
+        pack: "sample_arena.meshpack",
+        node: Some(161),
+        content_hash: 2729806870903764719,
+    ),
+    12138593701127227197: (
+        pack: "sample_arena.meshpack",
+        node: Some(122),
+        content_hash: 2729806870903764719,
+    ),
+    12158064176596662969: (
+        pack: "sample_arena.meshpack",
+        node: Some(298),
+        content_hash: 2729806870903764719,
+    ),
+    12205428468061228926: (
+        pack: "sample_arena.meshpack",
+        node: Some(194),
+        content_hash: 2729806870903764719,
+    ),
+    12278656523523711459: (
+        pack: "sample_arena.meshpack",
+        node: Some(177),
+        content_hash: 2729806870903764719,
+    ),
+    12303262812367988527: (
+        pack: "sample_arena.meshpack",
+        node: Some(413),
+        content_hash: 2729806870903764719,
+    ),
+    12306672109864741686: (
+        pack: "sample_arena.meshpack",
+        node: Some(165),
+        content_hash: 2729806870903764719,
+    ),
+    12323880090961744503: (
+        pack: "sample_arena.meshpack",
+        node: Some(203),
+        content_hash: 2729806870903764719,
+    ),
+    12349915172337252496: (
+        pack: "sample_arena.meshpack",
+        node: Some(185),
+        content_hash: 2729806870903764719,
+    ),
+    12381509000237541715: (
+        pack: "sample_arena.meshpack",
+        node: Some(82),
+        content_hash: 2729806870903764719,
+    ),
+    12481645492453103459: (
+        pack: "sample_arena.meshpack",
+        node: Some(285),
+        content_hash: 2729806870903764719,
+    ),
+    12487525549400380122: (
+        pack: "sample_arena.meshpack",
+        node: Some(208),
+        content_hash: 2729806870903764719,
+    ),
+    12495909257925295716: (
+        pack: "prefabs/sliding_door.prefab.ron",
+        node: None,
+        content_hash: 12711899919869798886,
+    ),
+    12550277032852858376: (
+        pack: "sample_arena.meshpack",
+        node: Some(37),
+        content_hash: 2729806870903764719,
+    ),
+    12582801320986047499: (
+        pack: "sample_arena.meshpack",
+        node: Some(119),
+        content_hash: 2729806870903764719,
+    ),
+    12607668602806050812: (
+        pack: "sample_arena.meshpack",
+        node: Some(264),
+        content_hash: 2729806870903764719,
+    ),
+    12624158221633055486: (
+        pack: "sample_arena.meshpack",
+        node: Some(356),
+        content_hash: 2729806870903764719,
+    ),
+    12631607799744469273: (
+        pack: "sample_arena.meshpack",
+        node: Some(149),
+        content_hash: 2729806870903764719,
+    ),
+    12683979122237346739: (
+        pack: "sample_arena.meshpack",
+        node: Some(389),
+        content_hash: 2729806870903764719,
+    ),
+    12740501926315976202: (
+        pack: "sample_arena.meshpack",
+        node: Some(135),
+        content_hash: 2729806870903764719,
+    ),
+    12796555616652342633: (
+        pack: "sample_arena.meshpack",
+        node: Some(151),
+        content_hash: 2729806870903764719,
+    ),
+    12873582261793593212: (
+        pack: "sample_arena.meshpack",
+        node: Some(188),
+        content_hash: 2729806870903764719,
+    ),
+    12892588427502006061: (
+        pack: "sample_arena.meshpack",
+        node: Some(83),
+        content_hash: 2729806870903764719,
+    ),
+    12965379276550608050: (
+        pack: "sample_arena.meshpack",
+        node: Some(214),
+        content_hash: 2729806870903764719,
+    ),
+    13107506446911823296: (
+        pack: "sample_arena.meshpack",
+        node: Some(197),
+        content_hash: 2729806870903764719,
+    ),
+    13146357900083679588: (
+        pack: "sample_arena.meshpack",
+        node: Some(254),
+        content_hash: 2729806870903764719,
+    ),
+    13154871379929715788: (
+        pack: "sample_arena.meshpack",
+        node: Some(273),
+        content_hash: 2729806870903764719,
+    ),
+    13187669948218505628: (
+        pack: "sample_arena.meshpack",
+        node: Some(403),
+        content_hash: 2729806870903764719,
+    ),
+    13205623338492866519: (
+        pack: "sample_arena.meshpack",
+        node: Some(173),
+        content_hash: 2729806870903764719,
+    ),
+    13281997765519559911: (
+        pack: "sample_arena.meshpack",
+        node: Some(144),
+        content_hash: 2729806870903764719,
+    ),
+    13341803242449084264: (
+        pack: "sample_arena.meshpack",
+        node: Some(54),
+        content_hash: 2729806870903764719,
+    ),
+    13481116436149342942: (
+        pack: "sample_arena.meshpack",
+        node: Some(124),
+        content_hash: 2729806870903764719,
+    ),
+    13519181651009461626: (
+        pack: "sample_arena.meshpack",
+        node: Some(304),
+        content_hash: 2729806870903764719,
+    ),
+    13546464903308838397: (
+        pack: "sample_arena.meshpack",
+        node: Some(65),
+        content_hash: 2729806870903764719,
+    ),
+    13597138800716252886: (
+        pack: "sample_arena.meshpack",
+        node: Some(394),
+        content_hash: 2729806870903764719,
+    ),
+    13650799301500541338: (
+        pack: "sample_arena.meshpack",
+        node: Some(131),
+        content_hash: 2729806870903764719,
+    ),
+    13721216416584232620: (
+        pack: "sample_arena.meshpack",
+        node: Some(38),
+        content_hash: 2729806870903764719,
+    ),
+    13761176538988225227: (
+        pack: "sample_arena.meshpack",
+        node: Some(26),
+        content_hash: 2729806870903764719,
+    ),
+    13771057188786463289: (
+        pack: "sample_arena.meshpack",
+        node: Some(143),
+        content_hash: 2729806870903764719,
+    ),
+    13798769920136975873: (
+        pack: "sample_arena.meshpack",
+        node: Some(168),
+        content_hash: 2729806870903764719,
+    ),
+    13885807648823772243: (
+        pack: "sample_arena.meshpack",
+        node: Some(49),
+        content_hash: 2729806870903764719,
+    ),
+    13946496813645683280: (
+        pack: "sample_arena.meshpack",
+        node: Some(58),
+        content_hash: 2729806870903764719,
+    ),
+    14080442829607744321: (
+        pack: "sample_arena.meshpack",
+        node: Some(227),
+        content_hash: 2729806870903764719,
+    ),
+    14125217033449030222: (
+        pack: "sample_arena.meshpack",
+        node: Some(243),
+        content_hash: 2729806870903764719,
+    ),
+    14150005629550784989: (
+        pack: "sample_arena.meshpack",
+        node: Some(213),
+        content_hash: 2729806870903764719,
+    ),
+    14159987603428491238: (
+        pack: "sample_arena.meshpack",
+        node: Some(290),
+        content_hash: 2729806870903764719,
+    ),
+    14175293331301069541: (
+        pack: "sample_arena.meshpack",
+        node: Some(391),
+        content_hash: 2729806870903764719,
+    ),
+    14190644868373353538: (
+        pack: "sample_arena.meshpack",
+        node: Some(28),
+        content_hash: 2729806870903764719,
+    ),
+    14292351502054137729: (
+        pack: "sample_arena.meshpack",
+        node: Some(388),
+        content_hash: 2729806870903764719,
+    ),
+    14326494284005017182: (
+        pack: "sample_arena.meshpack",
+        node: Some(351),
+        content_hash: 2729806870903764719,
+    ),
+    14327450490274176967: (
+        pack: "sample_arena.meshpack",
+        node: Some(94),
+        content_hash: 2729806870903764719,
+    ),
+    14331541660461726910: (
+        pack: "sample_arena.meshpack",
+        node: Some(270),
+        content_hash: 2729806870903764719,
+    ),
+    14349219290867486175: (
+        pack: "sample_arena.meshpack",
+        node: Some(365),
+        content_hash: 2729806870903764719,
+    ),
+    14402001788430815402: (
+        pack: "sample_arena.meshpack",
+        node: Some(300),
+        content_hash: 2729806870903764719,
+    ),
+    14426067370699328759: (
+        pack: "sample_arena.meshpack",
+        node: Some(294),
+        content_hash: 2729806870903764719,
+    ),
+    14443272864153390952: (
+        pack: "sample_arena.meshpack",
+        node: Some(109),
+        content_hash: 2729806870903764719,
+    ),
+    14500300301781969059: (
+        pack: "sample_arena.meshpack",
+        node: Some(236),
+        content_hash: 2729806870903764719,
+    ),
+    14619588755610686561: (
+        pack: "sample_arena.meshpack",
+        node: Some(361),
+        content_hash: 2729806870903764719,
+    ),
+    14641386456375709648: (
+        pack: "sample_arena.meshpack",
+        node: Some(91),
+        content_hash: 2729806870903764719,
+    ),
+    14703086833608406432: (
+        pack: "sample_arena.meshpack",
+        node: Some(221),
+        content_hash: 2729806870903764719,
+    ),
+    14858624225855630585: (
+        pack: "sample_arena.meshpack",
+        node: Some(381),
+        content_hash: 2729806870903764719,
+    ),
+    14896915961359389557: (
+        pack: "sample_arena.meshpack",
+        node: Some(369),
+        content_hash: 2729806870903764719,
+    ),
+    14906772981580305262: (
+        pack: "sample_arena.meshpack",
+        node: Some(55),
+        content_hash: 2729806870903764719,
+    ),
+    14930322279539050737: (
+        pack: "sample_arena.meshpack",
+        node: Some(408),
+        content_hash: 2729806870903764719,
+    ),
+    14954447672295102539: (
+        pack: "sample_arena.meshpack",
+        node: Some(113),
+        content_hash: 2729806870903764719,
+    ),
+    14957654420612161623: (
+        pack: "sample_arena.meshpack",
+        node: Some(348),
+        content_hash: 2729806870903764719,
+    ),
+    14974617307695179072: (
+        pack: "sample_arena.meshpack",
+        node: Some(200),
+        content_hash: 2729806870903764719,
+    ),
+    15007307362615557262: (
+        pack: "sample_arena.meshpack",
+        node: Some(90),
+        content_hash: 2729806870903764719,
+    ),
+    15119328965588730308: (
+        pack: "sample_arena.meshpack",
+        node: Some(201),
+        content_hash: 2729806870903764719,
+    ),
+    15127565795606749816: (
+        pack: "sample_arena.meshpack",
+        node: Some(105),
+        content_hash: 2729806870903764719,
+    ),
+    15135153614578932102: (
+        pack: "sample_arena.meshpack",
+        node: Some(150),
+        content_hash: 2729806870903764719,
+    ),
+    15140603244474118785: (
+        pack: "sample_arena.meshpack",
+        node: Some(355),
+        content_hash: 2729806870903764719,
+    ),
+    15144485394847827898: (
+        pack: "sample_arena.meshpack",
+        node: Some(401),
+        content_hash: 2729806870903764719,
+    ),
+    15189248015566738369: (
+        pack: "sample_arena.meshpack",
+        node: Some(0),
+        content_hash: 2729806870903764719,
+    ),
+    15195703712043153513: (
+        pack: "sample_arena.meshpack",
+        node: Some(72),
+        content_hash: 2729806870903764719,
+    ),
+    15211205754058058446: (
+        pack: "sample_arena.meshpack",
+        node: Some(12),
+        content_hash: 2729806870903764719,
+    ),
+    15246936567759377315: (
+        pack: "sample_arena.meshpack",
+        node: Some(345),
+        content_hash: 2729806870903764719,
+    ),
+    15259094217782637333: (
+        pack: "sample_arena.meshpack",
+        node: Some(260),
+        content_hash: 2729806870903764719,
+    ),
+    15337592362667702643: (
+        pack: "sample_arena.meshpack",
+        node: Some(327),
+        content_hash: 2729806870903764719,
+    ),
+    15373501583704630167: (
+        pack: "sample_arena.meshpack",
+        node: Some(114),
+        content_hash: 2729806870903764719,
+    ),
+    15382569522889490452: (
+        pack: "sample_arena.meshpack",
+        node: Some(63),
+        content_hash: 2729806870903764719,
+    ),
+    15460438561100560104: (
+        pack: "sample_arena.meshpack",
+        node: Some(13),
+        content_hash: 2729806870903764719,
+    ),
+    15530699573610192924: (
+        pack: "sample_arena.meshpack",
+        node: Some(117),
+        content_hash: 2729806870903764719,
+    ),
+    15540410892652041053: (
+        pack: "sample_arena.meshpack",
+        node: Some(378),
+        content_hash: 2729806870903764719,
+    ),
+    15544578781657964764: (
+        pack: "sample_arena.meshpack",
+        node: Some(367),
+        content_hash: 2729806870903764719,
+    ),
+    15568212280996802598: (
+        pack: "sample_arena.meshpack",
+        node: Some(102),
+        content_hash: 2729806870903764719,
+    ),
+    15583913598102630344: (
+        pack: "sample_arena.meshpack",
+        node: Some(86),
+        content_hash: 2729806870903764719,
+    ),
+    15595995673381042671: (
+        pack: "sample_arena.meshpack",
+        node: Some(400),
+        content_hash: 2729806870903764719,
+    ),
+    15661195022956161797: (
+        pack: "sample_arena.meshpack",
+        node: Some(209),
+        content_hash: 2729806870903764719,
+    ),
+    15684457493525542212: (
+        pack: "sample_arena.meshpack",
+        node: Some(129),
+        content_hash: 2729806870903764719,
+    ),
+    15693830261335617745: (
+        pack: "sample_arena.meshpack",
+        node: Some(81),
+        content_hash: 2729806870903764719,
+    ),
+    15761687752787272109: (
+        pack: "sample_arena.meshpack",
+        node: Some(333),
+        content_hash: 2729806870903764719,
+    ),
+    15974316505100773444: (
+        pack: "sample_arena.meshpack",
+        node: Some(280),
+        content_hash: 2729806870903764719,
+    ),
+    16166957708575156762: (
+        pack: "sample_arena.meshpack",
+        node: Some(20),
+        content_hash: 2729806870903764719,
+    ),
+    16196487440975402194: (
+        pack: "sample_arena.meshpack",
+        node: Some(238),
+        content_hash: 2729806870903764719,
+    ),
+    16323990395698533523: (
+        pack: "sample_arena.meshpack",
+        node: Some(315),
+        content_hash: 2729806870903764719,
+    ),
+    16391195274292121318: (
+        pack: "sample_arena.meshpack",
+        node: Some(44),
+        content_hash: 2729806870903764719,
+    ),
+    16446653036898190447: (
+        pack: "sample_arena.meshpack",
+        node: Some(74),
+        content_hash: 2729806870903764719,
+    ),
+    16484081636227141874: (
+        pack: "sample_arena.meshpack",
+        node: Some(118),
+        content_hash: 2729806870903764719,
+    ),
+    16675432265379997446: (
+        pack: "sample_arena.meshpack",
+        node: Some(96),
+        content_hash: 2729806870903764719,
+    ),
+    16687358479237083931: (
+        pack: "sample_arena.meshpack",
+        node: Some(84),
+        content_hash: 2729806870903764719,
+    ),
+    16709138086312244091: (
+        pack: "sample_arena.meshpack",
+        node: Some(41),
+        content_hash: 2729806870903764719,
+    ),
+    16739631484406557335: (
+        pack: "sample_arena.meshpack",
+        node: Some(217),
+        content_hash: 2729806870903764719,
+    ),
+    16795142515143154099: (
+        pack: "sample_arena.meshpack",
+        node: Some(92),
+        content_hash: 2729806870903764719,
+    ),
+    16942159443348628104: (
+        pack: "sample_arena.meshpack",
+        node: Some(186),
+        content_hash: 2729806870903764719,
+    ),
+    16982469602622909481: (
+        pack: "sample_arena.meshpack",
+        node: Some(132),
+        content_hash: 2729806870903764719,
+    ),
+    17032327824386321412: (
+        pack: "sample_arena.meshpack",
+        node: Some(199),
+        content_hash: 2729806870903764719,
+    ),
+    17053275884858994280: (
+        pack: "prefabs/explosive_barrel.prefab.ron",
+        node: None,
+        content_hash: 3905469149255909349,
+    ),
+    17084128061269278747: (
+        pack: "sample_arena.meshpack",
+        node: Some(272),
+        content_hash: 2729806870903764719,
+    ),
+    17189706010709020722: (
+        pack: "sample_arena.meshpack",
+        node: Some(137),
+        content_hash: 2729806870903764719,
+    ),
+    17226686093218184514: (
+        pack: "sample_arena.meshpack",
+        node: Some(352),
+        content_hash: 2729806870903764719,
+    ),
+    17277077094057042923: (
+        pack: "sample_arena.meshpack",
+        node: Some(67),
+        content_hash: 2729806870903764719,
+    ),
+    17331427115377437091: (
+        pack: "sample_arena.meshpack",
+        node: Some(99),
+        content_hash: 2729806870903764719,
+    ),
+    17340572133361046170: (
+        pack: "sample_arena.meshpack",
+        node: Some(281),
+        content_hash: 2729806870903764719,
+    ),
+    17420301906519767151: (
+        pack: "sample_arena.meshpack",
+        node: Some(311),
+        content_hash: 2729806870903764719,
+    ),
+    17445291364856974089: (
+        pack: "sample_arena.meshpack",
+        node: Some(75),
+        content_hash: 2729806870903764719,
+    ),
+    17445926679710823125: (
+        pack: "sample_arena.meshpack",
+        node: Some(338),
+        content_hash: 2729806870903764719,
+    ),
+    17446022119711549833: (
+        pack: "sample_arena.meshpack",
+        node: Some(145),
+        content_hash: 2729806870903764719,
+    ),
+    17474373317812390744: (
+        pack: "sample_arena.meshpack",
+        node: Some(397),
+        content_hash: 2729806870903764719,
+    ),
+    17490132808421460912: (
+        pack: "sample_arena.meshpack",
+        node: Some(297),
+        content_hash: 2729806870903764719,
+    ),
+    17511047785928965083: (
+        pack: "sample_arena.meshpack",
+        node: Some(395),
+        content_hash: 2729806870903764719,
+    ),
+    17553257213849512174: (
+        pack: "sample_arena.meshpack",
+        node: Some(411),
+        content_hash: 2729806870903764719,
+    ),
+    17581323227876009410: (
+        pack: "sample_arena.meshpack",
+        node: Some(225),
+        content_hash: 2729806870903764719,
+    ),
+    17588509902628030907: (
+        pack: "sample_arena.meshpack",
+        node: Some(42),
+        content_hash: 2729806870903764719,
+    ),
+    17607186909201244305: (
+        pack: "sample_arena.meshpack",
+        node: Some(359),
+        content_hash: 2729806870903764719,
+    ),
+    17646093316536299691: (
+        pack: "sample_arena.meshpack",
+        node: Some(312),
+        content_hash: 2729806870903764719,
+    ),
+    17653647191255935427: (
+        pack: "sample_arena.meshpack",
+        node: Some(123),
+        content_hash: 2729806870903764719,
+    ),
+    17677475523024900201: (
+        pack: "sample_arena.meshpack",
+        node: Some(156),
+        content_hash: 2729806870903764719,
+    ),
+    17698325247622166600: (
+        pack: "sample_arena.meshpack",
+        node: Some(410),
+        content_hash: 2729806870903764719,
+    ),
+    17707822291129696932: (
+        pack: "sample_arena.meshpack",
+        node: Some(211),
+        content_hash: 2729806870903764719,
+    ),
+    17720894843680051775: (
+        pack: "sample_arena.meshpack",
+        node: Some(202),
+        content_hash: 2729806870903764719,
+    ),
+    17788463909569054886: (
+        pack: "sample_arena.meshpack",
+        node: Some(306),
+        content_hash: 2729806870903764719,
+    ),
+    17838605679368206995: (
+        pack: "sample_arena.meshpack",
+        node: Some(330),
+        content_hash: 2729806870903764719,
+    ),
+    17856077586162611898: (
+        pack: "sample_arena.meshpack",
+        node: Some(88),
+        content_hash: 2729806870903764719,
+    ),
+    17938275822981158422: (
+        pack: "sample_arena.meshpack",
+        node: Some(318),
+        content_hash: 2729806870903764719,
+    ),
+    17939904518519471780: (
+        pack: "sample_arena.meshpack",
+        node: Some(76),
+        content_hash: 2729806870903764719,
+    ),
+    18066974516346688956: (
+        pack: "sample_arena.meshpack",
+        node: Some(56),
+        content_hash: 2729806870903764719,
+    ),
+    18123697030479376033: (
+        pack: "sample_arena.meshpack",
+        node: Some(164),
+        content_hash: 2729806870903764719,
+    ),
+    18133848476046748875: (
+        pack: "sample_arena.meshpack",
+        node: Some(324),
+        content_hash: 2729806870903764719,
+    ),
+    18179182155795238309: (
+        pack: "sample_arena.meshpack",
+        node: Some(353),
+        content_hash: 2729806870903764719,
+    ),
+    18185489519621842003: (
+        pack: "sample_arena.meshpack",
+        node: Some(34),
+        content_hash: 2729806870903764719,
+    ),
+    18192228980059613424: (
+        pack: "sample_arena.meshpack",
+        node: Some(71),
+        content_hash: 2729806870903764719,
+    ),
+    18218921292298919306: (
+        pack: "sample_arena.meshpack",
+        node: Some(325),
+        content_hash: 2729806870903764719,
+    ),
+    18223373859631197912: (
+        pack: "sample_arena.meshpack",
+        node: Some(349),
+        content_hash: 2729806870903764719,
+    ),
+    18274492728507770947: (
+        pack: "sample_arena.meshpack",
+        node: Some(242),
+        content_hash: 2729806870903764719,
+    ),
+    18290608747199208542: (
+        pack: "sample_arena.meshpack",
+        node: Some(157),
+        content_hash: 2729806870903764719,
+    ),
+    18323159744918079433: (
+        pack: "sample_arena.meshpack",
+        node: Some(18),
+        content_hash: 2729806870903764719,
+    ),
+    18364634910522124997: (
+        pack: "sample_arena.meshpack",
+        node: Some(142),
+        content_hash: 2729806870903764719,
+    ),
+    18395869567291370874: (
+        pack: "sample_arena.meshpack",
+        node: Some(108),
+        content_hash: 2729806870903764719,
+    ),
+    18401625962522378972: (
+        pack: "sample_arena.meshpack",
+        node: Some(299),
+        content_hash: 2729806870903764719,
+    ),
+}

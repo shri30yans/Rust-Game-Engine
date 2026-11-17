@@ -1,0 +1,14 @@
+(
+    rows: 0,
+    options: 3,
+    text: "SAMPLE",
+    number: 1.0,
+    flag: true,
+    values: {
+        "placement": Text("VICTORY"),
+        "winner": Text("PLAYER"),
+        "kills": Num(8.0),
+        "deaths": Num(2.0),
+        "score": Num(8.0),
+    },
+)

@@ -1,11 +1,17 @@
-//! Allocation-free match combat measurements. Install with actor ids and initial ammo, then run
-//! [`combat_stats_system`] after weapons and before damage so it can observe this tick's log.
+//! Allocation-free match combat measurements. Install with the actor ids, then run
+//! [`combat_stats_system`] after the damage pass: it reads the tick's [`ShotFired`] and [`Damaged`]
+//! events and each bot's sight state.
+//!
+//! Invariants: the stats only read the world and the event logs, so the system can run in any
+//! order among the other readers of the tick's events; a death is timed once, at the hit that
+//! reported it.
 
 use engine_core::{StateHasher, Tick};
 use engine_world::{NetId, Resource, SystemContext, World, WorldError};
 use num_traits::ToPrimitive;
 
-use crate::{Bot, DamageLog, Health, Locomotion, Phase, Weapon};
+use crate::events::{Damaged, ShotFired};
+use crate::{Bot, Locomotion, Outcome, Phase};
 
 const DISTANCE_BUCKET_M: f32 = 5.0;
 const DISTANCE_BUCKETS: usize = 64;
@@ -15,7 +21,6 @@ const REACTION_WINDOW_TICKS: u32 = 30;
 #[derive(Debug, Clone)]
 struct ActorStats {
     id: NetId,
-    last_ammo: u32,
     shots: u64,
     hits: u64,
     first_sighting: Option<Tick>,
@@ -24,7 +29,6 @@ struct ActorStats {
     first_hit: Option<Tick>,
     first_hit_distance_m: Option<f32>,
     first_damage: Option<Tick>,
-    damage_taken_this_tick: u32,
     fired_after_damage: bool,
     shot_this_tick: bool,
     hit_this_tick: bool,
@@ -51,15 +55,14 @@ pub struct CombatStats {
 }
 
 impl CombatStats {
-    /// Creates metrics for fixed actor ids and their starting ammunition.
+    /// Creates metrics for fixed actor ids.
     #[must_use]
-    pub fn new(actors: &[(NetId, u32)]) -> Self {
+    pub fn new(actors: &[NetId]) -> Self {
         Self {
             actors: actors
                 .iter()
-                .map(|(id, ammo)| ActorStats {
+                .map(|id| ActorStats {
                     id: *id,
-                    last_ammo: *ammo,
                     shots: 0,
                     hits: 0,
                     first_sighting: None,
@@ -68,7 +71,6 @@ impl CombatStats {
                     first_hit: None,
                     first_hit_distance_m: None,
                     first_damage: None,
-                    damage_taken_this_tick: 0,
                     fired_after_damage: false,
                     shot_this_tick: false,
                     hit_this_tick: false,
@@ -191,16 +193,37 @@ impl Resource for CombatStats {
     fn hash_into(&self, _hasher: &mut StateHasher) {}
 }
 
-/// Reads ammo changes, bot sight state and the damage log for this tick.
+/// Reads this tick's shots and applied hits, and each bot's sight state.
 ///
 /// # Errors
 ///
-/// Returns a world error when tracked actors or required resources are missing.
+/// Returns a world error when tracked actors, required resources or event logs are missing.
 pub fn combat_stats_system(
     world: &mut World,
     ctx: &mut SystemContext<'_>,
 ) -> Result<(), WorldError> {
     let tick = ctx.tick;
+    record_sightings(world, tick)?;
+    record_shots(world)?;
+    let event_count = world.events::<Damaged>()?.len();
+    for event_index in 0..event_count {
+        let Some(event) = world.events::<Damaged>()?.get(event_index).copied() else {
+            continue;
+        };
+        record_hit(world.resource_mut::<CombatStats>()?, tick, event);
+    }
+    let metrics = &mut world.resource_mut::<CombatStats>()?;
+    for actor in &mut metrics.actors {
+        if actor.shot_this_tick && actor.hit_this_tick {
+            actor.hits = actor.hits.saturating_add(1);
+            metrics.total_hits = metrics.total_hits.saturating_add(1);
+        }
+    }
+    Ok(())
+}
+
+/// Clears each actor's per-tick flags and records a bot's first sighting and first time in range.
+fn record_sightings(world: &mut World, tick: Tick) -> Result<(), WorldError> {
     let count = world.resource::<CombatStats>()?.actors.len();
     for index in 0..count {
         let id = world
@@ -209,7 +232,6 @@ pub fn combat_stats_system(
             .get(index)
             .ok_or(WorldError::Invariant("combat actor index is out of range"))?
             .id;
-        let ammo = world.get::<Weapon>(id)?.state().ammo();
         let sighting = world.get::<Bot>(id).ok().and_then(|bot| {
             let brain = bot.brain();
             if !brain.is_sighted() {
@@ -219,114 +241,77 @@ pub fn combat_stats_system(
             let distance = world.get::<Locomotion>(id).ok()?.eye().distance(target);
             Some((distance, brain.phase() == Phase::Attack))
         });
-        let (shot, new_sighting_distance) = {
-            let stats = world
-                .resource_mut::<CombatStats>()?
-                .actors
-                .get_mut(index)
-                .ok_or(WorldError::Invariant("combat actor index is out of range"))?;
-            stats.shot_this_tick = false;
-            stats.hit_this_tick = false;
-            stats.died_this_tick = false;
-            let fired = ammo < stats.last_ammo;
-            stats.last_ammo = ammo;
-            if fired {
-                stats.shots = stats.shots.saturating_add(1);
-                stats.shot_this_tick = true;
-                if stats.first_damage.is_some() {
-                    stats.fired_after_damage = true;
-                }
-            }
-            let new_sighting_distance = if let Some((distance, in_engage_range)) = sighting {
-                let first_sighting_distance = if stats.first_sighting.is_none() {
-                    stats.first_sighting = Some(tick);
-                    stats.first_sighting_distance_m = Some(distance);
-                    Some(distance)
-                } else {
-                    None
-                };
-                if in_engage_range && stats.first_engage_range.is_none() {
-                    stats.first_engage_range = Some(tick);
-                }
-                first_sighting_distance
-            } else {
-                None
-            };
-            (fired, new_sighting_distance)
+        let metrics = world.resource_mut::<CombatStats>()?;
+        let stats = metrics
+            .actors
+            .get_mut(index)
+            .ok_or(WorldError::Invariant("combat actor index is out of range"))?;
+        stats.shot_this_tick = false;
+        stats.hit_this_tick = false;
+        stats.died_this_tick = false;
+        let Some((distance, in_engage_range)) = sighting else {
+            continue;
         };
-        if let Some(distance) = new_sighting_distance {
-            let metrics = world.resource_mut::<CombatStats>()?;
+        if in_engage_range && stats.first_engage_range.is_none() {
+            stats.first_engage_range = Some(tick);
+        }
+        if stats.first_sighting.is_none() {
+            stats.first_sighting = Some(tick);
+            stats.first_sighting_distance_m = Some(distance);
             metrics.first_sighting_distance_m += f64::from(distance);
             metrics.first_sighting_distance_count =
                 metrics.first_sighting_distance_count.saturating_add(1);
         }
-        if shot {
-            let metrics = world.resource_mut::<CombatStats>()?;
-            metrics.total_shots = metrics.total_shots.saturating_add(1);
-        }
     }
-    let event_count = world.resource::<DamageLog>()?.events().len();
-    for event_index in 0..event_count {
-        let Some(event) = world
-            .resource::<DamageLog>()?
-            .events()
-            .get(event_index)
-            .copied()
+    Ok(())
+}
+
+/// Counts each shot fired this tick against its shooter.
+fn record_shots(world: &mut World) -> Result<(), WorldError> {
+    let count = world.events::<ShotFired>()?.len();
+    for index in 0..count {
+        let Some(shot) = world.events::<ShotFired>()?.get(index).copied() else {
+            continue;
+        };
+        let metrics = world.resource_mut::<CombatStats>()?;
+        let Some(stats) = metrics
+            .actors
+            .iter_mut()
+            .find(|actor| actor.id == shot.shooter)
         else {
             continue;
         };
-        let source_index = world
-            .resource::<CombatStats>()?
-            .actors
-            .iter()
-            .position(|actor| actor.id == event.source());
-        let target_index = world
-            .resource::<CombatStats>()?
-            .actors
-            .iter()
-            .position(|actor| actor.id == event.target());
-        let distance = world
-            .get::<Locomotion>(event.source())?
-            .eye()
-            .distance(world.get::<Locomotion>(event.target())?.centre());
-        if let Some(index) = source_index {
-            let (sighting_elapsed, engage_elapsed, first_hit_distance) = {
-                let metrics = world.resource_mut::<CombatStats>()?;
-                let actor = metrics
-                    .actors
-                    .get_mut(index)
-                    .ok_or(WorldError::Invariant("combat source index is out of range"))?;
-                actor.hit_this_tick = true;
-                let first_hit = actor.first_hit.is_none();
-                let elapsed = if first_hit {
-                    actor.first_hit = Some(tick);
-                    actor.first_hit_distance_m = Some(distance);
-                    actor
-                        .first_sighting
-                        .map(|seen| tick.raw().saturating_sub(seen.raw()))
-                } else {
-                    None
-                };
-                let engage_elapsed = if first_hit {
-                    actor
-                        .first_engage_range
-                        .map(|entered| tick.raw().saturating_sub(entered.raw()))
-                } else {
-                    None
-                };
-                let first_hit_distance = first_hit.then_some(actor.first_hit_distance_m).flatten();
-                let bucket = (distance / DISTANCE_BUCKET_M)
-                    .floor()
-                    .to_usize()
-                    .unwrap_or(DISTANCE_BUCKETS - 1)
-                    .min(DISTANCE_BUCKETS - 1);
-                if let Some(count) = metrics.distances.get_mut(bucket) {
-                    *count = count.saturating_add(1);
-                }
-                (elapsed, engage_elapsed, first_hit_distance)
-            };
+        stats.shots = stats.shots.saturating_add(1);
+        stats.shot_this_tick = true;
+        if stats.first_damage.is_some() {
+            stats.fired_after_damage = true;
+        }
+        metrics.total_shots = metrics.total_shots.saturating_add(1);
+    }
+    Ok(())
+}
+
+/// Records one applied hit: the shooter's first hit and its timings, the distance histogram, and
+/// for the target the time from first damage to death.
+fn record_hit(metrics: &mut CombatStats, tick: Tick, event: Damaged) {
+    let hit = event.hit;
+    let distance = hit.distance_m();
+    if let Some(actor) = metrics
+        .actors
+        .iter_mut()
+        .find(|actor| actor.id == hit.source())
+    {
+        actor.hit_this_tick = true;
+        if actor.first_hit.is_none() {
+            actor.first_hit = Some(tick);
+            actor.first_hit_distance_m = Some(distance);
+            let sighting_elapsed = actor
+                .first_sighting
+                .map(|seen| tick.raw().saturating_sub(seen.raw()));
+            let engage_elapsed = actor
+                .first_engage_range
+                .map(|entered| tick.raw().saturating_sub(entered.raw()));
             if let Some(elapsed) = sighting_elapsed {
-                let metrics = world.resource_mut::<CombatStats>()?;
                 metrics.first_sighting_to_hit_ticks = metrics
                     .first_sighting_to_hit_ticks
                     .saturating_add(u64::from(elapsed));
@@ -334,71 +319,50 @@ pub fn combat_stats_system(
                     metrics.first_sighting_to_hit_count.saturating_add(1);
             }
             if let Some(elapsed) = engage_elapsed {
-                let metrics = world.resource_mut::<CombatStats>()?;
                 metrics.engage_to_hit_ticks = metrics
                     .engage_to_hit_ticks
                     .saturating_add(u64::from(elapsed));
                 metrics.engage_to_hit_count = metrics.engage_to_hit_count.saturating_add(1);
             }
-            if let Some(distance) = first_hit_distance {
-                let metrics = world.resource_mut::<CombatStats>()?;
-                metrics.first_hit_distance_m += f64::from(distance);
-                metrics.first_hit_distance_count =
-                    metrics.first_hit_distance_count.saturating_add(1);
-            }
+            metrics.first_hit_distance_m += f64::from(distance);
+            metrics.first_hit_distance_count = metrics.first_hit_distance_count.saturating_add(1);
         }
-        if let Some(index) = target_index {
-            let current = world.get::<Health>(event.target())?.current();
-            let (first, lethal_now, reacted) = {
-                let stats = world
-                    .resource_mut::<CombatStats>()?
-                    .actors
-                    .get_mut(index)
-                    .ok_or(WorldError::Invariant("combat target index is out of range"))?;
-                if stats.died_this_tick {
-                    (stats.first_damage, false, stats.fired_after_damage)
-                } else {
-                    if stats.first_damage.is_none() {
-                        stats.first_damage = Some(tick);
-                    }
-                    let was_lethal = stats.damage_taken_this_tick >= current;
-                    stats.damage_taken_this_tick = stats
-                        .damage_taken_this_tick
-                        .saturating_add(event.amount().amount());
-                    let lethal_now = !was_lethal && stats.damage_taken_this_tick >= current;
-                    if lethal_now {
-                        stats.died_this_tick = true;
-                    }
-                    (stats.first_damage, lethal_now, stats.fired_after_damage)
-                }
-            };
-            if lethal_now && let Some(start) = first {
-                let elapsed = tick.raw().saturating_sub(start.raw());
-                let metrics = world.resource_mut::<CombatStats>()?;
-                metrics.time_to_kill_ticks = metrics
-                    .time_to_kill_ticks
-                    .saturating_add(u64::from(elapsed));
-                metrics.time_to_kill_count = metrics.time_to_kill_count.saturating_add(1);
-                if elapsed < REACTION_WINDOW_TICKS && !reacted {
-                    metrics.deaths_before_reacting =
-                        metrics.deaths_before_reacting.saturating_add(1);
-                }
-                let actor = metrics
-                    .actors
-                    .get_mut(index)
-                    .ok_or(WorldError::Invariant("combat target index is out of range"))?;
-                actor.first_damage = None;
-                actor.fired_after_damage = false;
-            }
+        let bucket = (distance / DISTANCE_BUCKET_M)
+            .floor()
+            .to_usize()
+            .unwrap_or(DISTANCE_BUCKETS - 1)
+            .min(DISTANCE_BUCKETS - 1);
+        if let Some(count) = metrics.distances.get_mut(bucket) {
+            *count = count.saturating_add(1);
         }
     }
-    let metrics = &mut world.resource_mut::<CombatStats>()?;
-    for actor in &mut metrics.actors {
-        if actor.shot_this_tick && actor.hit_this_tick {
-            actor.hits = actor.hits.saturating_add(1);
-            metrics.total_hits = metrics.total_hits.saturating_add(1);
-        }
-        actor.damage_taken_this_tick = 0;
+    let Some(stats) = metrics
+        .actors
+        .iter_mut()
+        .find(|actor| actor.id == hit.target())
+    else {
+        return;
+    };
+    if stats.died_this_tick {
+        return;
     }
-    Ok(())
+    if stats.first_damage.is_none() {
+        stats.first_damage = Some(tick);
+    }
+    if event.outcome != Outcome::Died {
+        return;
+    }
+    stats.died_this_tick = true;
+    let start = stats.first_damage.take();
+    let reacted = std::mem::take(&mut stats.fired_after_damage);
+    if let Some(start) = start {
+        let elapsed = tick.raw().saturating_sub(start.raw());
+        metrics.time_to_kill_ticks = metrics
+            .time_to_kill_ticks
+            .saturating_add(u64::from(elapsed));
+        metrics.time_to_kill_count = metrics.time_to_kill_count.saturating_add(1);
+        if elapsed < REACTION_WINDOW_TICKS && !reacted {
+            metrics.deaths_before_reacting = metrics.deaths_before_reacting.saturating_add(1);
+        }
+    }
 }

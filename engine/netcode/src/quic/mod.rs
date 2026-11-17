@@ -1,7 +1,7 @@
-//! The real network transport: QUIC through quinn, behind the same [`Transport`] contract the
+//! The real network transport: QUIC through quinn (D13), behind the same [`Transport`] contract the
 //! loopback uses, so replication code never sees a socket.
 //!
-//! [`QuicServer`] owns the socket and one connection per
+//! Following Unreal's net driver split (D55): [`QuicServer`] owns the socket and one connection per
 //! client (named by [`ClientId`]); [`QuicClient`] is one connection and implements [`Transport`].
 //!
 //! Invariants:

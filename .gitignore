@@ -2,18 +2,11 @@
 **/target/
 .DS_Store
 /games/*/content/exported/
-# Cooked content is generated: `cargo run -p cook -- <game>`.
-/games/*/content/cooked/
-__pycache__/
-*.apk
-# Art, audio, images and video are kept out of this repository.
-*.png
-*.jpg
-*.jpeg
-*.mp4
-*.mov
-*.glb
-*.blend
+/games/*/content/cooked/**
+!/games/*/content/cooked/
+!/games/*/content/cooked/*.pak
+/reference/
+/.claude/worktrees/
 *.blend1
-*.wav
-*.ogg
+**/_pydeps/
+*.apk

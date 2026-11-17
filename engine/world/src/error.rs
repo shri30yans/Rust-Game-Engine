@@ -42,6 +42,12 @@ pub enum WorldError {
     /// A resource type was read before it was inserted.
     #[error("resource type `{0}` is not present")]
     MissingResource(&'static str),
+    /// An event type was registered twice in the same world.
+    #[error("event type `{0}` already has a log")]
+    DuplicateEvents(&'static str),
+    /// An event type was written or read before its log was registered.
+    #[error("event type `{0}` has no log")]
+    MissingEvents(&'static str),
     /// Encoded component bytes had data left over after decoding.
     #[error("trailing bytes after component `{0}`")]
     TrailingBytes(&'static str),

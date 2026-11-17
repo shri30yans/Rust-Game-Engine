@@ -4,7 +4,7 @@
 //!
 //! Scope: the locomotion system and the physics step are not measured here. Their allocations come
 //! from the rapier-backed character controller and query pipeline in `engine-physics`, which the
-//! kit calls but does not own (see `engine/physics/tests/no_alloc.rs`).
+//! kit calls but does not own. The engine-side cost is recorded in `docs/ARCHITECTURE.md` §6 (former D40).
 
 #[allow(
     dead_code,

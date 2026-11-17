@@ -236,7 +236,7 @@ pub(super) struct LiveConnection {
 
 impl LiveConnection {
     /// Sends on the right channel; a reliable backlog that is full closes the connection, since
-    /// the peer is not keeping up.
+    /// the peer is not keeping up (Unreal drops saturated connections the same way).
     pub(super) fn send(&self, channel: Channel, bytes: Vec<u8>, pool: &BufferPool) {
         match channel {
             Channel::Unreliable => {
